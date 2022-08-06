@@ -1,5 +1,5 @@
 export const getCookie = (cookieName) => {
-  let name = cname + "=";
+  let name = cookieName + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(";");
   for (let i = 0; i < ca.length; i++) {
@@ -17,5 +17,5 @@ export const setCookie = (cookieName, cookieValue, exdays) => {
   const d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
   let expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
 };

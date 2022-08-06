@@ -5,6 +5,7 @@ import { store } from "./store/index";
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import { Provider } from "react-redux";
+import { getCookie } from "./helpers/cookie.helper";
 const options = {
   position: positions.TOP_RIGHT,
   timeout: 2000,
@@ -14,9 +15,7 @@ const options = {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AlertProvider template={AlertTemplate} {...options}>
-      {" "}
       <Provider store={store}>
-        {" "}
         <App />
       </Provider>
     </AlertProvider>
