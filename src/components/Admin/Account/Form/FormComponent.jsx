@@ -7,7 +7,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -17,8 +16,10 @@ import { ObjContext } from "../../../../containers/Admin/Account/AccountContaine
 const theme = createTheme();
 export default function FormComponent() {
   const obj = useContext(ObjContext);
-  const { username, email, password, comfirmPassword, address, sex, role } =
-    obj.accountRegister;
+  if (obj) {
+    var { username, email, password, comfirmPassword, address, sex, role } =
+      obj?.accountRegister;
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     obj.handleSubmit();
@@ -63,7 +64,7 @@ export default function FormComponent() {
                     autoComplete="username"
                     autoFocus
                     onChange={handleChange}
-                    value={username}
+                    value={username || ""}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -77,7 +78,7 @@ export default function FormComponent() {
                     autoComplete="email"
                     autoFocus
                     onChange={handleChange}
-                    value={email}
+                    value={email || ""}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -91,7 +92,7 @@ export default function FormComponent() {
                     autoComplete="address"
                     autoFocus
                     onChange={handleChange}
-                    value={address}
+                    value={address || ""}
                   />
                 </Grid>
                 {/* SEX */}
@@ -104,7 +105,7 @@ export default function FormComponent() {
                     label="sex"
                     name="sex"
                     onChange={handleChange}
-                    value={sex}
+                    value={sex || "female"}
                   >
                     <MenuItem defaultChecked value={"male"}>
                       Male
@@ -122,7 +123,7 @@ export default function FormComponent() {
                     label="role"
                     name="role"
                     onChange={handleChange}
-                    value={role}
+                    value={role || 2}
                   >
                     <MenuItem defaultChecked value={1}>
                       ADMIN
@@ -142,7 +143,7 @@ export default function FormComponent() {
                     type="password"
                     autoFocus
                     onChange={handleChange}
-                    value={password}
+                    value={password || ""}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -157,7 +158,7 @@ export default function FormComponent() {
                     autoFocus
                     onChange={handleChange}
                     type="password"
-                    value={comfirmPassword}
+                    value={comfirmPassword || ""}
                   />
                 </Grid>
               </Grid>

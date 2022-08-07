@@ -5,8 +5,10 @@ export const accountStore = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setAccount: (state) => {
-      console.log(state);
+    setAccount: (state, action) => {
+      const { payload } = action;
+      state = [...payload];
+      return state;
     },
   },
 });

@@ -34,7 +34,7 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-export default function TableComponentAdmin() {
+function TableComponentAdmin() {
   return (
     <div style={{ height: 700, width: "100%" }}>
       <DataGrid
@@ -47,3 +47,4 @@ export default function TableComponentAdmin() {
     </div>
   );
 }
+export default React.memo(TableComponentAdmin);
