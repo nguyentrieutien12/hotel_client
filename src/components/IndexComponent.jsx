@@ -1,19 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import HomeContainerAdmin from "../containers/Admin/HomeContainerAdmin";
-import LoginContainer from "../containers/LoginContainer/LoginContainer";
+import React, { memo, useEffect, useState } from "react";
 import { getCookie } from "../helpers/cookie.helper";
 import HomeContainerCus from "./../containers/Customer/HomeContainerCus";
 import { useNavigate } from "react-router-dom";
-export default function IndexComponent() {
+import ProtectedLayout from "../containers/ProtectedLayout/ProtectedLayout";
+function IndexComponent() {
   const getEmail = getCookie("email") || null;
   const navigate = useNavigate();
+  const [email] = useState(getEmail);
   const [account, setAccount] = useState(null);
-  const [email, setEmail] = useState(getEmail);
   useEffect(() => {
     getAccount(email).then((account) => {
       if (!account) {
         return navigate("/login");
+      } else if (account.role.role_name === "ADMIN") {
+        navigate("/dashboard");
       }
       setAccount(account);
     });
@@ -25,11 +26,6 @@ export default function IndexComponent() {
     );
     return result.data;
   };
-  if (account) {
-    if (account?.role?.role_name === "ADMIN") {
-      return <HomeContainerAdmin />;
-    }
-    return <HomeContainerCus />;
-  }
-  return <></>;
+  return <>{account && <HomeContainerCus />}</>;
 }
+export default memo(IndexComponent);

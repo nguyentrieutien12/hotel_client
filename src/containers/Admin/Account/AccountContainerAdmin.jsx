@@ -1,19 +1,22 @@
 import axios from "axios";
 import React, { createContext } from "react";
 import { useAlert } from "react-alert";
-import { useNavigate } from "react-router-dom";
-import RegisterComponent from "../../components/Register/RegisterComponent";
-const UserContext = createContext();
-export default function RegisterContainer() {
+import { useDispatch, useSelector } from "react-redux";
+import AccountComponentAdmin from "../../../components/Admin/Account/AccountComponentAdmin";
+export const ObjContext = createContext();
+export default function AccountContainerAdmin() {
   const alert = useAlert();
-  const navigate = useNavigate();
   const [accountRegister, setAccountRegister] = React.useState({
     username: "",
     email: "",
     address: "",
-    sex: "",
+    sex: "female",
     password: "",
     comfirmPassword: "",
+    role: 2,
+  });
+  const account = useSelector((state) => {
+    console.log(state);
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,18 +35,17 @@ export default function RegisterContainer() {
       );
       const data = result.data;
       const { statusCode, message } = data;
-      console.log(statusCode);
       if (statusCode === 201) {
         alert.success(message);
         setAccountRegister({
           username: "",
           email: "",
           address: "",
-          sex: "",
+          sex: "female",
           password: "",
           comfirmPassword: "",
+          role: 2,
         });
-        navigate("/login");
         return void 0;
       }
       alert.info(message);
@@ -56,11 +58,11 @@ export default function RegisterContainer() {
   };
   return (
     <div>
-      <RegisterComponent
-        accountRegister={accountRegister}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
+      <ObjContext.Provider
+        value={{ accountRegister, handleChange, handleSubmit }}
+      >
+        <AccountComponentAdmin />
+      </ObjContext.Provider>
     </div>
   );
 }

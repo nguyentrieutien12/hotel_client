@@ -1,0 +1,11 @@
+.header {
+}
+.main_container {
+  display: flex;
+  height: 80vh;
+}
+.main {
+}
+.sidebar {
+  width: 100%;
+}

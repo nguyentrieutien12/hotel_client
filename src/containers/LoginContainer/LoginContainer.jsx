@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
 import LoginComponent from "../../components/Login/LoginComponent";
 import { setCookie } from "./../../helpers/cookie.helper";
-export default function LoginContainer() {
+function LoginContainer() {
   const alert = useAlert();
   const navigate = useNavigate();
   const [accountLogin, setAccountLogin] = useState({
@@ -50,3 +50,4 @@ export default function LoginContainer() {
     </div>
   );
 }
+export default memo(LoginContainer);
