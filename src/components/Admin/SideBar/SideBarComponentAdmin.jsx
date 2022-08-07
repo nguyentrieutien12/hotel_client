@@ -13,9 +13,9 @@ export default function SideBarComponentAdmin() {
     },
   ];
   const showLinks = () => {
-    return links.map((link) => {
+    return links.map((link, index) => {
       return (
-        <Link key={link.to} className={styles.link_item} to={link.to}>
+        <Link key={index} className={styles.link_item} to={link.to}>
           {link.text}
         </Link>
       );

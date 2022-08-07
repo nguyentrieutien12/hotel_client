@@ -73,7 +73,7 @@ export default function AccountContainerAdmin() {
   return (
     <div>
       <ObjContext.Provider
-        value={{ accountRegister, handleChange, handleSubmit }}
+        value={{ accountRegister, handleChange, handleSubmit, accounts }}
       >
         <AccountComponentAdmin />
       </ObjContext.Provider>
