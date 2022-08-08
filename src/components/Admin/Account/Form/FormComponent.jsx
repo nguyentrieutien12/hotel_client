@@ -1,31 +1,24 @@
-import React, { useContext } from "react";
-import Avatar from "@mui/material/Avatar";
+import React from "react";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { InputLabel, MenuItem, Select } from "@mui/material";
-import { ObjContext } from "../../../../containers/Admin/Account/AccountContainerAdmin";
-
 const theme = createTheme();
-export default function FormComponent() {
-  const obj = useContext(ObjContext);
-  if (obj) {
-    var { username, email, password, comfirmPassword, address, sex, role } =
-      obj?.accountRegister;
-  }
+export default function FormComponent(props) {
+  const { accountRegister, isUpdate } = props;
+  const { username, email, password, comfirmPassword, address, sex, role } =
+    accountRegister;
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    obj.handleSubmit();
+    props.handleSubmit();
   };
   const handleChange = (e) => {
-    obj.handleChange(e);
+    props.handleChange(e);
   };
   return (
     <div>
@@ -40,7 +33,7 @@ export default function FormComponent() {
             }}
           >
             <Typography component="h1" variant="h5">
-              Sign Up
+              {isUpdate ? "UPDATE FORM" : "SIGN UP FORM"}
             </Typography>
             <Box
               component="form"
@@ -162,17 +155,14 @@ export default function FormComponent() {
                   />
                 </Grid>
               </Grid>
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                style={{ background: isUpdate ? "blue" : "#04aa6d" }}
               >
-                Sign Up
+                {isUpdate ? "UPDATE" : "SIGN UP"}
               </Button>
             </Box>
           </Box>

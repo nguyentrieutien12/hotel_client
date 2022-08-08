@@ -1,5 +1,5 @@
 * {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .link_container {
   display: flex;
@@ -8,4 +8,5 @@
 }
 .link_item {
   margin: 10px 0;
+  color: white;
 }

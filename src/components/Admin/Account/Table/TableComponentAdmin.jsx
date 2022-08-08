@@ -1,35 +1,38 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ObjContext } from "../../../../containers/Admin/Account/AccountContainerAdmin";
+import styles from "./table.module.css";
+export default function TableComponentAdmin(props) {
+  const { accountRegister, handleChange, handleSubmit, accounts } = props;
 
-export default function TableComponentAdmin() {
-  const { accounts } = useContext(ObjContext);
-  const [accountList, setAccountList] = useState([]);
-  useEffect(() => {
-    if (accounts.length > 1) {
-      setAccountList(accounts);
-    }
-  }, [accounts]);
   const showAccounts = () => {
-    const accountMap = accountList.map((account) => {
+    return accounts.map((account) => {
       return (
         <tr key={account.id}>
           <td>{account.id}</td>
           <td>{account.username}</td>
-          <td>{account.address}</td>
           <td>{account.email}</td>
+          <td>{account.address}</td>
+          <td>{account.sex}</td>
           <td>{account.role.role_name}</td>
           <td>
-            <button type="button" className="btn btn-danger m-2">
+            <button
+              onClick={() => props.handleUpdate(account)}
+              type="button"
+              className="btn btn-danger m-2"
+            >
               EDIT
             </button>
-            <button type="button" className="btn btn-success">
+            <button
+              onClick={() => props.handleDelete(account.id)}
+              type="button"
+              className="btn btn-success"
+            >
               DELETE
             </button>
           </td>
         </tr>
       );
     });
-    return accountMap;
   };
   return (
     <div>
@@ -38,8 +41,9 @@ export default function TableComponentAdmin() {
           <tr>
             <th>ID</th>
             <th>User Name</th>
+            <th className={styles.email}>Email</th>
             <th>Address</th>
-            <th>Email</th>
+            <th>Sex</th>
             <th>Role</th>
             <th>Actions</th>
           </tr>
@@ -49,12 +53,3 @@ export default function TableComponentAdmin() {
     </div>
   );
 }
-
-<table className="table table-hover">
-  <thead>
-    <tr>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>;

@@ -1,0 +1,11 @@
+th {
+  background-color: #04aa6d !important;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.email {
+  width: 10px !important;
+  text-align: left;
+}

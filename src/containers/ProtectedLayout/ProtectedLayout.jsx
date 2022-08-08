@@ -21,7 +21,12 @@ export default function ProtectedLayout() {
   }, [email]);
   const getAccount = async (email) => {
     const result = await axios.get(
-      `${import.meta.env.VITE_BACKEND_SITE}/accounts/${email}`
+      `${import.meta.env.VITE_BACKEND_SITE}/accounts/${email}`,
+      {
+        headers: {
+          email: "1@gmail.com",
+        },
+      }
     );
     return result.data;
   };
