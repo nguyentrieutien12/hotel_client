@@ -162,7 +162,7 @@ export default function FormComponent(props) {
                 sx={{ mt: 3, mb: 2 }}
                 style={{ background: isUpdate ? "blue" : "#04aa6d" }}
               >
-                {isUpdate ? "UPDATE" : "SIGN UP"}
+                {isUpdate ? "UPDATE ACCOUNT" : "CREATE ACCOUNT"}
               </Button>
             </Box>
           </Box>

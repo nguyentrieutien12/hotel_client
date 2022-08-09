@@ -70,8 +70,12 @@ export default function AccountContainerAdmin() {
             comfirmPassword: "",
             role: 2,
           });
+          getAllAccount().then((accounts) => {
+            dispatch(setAccount(accounts));
+          });
           return void 0;
         }
+
         alert.info(message);
       } catch (error) {
         if (error.response) {

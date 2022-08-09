@@ -9,3 +9,7 @@ tr:nth-child(even) {
   width: 10px !important;
   text-align: left;
 }
+.table__height {
+  height: 600px !important;
+  overflow-y: scroll;
+}

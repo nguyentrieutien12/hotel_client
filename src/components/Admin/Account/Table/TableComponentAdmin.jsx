@@ -35,8 +35,8 @@ export default function TableComponentAdmin(props) {
     });
   };
   return (
-    <div>
-      <table className="table table-hover">
+    <div className={`${styles.table__height}`}>
+      <table className={`table table-hover `}>
         <thead>
           <tr>
             <th>ID</th>
