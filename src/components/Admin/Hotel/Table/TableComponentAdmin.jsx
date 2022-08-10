@@ -1,25 +1,37 @@
 import React from "react";
 import styles from "./table.module.css";
+import { Link } from "react-router-dom";
 export default function TableComponentAdmin(props) {
   const { hotels } = props;
   const renderImage = (images) => {
-    return images.map((image) => {
-      return `${image.image_url}\n`;
-    });
+    if (images?.length > 0) {
+      return images.map((image) => {
+        return `${image.image_url}\n`;
+      });
+    }
+    return [];
   };
   const showHotel = () => {
     return hotels.map((hotel) => {
       return (
         <tr key={hotel.id}>
           <td>{hotel.id}</td>
-          <td>{hotel.hotel_name}</td>
+
+          <td>
+            <Link to={`${hotel.id}`}> {hotel.hotel_name}</Link>
+          </td>
+          <td>{hotel.hotel_email}</td>
           <td>{hotel.hotel_address}</td>
           <td style={{ width: "3.33%" }}>{renderImage(hotel.images)}</td>
           <td>
             <img src={hotel.qr.qr_link} />
           </td>
           <td>
-            <button type="button" className="btn btn-danger m-2">
+            <button
+              onClick={() => props.handleUpdateHotel(hotel)}
+              type="button"
+              className="btn btn-danger m-2"
+            >
               EDIT
             </button>
             <button
@@ -41,6 +53,7 @@ export default function TableComponentAdmin(props) {
           <tr>
             <th>ID</th>
             <th>NAME</th>
+            <th>EMAIL</th>
             <th>ADDRESS</th>
             <th>IMAGES</th>
             <th>QRCODE</th>

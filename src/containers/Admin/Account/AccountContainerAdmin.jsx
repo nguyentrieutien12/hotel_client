@@ -70,9 +70,9 @@ export default function AccountContainerAdmin() {
             comfirmPassword: "",
             role: 2,
           });
-          getAllAccount().then((accounts) => {
-            dispatch(setAccount(accounts));
-          });
+          // getAllAccount().then((accounts) => {
+          //   dispatch(setAccount(accounts));
+          // });
           return void 0;
         }
 
@@ -123,9 +123,9 @@ export default function AccountContainerAdmin() {
         );
         const { message, statusCode } = result.data;
         if (statusCode === 202) {
-          getAllAccount().then((accounts) => {
-            dispatch(setAccount(accounts));
-          });
+          // getAllAccount().then((accounts) => {
+          //   dispatch(setAccount(accounts));
+          // });
           return alert.success(message);
         }
         return alert.success(message);

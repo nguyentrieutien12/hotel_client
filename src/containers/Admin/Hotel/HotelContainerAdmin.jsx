@@ -6,17 +6,38 @@ import { useAlert } from "react-alert";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setHotelList } from "../../../features/hotel/hotel";
+import { uploadFile } from "../../../helpers/uploadFile";
 export default function HotelContainerAdmin() {
   const alert = useAlert();
   const inputElement = useRef();
   const hotels = useSelector((state) => state.hotels);
   const dispatch = useDispatch();
-  const [hotel, setHotel] = useState({});
+  const [hotel, setHotel] = useState({
+    hotel_name: "",
+    hotel_email: "",
+    hotel_address: "",
+  });
+  const [idUpdate, setIdUpdate] = useState(null);
+  const [isUpdate, setIsUpdate] = useState(false);
   useEffect(() => {
     getAllHotel().then((hotels) => {
       dispatch(setHotelList(hotels));
     });
   }, []);
+  const createOrUpdateSuccess = (message) => {
+    alert.success(message);
+    getAllHotel().then((hotels) => {
+      dispatch(setHotelList(hotels));
+    });
+    return setHotel({
+      hotel_name: "",
+      hotel_email: "",
+      hotel_address: "",
+    });
+  };
+  const createOrUpdateFail = (message) => {
+    return alert.error(message);
+  };
   const getAllHotel = async () => {
     const result = await axios.get(
       `${import.meta.env.VITE_BACKEND_SITE}/hotels`
@@ -35,24 +56,29 @@ export default function HotelContainerAdmin() {
   const handleCreateHotel = async (e) => {
     try {
       e.preventDefault();
-      const { length } = inputElement.current.files;
-      const form = new FormData();
-      for (let i = 0; i < length; i++) {
-        form.append("files", inputElement.current.files[i]);
+      if (!isUpdate) {
+        const images = await uploadFile(inputElement.current.files);
+        const hotelResult = await axios.post(
+          `${import.meta.env.VITE_BACKEND_SITE}/hotels`,
+          { ...hotel, images }
+        );
+        const { statusCode, message } = hotelResult.data;
+        if (statusCode === 201) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
+      } else {
+        const images = await uploadFile(inputElement.current.files);
+        const resultUpdateHotel = await axios.patch(
+          `${import.meta.env.VITE_BACKEND_SITE}/hotels/${idUpdate}`,
+          { ...hotel, images }
+        );
+        const { message, statusCode } = resultUpdateHotel.data;
+        if (statusCode === 202) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
       }
-      const result = await axios.post(
-        `${import.meta.env.VITE_BACKEND_SITE}/file/upload`,
-        form
-      );
-      const data = result.data;
-      const images = data.map((d) => {
-        return mapImage(d.filename);
-      });
-
-      const hotelResult = await axios.post(
-        `${import.meta.env.VITE_BACKEND_SITE}/hotels`,
-        { ...hotel, images }
-      );
     } catch (error) {
       console.log(error);
       if (error.response) {
@@ -61,8 +87,26 @@ export default function HotelContainerAdmin() {
       }
     }
   };
-  const handleDeleteHotel = (id) => {
-    console.log(id);
+  const handleDeleteHotel = async (id) => {
+    if (window.confirm("Are your sure delete hotel ?")) {
+      const result = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_SITE}/hotels/${id}`
+      );
+      const { message, statusCode } = result.data;
+      if (statusCode === 202) {
+        getAllHotel().then((hotels) => {
+          dispatch(setHotelList(hotels));
+        });
+        return alert.success(message);
+      }
+      return alert.error(message);
+    }
+  };
+  const handleUpdateHotel = async (hotel) => {
+    const { hotel_name, hotel_address, hotel_email, id } = hotel;
+    setHotel({ hotel_name, hotel_address, hotel_email });
+    setIdUpdate(id);
+    setIsUpdate(true);
   };
   return (
     <div>
@@ -71,7 +115,9 @@ export default function HotelContainerAdmin() {
         handleChange={handleChange}
         handleCreateHotel={handleCreateHotel}
         hotels={hotels}
+        hotel={hotel}
         handleDeleteHotel={handleDeleteHotel}
+        handleUpdateHotel={handleUpdateHotel}
       />
     </div>
   );

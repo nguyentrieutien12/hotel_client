@@ -6,10 +6,15 @@ import IndexComponent from "./components/IndexComponent";
 import ProtectedLayout from "./containers/ProtectedLayout/ProtectedLayout";
 import ProfileContainerAdmin from "./containers/Admin/Profile/ProfileContainerAdmin";
 import NotFoundComponent from "./components/NotFound/NotFoundComponent";
-import AccountComponentAdmin from "./components/Admin/Account/AccountComponentAdmin";
 import MainContainerAdmin from "./containers/Admin/Main/MainContainerAdmin";
 import AccountContainerAdmin from "./containers/Admin/Account/AccountContainerAdmin";
 import HotelContainerAdmin from "./containers/Admin/Hotel/HotelContainerAdmin";
+import SpaContainerAdmin from "./containers/Admin/Spa/SpaContainerAdmin";
+import OptionContainerAdmin from "./containers/Admin/Option/OptionContainerAdmin";
+import SpaComponentAdmin from "./components/Admin/Spa/SpaComponentAdmin";
+import RestaurantContainerAdmin from "./containers/Admin/Restaurant/RestaurantContainerAdmin";
+import GymContainerAdmin from "./containers/Admin/Gym/GymContainerAdmin";
+import SeftCareContainerAdmin from "./containers/Admin/SeftCare/SeftCareContainerAdmin";
 export default function App() {
   return (
     <div>
@@ -23,6 +28,13 @@ export default function App() {
             <Route path="profile" element={<ProfileContainerAdmin />} />
             <Route path="account" element={<AccountContainerAdmin />} />
             <Route path="hotel" element={<HotelContainerAdmin />} />
+            <Route path="hotel/:id" element={<OptionContainerAdmin />}>
+              <Route index element={<SpaContainerAdmin />} />
+              <Route path="spa" element={<SpaContainerAdmin />} />
+              <Route path="restaurant" element={<RestaurantContainerAdmin />} />
+              <Route path="gym" element={<GymContainerAdmin />} />
+              <Route path="seftcare" element={<SeftCareContainerAdmin />} />
+            </Route>
           </Route>
           <Route path="*" element={<NotFoundComponent />}></Route>
         </Routes>

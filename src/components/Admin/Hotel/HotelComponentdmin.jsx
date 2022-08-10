@@ -11,6 +11,7 @@ export default function HotelComponentdmin(props) {
             inputElement={props.inputElement}
             handleChange={props.handleChange}
             handleCreateHotel={props.handleCreateHotel}
+            hotel={props.hotel}
           />
         </div>
 
@@ -18,6 +19,7 @@ export default function HotelComponentdmin(props) {
           <TableComponentAdmin
             hotels={props.hotels}
             handleDeleteHotel={props.handleDeleteHotel}
+            handleUpdateHotel={props.handleUpdateHotel}
           />
         </div>
       </div>

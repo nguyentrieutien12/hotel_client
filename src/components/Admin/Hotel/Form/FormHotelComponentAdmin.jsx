@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 export default function FormHotelComponentAdmin(props) {
+  const { hotel } = props;
   const handleSubmit = (e) => {
     props.handleSubmit();
   };
@@ -49,6 +50,7 @@ export default function FormHotelComponentAdmin(props) {
                     name="hotel_name"
                     autoFocus
                     onChange={handleChange}
+                    value={hotel.hotel_name}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -60,6 +62,7 @@ export default function FormHotelComponentAdmin(props) {
                     name="hotel_email"
                     autoFocus
                     onChange={handleChange}
+                    value={hotel.hotel_email}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -71,6 +74,7 @@ export default function FormHotelComponentAdmin(props) {
                     name="hotel_address"
                     autoFocus
                     onChange={handleChange}
+                    value={hotel.hotel_address}
                   />
                 </Grid>
                 <Grid item xs={6}>
