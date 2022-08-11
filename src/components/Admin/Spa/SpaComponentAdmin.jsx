@@ -15,7 +15,7 @@ export default function SpaComponentAdmin(props) {
         </div>
 
         <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <TableSpaComponent />
+          <TableSpaComponent spas={props.spas} />
         </div>
       </div>
     </div>
