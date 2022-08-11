@@ -11,11 +11,17 @@ export default function SpaComponentAdmin(props) {
             handleChangeSpa={props.handleChangeSpa}
             handleCreateSpa={props.handleCreateSpa}
             inputElement={props.inputElement}
+            spa={props.spa}
+            isUpdate={props.isUpdate}
           />
         </div>
 
         <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <TableSpaComponent spas={props.spas} />
+          <TableSpaComponent
+            spas={props.spas}
+            handleDeleteSpa={props.handleDeleteSpa}
+            handleUpdateSpa={props.handleUpdateSpa}
+          />
         </div>
       </div>
     </div>

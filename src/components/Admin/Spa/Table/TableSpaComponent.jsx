@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function TableSpaComponent(props) {
   const renderImage = (images) => {
     return images.map((image) => {
@@ -9,18 +9,29 @@ export default function TableSpaComponent(props) {
   const showSpas = () => {
     if (props.spas.length > 0) {
       return props.spas[0].spas.map((spa) => {
-        console.log(spa);
         return (
           <tr key={spa.id}>
-            <td>{spa.id}</td>
-            <td>{spa.spa_name}</td>
-            <td>{renderImage(spa.images)}</td>
+            <td style={{ width: "100px", textAlign: "center" }}>{spa.id}</td>
+            <td style={{ width: "100px", textAlign: "center" }}>
+              <Link to={`spa/${spa.id}`}>{spa.spa_name}</Link>
+            </td>
+            <td style={{ width: "100px", textAlign: "center" }}>
+              {renderImage(spa.images)}
+            </td>
             <td>{spa.spa_description}</td>
             <td>
-              <button type="button" className="btn btn-success">
+              <button
+                onClick={() => props.handleUpdateSpa(spa)}
+                type="button"
+                className="btn btn-success"
+              >
                 EDIT
               </button>
-              <button type="button" className="btn btn-danger">
+              <button
+                onClick={() => props.handleDeleteSpa(spa.id)}
+                type="button"
+                className="btn btn-danger"
+              >
                 DELETE
               </button>
             </td>

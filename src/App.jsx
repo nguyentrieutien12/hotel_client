@@ -15,6 +15,7 @@ import SpaComponentAdmin from "./components/Admin/Spa/SpaComponentAdmin";
 import RestaurantContainerAdmin from "./containers/Admin/Restaurant/RestaurantContainerAdmin";
 import GymContainerAdmin from "./containers/Admin/Gym/GymContainerAdmin";
 import SeftCareContainerAdmin from "./containers/Admin/SeftCare/SeftCareContainerAdmin";
+import TreatmentContainer from "./containers/Admin/Treatment/TreatmentContainer";
 export default function App() {
   return (
     <div>
@@ -30,7 +31,9 @@ export default function App() {
             <Route path="hotel" element={<HotelContainerAdmin />} />
             <Route path="hotel/:id" element={<OptionContainerAdmin />}>
               <Route index element={<SpaContainerAdmin />} />
-              <Route path="spa" element={<SpaContainerAdmin />} />
+              <Route path="spa" element={<SpaContainerAdmin />}></Route>
+
+              <Route path="spa/:spaId" element={<TreatmentContainer />} />
               <Route path="restaurant" element={<RestaurantContainerAdmin />} />
               <Route path="gym" element={<GymContainerAdmin />} />
               <Route path="seftcare" element={<SeftCareContainerAdmin />} />

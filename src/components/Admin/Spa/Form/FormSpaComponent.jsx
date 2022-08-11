@@ -1,14 +1,14 @@
 import React from "react";
 
 export default function FormSpaComponent(props) {
-  const { inputElement } = props;
+  const { inputElement, spa, isUpdate } = props;
   const handleChangeSpa = (e) => {
     props.handleChangeSpa(e);
   };
   return (
     <div>
       <form action="" method="POST" role="form">
-        <legend>Form Spa</legend>
+        <legend>{isUpdate ? "FORM UPDATE SPA" : "FORM CREATE SPA"}</legend>
 
         <div className="form-group">
           <label htmlFor="name">Spa</label>
@@ -20,6 +20,7 @@ export default function FormSpaComponent(props) {
             required="required"
             name="spa_name"
             onChange={handleChangeSpa}
+            value={spa.spa_name}
           />
         </div>
         <div className="form-group">
@@ -31,6 +32,7 @@ export default function FormSpaComponent(props) {
             rows="5"
             required="required"
             onChange={handleChangeSpa}
+            value={spa.spa_description}
           ></textarea>
         </div>
         <div className="form-group">
@@ -41,7 +43,7 @@ export default function FormSpaComponent(props) {
           type="button"
           className="btn btn-primary"
         >
-          Submit
+          {isUpdate ? "UPDATE" : "CREATE"}
         </button>
       </form>
     </div>
