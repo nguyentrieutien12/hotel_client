@@ -1,5 +1,7 @@
 import React from "react";
 export default function TreatmentForm(props) {
+  const { treatment_name, treatment_description, treatment_price } =
+    props.treatment;
   const handleOnChange = (e) => {
     props.handleOnChange(e);
   };
@@ -8,13 +10,14 @@ export default function TreatmentForm(props) {
       <form action="" method="POST" role="form">
         <legend>Form title</legend>
         <div className="form-group">
-          <label htmlFor="">label</label>
+          <label htmlFor="">Treatment Name</label>
           <input
             type="text"
             className="form-control"
             placeholder="Enter Treatment Name"
             name="treatment_name"
             onChange={handleOnChange}
+            value={treatment_name}
           />
         </div>
         <div className="form-group">
@@ -25,6 +28,7 @@ export default function TreatmentForm(props) {
             placeholder="Enter Treatment Description"
             name="treatment_description"
             onChange={handleOnChange}
+            value={treatment_description}
           />
         </div>{" "}
         <div className="form-group">
@@ -36,6 +40,7 @@ export default function TreatmentForm(props) {
             placeholder="Enter Treatment Price"
             name="treatment_price"
             onChange={handleOnChange}
+            value={treatment_price}
           />
         </div>{" "}
         <div className="form-group">

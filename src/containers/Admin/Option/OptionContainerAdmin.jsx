@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 export default function OptionContainerAdmin() {
@@ -10,6 +10,9 @@ export default function OptionContainerAdmin() {
     navigate(`/dashboard/hotel/${id}/${value}`);
     setOption(value);
   };
+  useEffect(() => {
+    navigate("spa");
+  }, []);
   return (
     <div>
       <select

@@ -30,9 +30,7 @@ export default function App() {
             <Route path="account" element={<AccountContainerAdmin />} />
             <Route path="hotel" element={<HotelContainerAdmin />} />
             <Route path="hotel/:id" element={<OptionContainerAdmin />}>
-              <Route index element={<SpaContainerAdmin />} />
               <Route path="spa" element={<SpaContainerAdmin />}></Route>
-
               <Route path="spa/:spaId" element={<TreatmentContainer />} />
               <Route path="restaurant" element={<RestaurantContainerAdmin />} />
               <Route path="gym" element={<GymContainerAdmin />} />

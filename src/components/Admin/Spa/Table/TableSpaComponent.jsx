@@ -13,7 +13,7 @@ export default function TableSpaComponent(props) {
           <tr key={spa.id}>
             <td style={{ width: "100px", textAlign: "center" }}>{spa.id}</td>
             <td style={{ width: "100px", textAlign: "center" }}>
-              <Link to={`spa/${spa.id}`}>{spa.spa_name}</Link>
+              <Link to={`${spa.id}`}>{spa.spa_name}</Link>
             </td>
             <td style={{ width: "100px", textAlign: "center" }}>
               {renderImage(spa.images)}

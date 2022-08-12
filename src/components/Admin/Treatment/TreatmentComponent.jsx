@@ -11,11 +11,16 @@ export default function TreatmentComponent(props) {
             handleOnChange={props.handleOnChange}
             handleOnCreateTreatment={props.handleOnCreateTreatment}
             inputElement={props.inputElement}
+            treatment={props.treatment}
           />
         </div>
 
         <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <TreatmentTable />
+          <TreatmentTable
+            treatments={props.treatments}
+            handleDeleteTreatment={props.handleDeleteTreatment}
+            handleUpdateTreatment={props.handleUpdateTreatment}
+          />
         </div>
       </div>
     </div>
