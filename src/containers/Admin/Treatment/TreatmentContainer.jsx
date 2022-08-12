@@ -59,17 +59,30 @@ export default function TreatmentContainer() {
   const handleOnCreateTreatment = async (e) => {
     e.preventDefault();
     try {
-      const images = await uploadFile(inputElement.current.files);
-      const result = await axios.post(
-        `${import.meta.env.VITE_BACKEND_SITE}/treatments`,
-        { ...treatment, images }
-      );
-      const { statusCode, message } = result.data;
-      console.log(statusCode);
-      if (statusCode === 201) {
-        return createOrUpdateSuccess(message);
+      if (!isUpdate) {
+        const images = await uploadFile(inputElement.current.files);
+        const result = await axios.post(
+          `${import.meta.env.VITE_BACKEND_SITE}/treatments`,
+          { ...treatment, images }
+        );
+        const { statusCode, message } = result.data;
+        console.log(statusCode);
+        if (statusCode === 201) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
+      } else {
+        const images = await uploadFile(inputElement.current.files);
+        const result = await axios.patch(
+          `${import.meta.env.VITE_BACKEND_SITE}/treatments/${treatmentId}`,
+          { ...treatment, images }
+        );
+        const { message, statusCode } = result.data;
+        if (statusCode === 202) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
       }
-      return createOrUpdateFail(message);
     } catch (error) {
       if (error.response) {
         const { message } = error.response.data;
