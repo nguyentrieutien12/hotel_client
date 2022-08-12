@@ -68,7 +68,7 @@ export default function TreatmentContainer() {
         const { statusCode, message } = result.data;
         console.log(statusCode);
         if (statusCode === 201) {
-          return createOrUpdateSuccess(message);
+          return createOrUpdatepuccess(message);
         }
         return createOrUpdateFail(message);
       } else {

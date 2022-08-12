@@ -26,7 +26,7 @@ export default function SpaContainerAdmin() {
   }, []);
   const getSpaByHotelId = async () => {
     const result = await axios.get(
-      `${import.meta.env.VITE_BACKEND_SITE}/hotels/${id}`
+      `${import.meta.env.VITE_BACKEND_SITE}/hotels/spa/${id}`
     );
     return result.data;
   };
