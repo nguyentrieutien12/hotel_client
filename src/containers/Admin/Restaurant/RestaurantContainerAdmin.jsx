@@ -17,7 +17,8 @@ export default function RestaurantContainerAdmin() {
     restaurant_description: "",
     hotel: id,
   });
-  console.log(restaurants);
+  const [idUpdate, setIdUpdate] = useState(null);
+  const [isUpdate, setIsUpdate] = useState(false);
   const handleChangeRestaurant = (e) => {
     const { name, value } = e.target;
     setRestaurant((prevState) => {
@@ -40,28 +41,50 @@ export default function RestaurantContainerAdmin() {
   };
   const createOrUpdateSuccess = (message) => {
     alert.success(message);
-    //  getSpaByHotelId().then((spas) => {
-    //    dispatch(setSpaList(spas));
-    //  });
-    setSpa({
+    getAllRestaurantByHotelId().then((restaurants) => {
+      dispatch(setRestaurantList(restaurants));
+    });
+    setRestaurant({
       restaurant_name: "",
       restaurant_description: "",
       hotel: id,
     });
   };
+  const handleUpdate = (restaurant) => {
+    const { restaurant_description, restaurant_name, id } = restaurant;
+    setRestaurant({
+      restaurant_name,
+      restaurant_description,
+    });
+    setIdUpdate(id);
+    setIsUpdate(true);
+  };
   const handleCreateRes = async (e) => {
     e.preventDefault();
     try {
-      const images = await uploadFile(inputElement.current.files);
-      const result = await axios.post(
-        `${import.meta.env.VITE_BACKEND_SITE}/restaurants`,
-        { ...restaurant, images }
-      );
+      if (!isUpdate) {
+        const images = await uploadFile(inputElement.current.files);
+        const result = await axios.post(
+          `${import.meta.env.VITE_BACKEND_SITE}/restaurants`,
+          { ...restaurant, images }
+        );
+        const { message, statusCode } = result.data;
+        if (statusCode === 201) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
+      } else {
+        const images = await uploadFile(inputElement.current.files);
+        const result = await axios.patch(
+          `${import.meta.env.VITE_BACKEND_SITE}/restaurants/${idUpdate}`,
+          { ...restaurant, images }
+        );
       const { message, statusCode } = result.data;
-      if (statusCode === 202) {
-        return createOrUpdateSuccess(message);
+        if (statusCode === 202) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
       }
-      return createOrUpdateFail(message);
     } catch (error) {
       if (error.response) {
         const { message } = error.response.data;
@@ -69,12 +92,30 @@ export default function RestaurantContainerAdmin() {
       }
     }
   };
+  const handleDelete = async (id) => {
+    try {
+      if (window.confirm("Are your sure delete this ?")) {
+        const result = await axios.delete(
+          `${import.meta.env.VITE_BACKEND_SITE}/restaurants/${id}`
+        );
+        const { message, statusCode } = result.data;
+        if (statusCode === 202) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
+      }
+    } catch (error) {}
+  };
   return (
     <div>
       <RestaurantComponentAdmin
         handleChangeRestaurant={handleChangeRestaurant}
         inputElement={inputElement}
         handleCreateRes={handleCreateRes}
+        restaurants={restaurants}
+        restaurant={restaurant}
+        handleDelete={handleDelete}
+        handleUpdate={handleUpdate}
       />
     </div>
   );

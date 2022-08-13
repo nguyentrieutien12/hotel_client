@@ -11,11 +11,16 @@ export default function RestaurantComponentAdmin(props) {
             handleChangeRestaurant={props.handleChangeRestaurant}
             inputElement={props.inputElement}
             handleCreateRes={props.handleCreateRes}
+            restaurant={props.restaurant}
           />
         </div>
 
         <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <RestaurantTable />
+          <RestaurantTable
+            restaurants={props.restaurants}
+            handleDelete={props.handleDelete}
+            handleUpdate={props.handleUpdate}
+          />
         </div>
       </div>
     </div>

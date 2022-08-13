@@ -1,6 +1,46 @@
 import React from "react";
-
-export default function RestaurantTable() {
+import { Link } from "react-router-dom";
+export default function RestaurantTable(props) {
+  const { restaurants } = props;
+  const showImage = (images) => {
+    return images.map((image) => {
+      return `${image.image_url}\n`;
+    });
+  };
+  const showRestaurants = () => {
+    if (restaurants?.length > 0) {
+      return restaurants[0].restaurants.map((restaurant) => {
+        return (
+          <tr key={restaurant.id}>
+            <td>{restaurant.id}</td>
+            <td>
+              <Link to={`${restaurant.id}`}>{restaurant.restaurant_name}</Link>
+            </td>
+            <td>{restaurant.restaurant_description}</td>
+            <td style={{ width: "100px" }}>{showImage(restaurant.images)}</td>
+            <td>
+              <button
+                onClick={() => props.handleUpdate(restaurant)}
+                type="button"
+                className="btn btn-success"
+              >
+                EDIT
+              </button>
+              <button
+                onClick={() => props.handleDelete(restaurant.id)}
+                type="button"
+                className="btn btn-danger"
+              >
+                DELETE
+              </button>
+            </td>
+          </tr>
+        );
+        {
+        }
+      });
+    }
+  };
   return (
     <div>
       <table className="table table-hover">
@@ -13,11 +53,7 @@ export default function RestaurantTable() {
             <th>ACTIONS</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td></td>
-          </tr>
-        </tbody>
+        <tbody>{showRestaurants()}</tbody>
       </table>
     </div>
   );
