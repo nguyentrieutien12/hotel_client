@@ -17,6 +17,7 @@ import GymContainerAdmin from "./containers/Admin/Gym/GymContainerAdmin";
 import SeftCareContainerAdmin from "./containers/Admin/SeftCare/SeftCareContainerAdmin";
 import TreatmentContainer from "./containers/Admin/Treatment/TreatmentContainer";
 import DishesContainer from "./containers/Admin/DishesContainer/DishesContainer";
+import WorkoutContainer from "./containers/Admin/Workout/WorkoutContainer";
 export default function App() {
   return (
     <div>
@@ -39,6 +40,7 @@ export default function App() {
                 element={<DishesContainer />}
               />
               <Route path="gym" element={<GymContainerAdmin />} />
+              <Route path="gym/:gymId" element={<WorkoutContainer />} />
               <Route path="seftcare" element={<SeftCareContainerAdmin />} />
             </Route>
           </Route>

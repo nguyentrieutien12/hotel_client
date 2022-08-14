@@ -1,0 +1,16 @@
+form {
+  padding: 10px;
+  box-shadow: 2px 2px 2px #04aa6d !important;
+  border-radius: 5px;
+}
+form input {
+  border-radius: 0px !important;
+  outline: none !important;
+  border-color: none !important;
+}
+form .form-group {
+  margin-top: 20px;
+}
+.main_container {
+  margin-top: 30px;
+}

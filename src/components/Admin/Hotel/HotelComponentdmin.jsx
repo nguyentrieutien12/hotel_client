@@ -5,7 +5,7 @@ import TableComponentAdmin from "./Table/TableComponentAdmin";
 export default function HotelComponentdmin(props) {
   return (
     <div>
-      <div className="row">
+      <div className="row main_container">
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <FormHotelComponentAdmin
             inputElement={props.inputElement}

@@ -11,6 +11,7 @@ export default function DishesContainer() {
   const alert = useAlert();
   const inputElement = useRef();
   const [isUpdate, setIsUpdate] = useState(false);
+  const [idUpdate, setIdUpdate] = useState(null);
   const dispatch = useDispatch();
   const dishes = useSelector((state) => state.dishes);
   const [dish, setDish] = useState({
@@ -36,7 +37,9 @@ export default function DishesContainer() {
   };
   const createOrUpdateSuccess = (message) => {
     alert.success(message);
-
+    getDisheByRestaurantId().then((dishes) => {
+      dispatch(setDishList(dishes));
+    });
     setDish({
       dishe_name: "",
       dishe_description: "",
@@ -65,16 +68,16 @@ export default function DishesContainer() {
         }
         return createOrUpdateFail(message);
       } else {
-        // const images = await uploadFile(inputElement.current.files);
-        // const result = await axios.patch(
-        //   `${import.meta.env.VITE_BACKEND_SITE}/spas/${idUpdate}`,
-        //   { ...spa, images }
-        // );
-        // const { message, statusCode } = result.data;
-        // if (statusCode === 202) {
-        //   return createOrUpdateSuccess(message);
-        // }
-        // return createOrUpdateFail(message);
+        const images = await uploadFile(inputElement.current.files);
+        const result = await axios.patch(
+          `${import.meta.env.VITE_BACKEND_SITE}/dishes/${idUpdate}`,
+          { ...dish, images }
+        );
+        const { message, statusCode } = result.data;
+        if (statusCode === 202) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
       }
     } catch (error) {
       if (error.response) {
@@ -82,6 +85,31 @@ export default function DishesContainer() {
         alert.error(message[0]);
       }
     }
+  };
+  const handleDeleteDish = async (id) => {
+    try {
+      if (window.confirm("Are your sure delete this ?")) {
+        const result = await axios.delete(
+          `${import.meta.env.VITE_BACKEND_SITE}/dishes/${id}`
+        );
+        const { message, statusCode } = result.data;
+        if (statusCode === 202) {
+          return createOrUpdateSuccess(message);
+        }
+        return createOrUpdateFail(message);
+      }
+    } catch (error) {}
+  };
+  const handleUpdateDish = (dish) => {
+    const { dishe_name, dishe_description, dishe_price, id } = dish;
+    setDish({
+      dishe_name,
+      dishe_description,
+      dishe_price,
+      restaurant: restaurantId,
+    });
+    setIsUpdate(true);
+    setIdUpdate(id);
   };
   return (
     <div>
@@ -91,6 +119,8 @@ export default function DishesContainer() {
         handeClick={handeClick}
         dish={dish}
         dishes={dishes}
+        handleDeleteDish={handleDeleteDish}
+        handleUpdateDish={handleUpdateDish}
       />
     </div>
   );

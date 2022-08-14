@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./../../../../main.css";
 export default function FormSpaComponent(props) {
   const { inputElement, spa, isUpdate } = props;
   const handleChangeSpa = (e) => {
@@ -9,7 +9,6 @@ export default function FormSpaComponent(props) {
     <div>
       <form action="" method="POST" role="form">
         <legend>{isUpdate ? "FORM UPDATE SPA" : "FORM CREATE SPA"}</legend>
-
         <div className="form-group">
           <label htmlFor="name">Spa</label>
           <input
@@ -38,13 +37,16 @@ export default function FormSpaComponent(props) {
         <div className="form-group">
           <input type="file" multiple ref={inputElement} />
         </div>
-        <button
-          onClick={props.handleCreateSpa}
-          type="button"
-          className="btn btn-primary"
-        >
-          {isUpdate ? "UPDATE" : "CREATE"}
-        </button>
+        <div className="form-group">
+          {" "}
+          <button
+            onClick={props.handleCreateSpa}
+            type="button"
+            className="btn btn-primary"
+          >
+            {isUpdate ? "UPDATE" : "CREATE"}
+          </button>
+        </div>
       </form>
     </div>
   );

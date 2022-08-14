@@ -1,36 +1,35 @@
 import React from "react";
-
-export default function DishTable(props) {
-  const { dishes } = props;
-  console.log(dishes);
+import { Link } from "react-router-dom";
+export default function GymTable(props) {
+  const { gyms } = props;
   const showImage = (images) => {
     return images.map((image) => {
       return `${image.image_url}\n`;
     });
   };
-  const showDishes = () => {
-    if (dishes.length > 0) {
-      return dishes[0].dishs.map((dish) => {
+  const showGyms = () => {
+    if (gyms?.length > 0) {
+      return gyms[0].gyms.map((gym) => {
         return (
-          <tr>
-            <td>{dish.id}</td>
-            <td>{dish.dishe_name}</td>
-            <td>{dish.dishe_description}</td>
-            <td>{dish.dishe_price}</td>
-            <td>{showImage(dish.images)}</td>
+          <tr key={gym.id}>
+            <td>{gym.id}</td>
             <td>
-              {" "}
+              <Link to={`${gym.id}`}>{gym.gym_name}</Link>
+            </td>
+            <td>{gym.gym_description}</td>
+            <td>{showImage(gym?.images)}</td>
+            <td>
               <button
-                onClick={() => props.handleUpdateDish(dish)}
+                onClick={() => props.handleUpdate(gym)}
                 type="button"
-                className="btn btn-success"
+                className="btn btn-default"
               >
                 EDIT
-              </button>
+              </button>{" "}
               <button
-                onClick={() => props.handleDeleteDish(dish.id)}
+                onClick={() => props.handleDeleteGym(gym.id)}
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-default"
               >
                 DELETE
               </button>
@@ -48,12 +47,11 @@ export default function DishTable(props) {
             <th>ID</th>
             <th>NAME</th>
             <th>DESCRIPTION</th>
-            <th>PRICE</th>
             <th>IMAGES</th>
             <th>ACTIONS</th>
           </tr>
         </thead>
-        <tbody>{showDishes()}</tbody>
+        <tbody>{showGyms()}</tbody>
       </table>
     </div>
   );

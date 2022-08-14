@@ -5,7 +5,7 @@ import TreatmentTable from "./Table/TreatmentTable";
 export default function TreatmentComponent(props) {
   return (
     <div>
-      <div className="row">
+      <div className="row main_container">
         <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <TreatmentForm
             handleOnChange={props.handleOnChange}
