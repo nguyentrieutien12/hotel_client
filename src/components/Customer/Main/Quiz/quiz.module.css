@@ -1,0 +1,53 @@
+.carouselExampleControls {
+  background-color: #f8eee4;
+  overflow: hidden;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+input:checked ~ .check {
+  color: #f8eee4 !important;
+  background-color: #a56c50 !important;
+  border-radius: 10px 10px 40px 10px !important;
+  transition: border-radius 0.2s;
+}
+.check {
+  border: 2px solid #a56c50;
+  box-sizing: border-box;
+  border-radius: 18px;
+  font-family: Tenor Sans;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #a56c50;
+  height: 100px;
+  padding: 24px;
+  min-height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  cursor: pointer;
+}
+.asw {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.checkbox {
+  margin: 20px;
+}
+button {
+  color: red !important;
+}

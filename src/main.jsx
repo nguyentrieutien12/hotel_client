@@ -6,6 +6,7 @@ import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import { Provider } from "react-redux";
 import { getCookie } from "./helpers/cookie.helper";
+import "bootstrap/dist/css/bootstrap.min.css";
 const options = {
   position: positions.TOP_RIGHT,
   timeout: 2000,

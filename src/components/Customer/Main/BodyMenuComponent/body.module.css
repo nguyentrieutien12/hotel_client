@@ -1,0 +1,24 @@
+.body_container {
+  margin-top: 50px;
+}
+.body_welcome {
+  font-size: 80px !important;
+  font-family: "Tenor Sans";
+  font-style: normal;
+  color: white;
+}
+.body_welcome h1 {
+  font-size: 60px;
+}
+.card {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.684) !important;
+}
+.card a {
+  color: rgba(0, 0, 0, 0.684) !important;
+}
+.card img {
+  height: 300px !important;
+  object-fit: cover;
+}

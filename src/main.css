@@ -12,5 +12,11 @@ form .form-group {
   margin-top: 20px;
 }
 .main_container {
-  margin-top: 30px;
+  padding-top: 30px;
+}
+.active_quiz {
+  background-color: red;
+}
+.next_icon {
+  color: red;
 }

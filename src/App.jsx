@@ -18,6 +18,9 @@ import SeftCareContainerAdmin from "./containers/Admin/SeftCare/SeftCareContaine
 import TreatmentContainer from "./containers/Admin/Treatment/TreatmentContainer";
 import DishesContainer from "./containers/Admin/DishesContainer/DishesContainer";
 import WorkoutContainer from "./containers/Admin/Workout/WorkoutContainer";
+import MainComponent from "./components/Customer/Main/MainComponent";
+import BodyMenuComponent from "./components/Customer/Main/BodyMenuComponent/BodyMenuComponent";
+import QuizComponent from "./components/Customer/Main/Quiz/QuizComponent";
 export default function App() {
   return (
     <div>
@@ -26,6 +29,10 @@ export default function App() {
           <Route path="/register" element={<RegisterContainer />}></Route>
           <Route path="/login" element={<LoginContainer />}></Route>
           <Route path="/" element={<IndexComponent />}></Route>
+          <Route path="/main" element={<MainComponent />}>
+            <Route index element={<BodyMenuComponent />}></Route>
+            <Route path="quiz" element={<QuizComponent />}></Route>
+          </Route>
           <Route path="/dashboard" element={<ProtectedLayout />}>
             <Route index element={<MainContainerAdmin />} />
             <Route path="profile" element={<ProfileContainerAdmin />} />

@@ -1,0 +1,8 @@
+.nav {
+  display: flex;
+  flex-direction: row !important;
+}
+.nav a {
+  margin-left: 20px;
+  color: white !important;
+}
