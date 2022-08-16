@@ -3,7 +3,7 @@ import styles from "./header.module.css";
 import { Link } from "react-router-dom";
 export default function HeaderComponent() {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className="navbar">
         <a style={{ color: "white" }} className="navbar-brand" href="#">
           Logo

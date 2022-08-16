@@ -29,8 +29,8 @@ function LoginContainer() {
       const { message, statusCode, email, access_token } = result.data;
       if (statusCode === 202) {
         alert.success(message);
-        setCookie("access_token", access_token, 3);
-        setCookie("email", email, 3);
+        setCookie("access_token", access_token, 1);
+        setCookie("email", email, 1);
         return navigate("/");
       }
     } catch (error) {

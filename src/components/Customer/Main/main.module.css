@@ -1,6 +1,6 @@
 .main_container {
   background-color: #b99173;
-  height: 110vh;
+  height: max-content;
   width: 100%;
   padding: 10px 100px;
 }

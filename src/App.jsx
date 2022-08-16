@@ -21,6 +21,8 @@ import WorkoutContainer from "./containers/Admin/Workout/WorkoutContainer";
 import MainComponent from "./components/Customer/Main/MainComponent";
 import BodyMenuComponent from "./components/Customer/Main/BodyMenuComponent/BodyMenuComponent";
 import QuizComponent from "./components/Customer/Main/Quiz/QuizComponent";
+import HotelCustomerContainer from "./containers/Customer/Hotel/HotelCustomerContainer";
+import RestaurantContainer from "./containers/Customer/Restaurant/RestaurantContainer";
 export default function App() {
   return (
     <div>
@@ -32,6 +34,14 @@ export default function App() {
           <Route path="/main" element={<MainComponent />}>
             <Route index element={<BodyMenuComponent />}></Route>
             <Route path="quiz" element={<QuizComponent />}></Route>
+            <Route
+              path="hotel/:hotelId"
+              element={<HotelCustomerContainer />}
+            ></Route>{" "}
+            <Route
+              path="hotel/:hotelId/restaurant"
+              element={<RestaurantContainer />}
+            ></Route>
           </Route>
           <Route path="/dashboard" element={<ProtectedLayout />}>
             <Route index element={<MainContainerAdmin />} />

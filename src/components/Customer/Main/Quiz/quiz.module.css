@@ -40,6 +40,9 @@ input:checked ~ .check {
   width: 400px;
   cursor: pointer;
 }
+.item {
+  transition-duration: 0.3s !important;
+}
 .asw {
   display: flex;
   flex-wrap: wrap;
@@ -50,4 +53,8 @@ input:checked ~ .check {
 }
 button {
   color: red !important;
+}
+.btn_submit {
+  color: rgb(30, 181, 3) !important;
+  background-color: white !important;
 }
