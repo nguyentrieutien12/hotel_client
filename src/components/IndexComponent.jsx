@@ -33,9 +33,7 @@ function IndexComponent() {
     );
     return result.data;
   };
-  // KAKAKA
-// VLXX
+  // BH LAPTOP
   return <>{account && <HomeContainerCus />}</>;
-  // HELLO
 }
 export default memo(IndexComponent);
