@@ -34,6 +34,8 @@ function IndexComponent() {
     return result.data;
   };
   // KAKAKA
+  // ASDASDSAD
+  // ADASDASD
   return <>{account && <HomeContainerCus />}</>;
 }
 export default memo(IndexComponent);
