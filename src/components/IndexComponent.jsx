@@ -11,12 +11,10 @@ function IndexComponent() {
   const [account, setAccount] = useState(null);
   useEffect(() => {
     getAccount(email).then((account) => {
-      
       if (!account) {
         return navigate("/login");
-      } 
-       if (account.role.role_name === "ADMIN") {
-        navigate("/dashboard");
+      } else if (account.role.role_name === "ADMIN") {
+        return navigate("/dashboard");
       }
       if (getCookie("isAnswer")) {
         return navigate(`/main/hotel/${getCookie("hotelId")}`);
