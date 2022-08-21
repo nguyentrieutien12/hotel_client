@@ -3,7 +3,6 @@ import React, { memo, useEffect, useState } from "react";
 import { getCookie } from "../helpers/cookie.helper";
 import HomeContainerCus from "./../containers/Customer/HomeContainerCus";
 import { useNavigate } from "react-router-dom";
-import ProtectedLayout from "../containers/ProtectedLayout/ProtectedLayout";
 function IndexComponent() {
   const getEmail = getCookie("email") || null;
   const navigate = useNavigate();
