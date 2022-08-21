@@ -33,7 +33,7 @@ function IndexComponent() {
     );
     return result.data;
   };
-  // HEHEHE
+  // KAKAKA
   return <>{account && <HomeContainerCus />}</>;
 }
 export default memo(IndexComponent);
