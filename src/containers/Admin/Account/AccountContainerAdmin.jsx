@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AccountComponentAdmin from "../../../components/Admin/Account/AccountComponentAdmin";
 import { setAccount } from "../../../features/account/account";
 import { getCookie } from "../../../helpers/cookie.helper";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { redirectError } from "../../../helpers/redirectError";
 export const ObjContext = createContext();
 export default function AccountContainerAdmin() {
@@ -33,24 +33,24 @@ export default function AccountContainerAdmin() {
   }, []);
 
   const getAllAccount = async () => {
-   try {
-    const result = await axios.get(
-      `${import.meta.env.VITE_BACKEND_SITE}/accounts`,
-      {
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          email: getCookie("email"),
-          Authorization: `Bearer ${getCookie("access_token")}`
-        },
+    try {
+      const result = await axios.get(
+        `${import.meta.env.VITE_BACKEND_SITE}/accounts`,
+        {
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            email: getCookie("email"),
+            Authorization: `Bearer ${getCookie("access_token")}`,
+          },
+        }
+      );
+      return result.data;
+    } catch (error) {
+      const { status } = error.response;
+      if (status === 401) {
+        return navigate("/login");
       }
-    );
-    return result.data;
-   } catch (error) {
-    const {status}  = error.response;
-    if(status === 401) {
-      return navigate("/login")
     }
-   }
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,9 +81,9 @@ export default function AccountContainerAdmin() {
             comfirmPassword: "",
             role: 2,
           });
-          // getAllAccount().then((accounts) => {
-          //   dispatch(setAccount(accounts));
-          // });
+          getAllAccount().then((accounts) => {
+            dispatch(setAccount(accounts));
+          });
           return void 0;
         }
 
@@ -134,9 +134,9 @@ export default function AccountContainerAdmin() {
         );
         const { message, statusCode } = result.data;
         if (statusCode === 202) {
-          // getAllAccount().then((accounts) => {
-          //   dispatch(setAccount(accounts));
-          // });
+          getAllAccount().then((accounts) => {
+            dispatch(setAccount(accounts));
+          });
           return alert.success(message);
         }
         return alert.success(message);

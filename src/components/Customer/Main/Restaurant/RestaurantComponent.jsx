@@ -50,7 +50,9 @@ export default function RestaurantComponent() {
   return (
     <div className="wrapper">
       <div className="restautant_title">
-        <h1>Food & drinks best suited for </h1>
+        <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
+          Food & drinks best suited for{" "}
+        </h1>
       </div>
       <div className="restaurant_container">
         <div className="row">{showRestaurants()}</div>
