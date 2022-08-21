@@ -35,5 +35,6 @@ function IndexComponent() {
     return result.data;
   };
   return <>{account && <HomeContainerCus />}</>;
+  // HELLO WORLD
 }
 export default memo(IndexComponent);
