@@ -34,7 +34,7 @@ function IndexComponent() {
     return result.data;
   };
   // KAKAKA
-
+// VLXX
   return <>{account && <HomeContainerCus />}</>;
 }
 export default memo(IndexComponent);
