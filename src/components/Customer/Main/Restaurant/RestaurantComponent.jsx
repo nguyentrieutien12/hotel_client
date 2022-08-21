@@ -55,7 +55,7 @@ export default function RestaurantComponent() {
         </h1>
       </div>
       <div className="restaurant_container">
-        <div class="row">{showRestaurants()}</div>
+        <div className="row">{showRestaurants()}</div>
       </div>
     </div>
   );
