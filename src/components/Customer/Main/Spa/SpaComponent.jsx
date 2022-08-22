@@ -42,7 +42,7 @@ export default function GymComponent() {
                 </div>
 
                 <div className="card-body">
-                  <img src={spa.images[0]?.image_url} alt="" />
+                  <img src={spa.images[0]?.image_url} />
                   {/* */}
                   <p className="card-text ">{spa.spa_description}</p>
                 </div>

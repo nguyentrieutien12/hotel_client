@@ -24,8 +24,22 @@ export default function RestaurantDetailComponent() {
         return (
           <div key={dish?.id} className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <Tooltip
-              title={`<img style="width: 200px; height: 200px; object-fit: cover" src=${dish.images[0]?.image_url} alt="no image" />`}
-              position="right-start"
+              title={`<div class="row ${styles.image_container}">
+              ${dish.images
+                .map((image) => {
+                  return `<div class="${styles.image_tippy} col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img
+                      display="flex"
+                      style="width: 100%; height: 100%; object-fit: cover"
+                      src=${image.image_url}
+                      alt="no image"
+                    />
+                  </div>`;
+                })
+                .join(" ")}
+              
+            </div>`}
+              position="top-start"
               arrow="true"
               arrowSize="big"
             >
@@ -35,6 +49,7 @@ export default function RestaurantDetailComponent() {
                 </div>
 
                 <div className="card-body">
+                  <img src={dish.images[0]?.image_url} />
                   {/* */}
                   <p className="card-text ">{dish.dishe_description}</p>
                 </div>

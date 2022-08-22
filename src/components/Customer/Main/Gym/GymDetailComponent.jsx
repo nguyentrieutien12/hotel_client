@@ -33,8 +33,22 @@ export default function GymDetailComponent() {
             className="col-xs-3 col-sm-3 col-md-3 col-lg-3"
           >
             <Tooltip
-              title={`<img style="width: 200px; height: 200px; object-fit: cover" src=${workout.images[0]?.image_url} alt="no image" />`}
-              position="right-start"
+              title={`<div class="row ${styles.image_container}">
+              ${workout.images
+                .map((image) => {
+                  return `<div class="${styles.image_tippy} col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img
+                      display="flex"
+                      style="width: 100%; height: 100%; object-fit: cover"
+                      src=${image.image_url}
+                      alt="no image"
+                    />
+                  </div>`;
+                })
+                .join(" ")}
+              
+            </div>`}
+              position="top-start"
               arrow="true"
               arrowSize="big"
             >
@@ -44,6 +58,11 @@ export default function GymDetailComponent() {
                 </div>
 
                 <div className="card-body">
+                  <img
+                    src={`${workout.images[0]?.image_url}`}
+                    alt=""
+                    sizes=""
+                  />
                   {/* */}
                   <p className="card-text ">{workout.workout_description}</p>
                 </div>
