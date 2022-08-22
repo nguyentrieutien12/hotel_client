@@ -39,32 +39,38 @@ export default function HotelComponentCustomer() {
           </Link>
         </div>
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div className={`card ${styles.card}`}>
-            <img
-              className="card-img-top"
-              src="../../../public/cugung.png"
-              alt="Card image cap"
-            />
-            <div className="card-body">
-              <h1>
-                Fitness <br></br>&<br></br>Movement
-              </h1>
+          <Link to={`gym`}>
+            {" "}
+            <div className={`card ${styles.card}`}>
+              <img
+                className="card-img-top"
+                src="../../../public/cugung.png"
+                alt="Card image cap"
+              />
+              <div className="card-body">
+                <h1>
+                  Fitness <br></br>&<br></br>Movement
+                </h1>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div className={`card ${styles.card}`}>
-            <img
-              className="card-img-top"
-              src="../../../public/cugung.png"
-              alt="Card image cap"
-            />
-            <div className="card-body">
-              <h1>
-                Spa <br></br> & <br></br>Bodywork
-              </h1>
+          <Link to={`spa`}>
+            {" "}
+            <div className={`card ${styles.card}`}>
+              <img
+                className="card-img-top"
+                src="../../../public/cugung.png"
+                alt="Card image cap"
+              />
+              <div className="card-body">
+                <h1>
+                  Spa <br></br> & <br></br>Bodywork
+                </h1>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

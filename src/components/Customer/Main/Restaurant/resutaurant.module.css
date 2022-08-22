@@ -1,29 +1,41 @@
 .card {
   border-radius: 10px 10px 10px 40px !important;
-  background: #f8eee4;
   margin: 20px 0;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .card h5 {
-  color: #b99173;
+  color: black;
   font-family: "Tenor Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 23px;
   line-height: 16px;
   display: flex;
   align-items: center;
   letter-spacing: -0.3px;
+  z-index: 1111;
 }
 .card p {
   font-family: "Tenor Sans";
   font-style: normal;
-  font-weight: 400;
   font-size: 20px;
   line-height: 115.5%;
   display: flex;
   align-items: center;
   letter-spacing: -0.3px;
+  color: #ca5903;
+}
+.restaurant_detail_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

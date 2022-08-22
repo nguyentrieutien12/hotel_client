@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "react-tippy/dist/tippy.css";
 import { Tooltip } from "react-tippy";
-
+import { Link } from "react-router-dom";
 export default function RestaurantComponent() {
   const [restaurants, setRestaurant] = useState([]);
   const { hotelId } = useParams();
@@ -26,9 +26,13 @@ export default function RestaurantComponent() {
             >
               <div className={`card ${styles.card}`}>
                 <div className="card-header">
-                  <h5 className="card-title">{restaurant.restaurant_name}</h5>
+                  <Link to={`${restaurant?.id}`}>
+                    <h5 className="card-title">{restaurant.restaurant_name}</h5>
+                  </Link>
                 </div>
+
                 <div className="card-body">
+                  <img src={restaurant.images[0]?.image_url} alt="" />
                   {/* */}
                   <p className="card-text ">
                     {restaurant.restaurant_description}
@@ -51,10 +55,10 @@ export default function RestaurantComponent() {
     <div className="wrapper">
       <div className="restautant_title">
         <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-          Food & drinks best suited for{" "}
+          Food & drinks best suited for {restaurants[0]?.hotel_name}
         </h1>
       </div>
-      <div className="restaurant_container">
+      <div className={`${styles.restaurant_container}`}>
         <div className="row">{showRestaurants()}</div>
       </div>
     </div>
