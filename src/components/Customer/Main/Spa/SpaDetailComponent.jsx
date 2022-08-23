@@ -35,7 +35,7 @@ export default function SpaDetailComponent() {
                       display="flex"
                       style="width: 100%; height: 100%; object-fit: cover"
                       src=${image.image_url}
-                      alt="no image"
+                      alt="noimage"
                     />
                   </div>`;
                 })
@@ -89,8 +89,7 @@ export default function SpaDetailComponent() {
             <img
               className={styles.restaurant_detail_images}
               src={`${spas[0]?.image.image_url}`}
-              alt=""
-              sizes=""
+              alt="hehe"
             />
           </div>{" "}
           <div className="">
