@@ -37,7 +37,7 @@ export default function RestaurantComponent() {
                 .join(" ")}
               
             </div>`}
-              position="top"
+              position="right"
               arrow="true"
               arrowSize="big"
             >

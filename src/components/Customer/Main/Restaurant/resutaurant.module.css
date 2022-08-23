@@ -39,3 +39,12 @@
   align-items: center;
   justify-content: space-between;
 }
+.restaurant_detail_images {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  z-index: -1000;
+  opacity: 0.4;
+}

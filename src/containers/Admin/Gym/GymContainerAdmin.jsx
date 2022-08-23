@@ -51,6 +51,7 @@ export default function GymContainerAdmin() {
       gym_description: "",
       hotel: id,
     });
+    setIsUpdate(false);
   };
   const createOrUpdateFail = (message) => {
     return alert.error(message);

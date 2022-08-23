@@ -42,7 +42,7 @@ export default function SpaDetailComponent() {
                 .join(" ")}
               
             </div>`}
-              position="top-start"
+              position="right"
               arrow="true"
               arrowSize="big"
             >

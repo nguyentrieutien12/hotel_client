@@ -43,6 +43,7 @@ export default function SpaContainerAdmin() {
       spa_description: "",
       hotel: id,
     });
+    setIsUpdate(false);
   };
   const handleChangeSpa = (e) => {
     const { name, value } = e.target;

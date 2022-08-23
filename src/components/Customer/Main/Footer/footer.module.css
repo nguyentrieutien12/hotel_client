@@ -1,0 +1,18 @@
+.footer_container {
+  padding: 50px;
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  color: #f8eee4;
+}
+.footer_container button {
+  background: #f8eee4;
+  border-radius: 100px;
+  color: #523922;
+  padding: 10px 40px !important;
+}
+.footer_container input {
+  outline: none !important;
+  border: none !important;
+  opacity: 0.8;
+}

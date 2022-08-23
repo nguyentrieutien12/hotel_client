@@ -39,7 +39,7 @@ export default function RestaurantDetailComponent() {
                 .join(" ")}
               
             </div>`}
-              position="top-start"
+              position="right"
               arrow="true"
               arrowSize="big"
             >

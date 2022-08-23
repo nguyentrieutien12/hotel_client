@@ -30,7 +30,7 @@ export default function GymComponent() {
           <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <Tooltip
               title={`<img style="width: 200px; height: 200px; object-fit: cover" src=${spa.images[0]?.image_url} />`}
-              position="right-start"
+              position="right"
               arrow="true"
               arrowSize="big"
             >

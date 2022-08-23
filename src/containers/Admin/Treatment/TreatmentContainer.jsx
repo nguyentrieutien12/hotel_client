@@ -43,6 +43,7 @@ export default function TreatmentContainer() {
       treatment_price: "",
       spa: spaId,
     });
+    setIsUpdate(false);
   };
   const createOrUpdateFail = (message) => {
     return alert.error(message);
@@ -68,7 +69,7 @@ export default function TreatmentContainer() {
         const { statusCode, message } = result.data;
         console.log(statusCode);
         if (statusCode === 201) {
-          return createOrUpdatepuccess(message);
+          return createOrUpdateSuccess(message);
         }
         return createOrUpdateFail(message);
       } else {

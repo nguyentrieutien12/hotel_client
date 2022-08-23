@@ -1,16 +1,19 @@
 import React from "react";
-
+import styles from "./footer.module.css";
 export default function FooterComponent() {
   return (
     <div>
-      <div class="row" style={{ background: "#523922" }}>
+      <div
+        class={`row ${styles.footer_container}`}
+        style={{ background: "#523922" }}
+      >
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <div className="logo">
             <h3>Logo</h3>
           </div>
           <div className="accsio d-flex">
             <h4>Facebook</h4>
-            <h4>Zalo</h4>
+            <h4 className="mx-5">Zalo</h4>
             <h4>Email</h4>
           </div>
 
@@ -41,10 +44,14 @@ export default function FooterComponent() {
               placeholder="Enter Email"
             />
           </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
+          <button type="submit" class="btn btn-primary my-2">
+            Subscribe
           </button>
-          <p>©2022 Copyright all reserved by Kanpobliss</p>
+        </div>{" "}
+        <div class="row my-5">
+          <span className="my-2 text-center">
+            ©2022 Coyright all reserved by Kanpobliss
+          </span>
         </div>
       </div>
     </div>
