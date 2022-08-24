@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Tooltip } from "react-tippy";
 import { Link, useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
+import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 export default function GymComponent() {
   const [spas, setSpa] = useState([]);
   const { hotelId } = useParams();
@@ -29,7 +30,21 @@ export default function GymComponent() {
         return (
           <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <Tooltip
-              title={`<img style="width: 200px; height: 200px; object-fit: cover" src=${spa.images[0]?.image_url} />`}
+              title={`<div class="row ${styles.image_container}">
+              ${spa.images
+                .map((image) => {
+                  return `<div class="${styles.image_tippy} col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img
+                      display="flex"
+                      style="width: 100%; height: 100%; object-fit: cover"
+                      src=${image.image_url}
+                      alt="noimage"
+                    />
+                  </div>`;
+                })
+                .join(" ")}
+              
+            </div>`}
               position="right"
               arrow="true"
               arrowSize="big"
@@ -53,19 +68,22 @@ export default function GymComponent() {
       });
     }
   };
-  return (
-    <div>
-      {" "}
-      <div className="wrapper">
-        <div className="restautant_title">
-          <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-            Fitness & workouts best suited for
-          </h1>
-        </div>
-        <div className={`${styles.restaurant_container}`}>
-          <div className="row">{showSpas()}</div>
+  if (spas[0]?.spas?.length > 0) {
+    return (
+      <div>
+        {" "}
+        <div className="wrapper">
+          <div className="restautant_title">
+            <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
+              Spa treatments best suited for {spas[0]?.hotel_name} hotel
+            </h1>
+          </div>
+          <div className={`${styles.restaurant_container}`}>
+            <div className="row">{showSpas()}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return <EmptyProduct name="Spa" />;
 }

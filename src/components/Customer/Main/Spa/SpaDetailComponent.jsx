@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Tooltip } from "react-tippy";
+import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import styles from "./../Restaurant/resutaurant.module.css";
 export default function SpaDetailComponent() {
   const [spas, setSpa] = useState([]);
@@ -19,7 +20,7 @@ export default function SpaDetailComponent() {
     return result.data;
   };
   const showDishs = () => {
-    if (spas.length > 0) {
+    if (spas[0]?.treatments > 0) {
       return spas[0].treatments.map((treatment) => {
         return (
           <div
@@ -70,52 +71,55 @@ export default function SpaDetailComponent() {
       });
     }
   };
-  return (
-    <div>
-      <div className="restaurant_detail_container">
-        <div>
-          <div className={styles.restaurant_detail_header}>
-            <h1>{spas[0]?.spa_name || "Loading name treatments"}</h1>
-            <div className={styles.restaurant_detail_header_option}>
-              <button type="button" class="btn btn-success m-2">
-                Save
-              </button>
-              <button type="button" class="btn btn-warning">
-                RESERVE A TABLE
-              </button>
+  if (spas[0]?.treatments.length > 0) {
+    return (
+      <div>
+        <div className="restaurant_detail_container">
+          <div>
+            <div className={styles.restaurant_detail_header}>
+              <h1>{spas[0]?.spa_name || "Loading name treatments"}</h1>
+              <div className={styles.restaurant_detail_header_option}>
+                <button type="button" class="btn btn-success m-2">
+                  Save
+                </button>
+                <button type="button" class="btn btn-warning">
+                  RESERVE A TABLE
+                </button>
+              </div>
+            </div>
+            <div>
+              <img
+                className={styles.restaurant_detail_images}
+                src={`${spas[0]?.image.image_url}`}
+                alt="hehe"
+              />
+            </div>{" "}
+            <div className="">
+              <h2>Why we curated this for you </h2>
+              <ul>
+                <li> Provides immune support</li>
+                <li> Clear phlegm</li>
+                <li>Stabilizes blood sugar</li>
+                <li>Prevents liver damage</li>
+              </ul>
+            </div>
+            <div className="restaurant_detail_description">
+              <h4>{`Discover a dining experience built on craft, service and ambience. Madame Fan offers Cantonese cuisine in a contemporary setting.`}</h4>
             </div>
           </div>
-          <div>
-            <img
-              className={styles.restaurant_detail_images}
-              src={`${spas[0]?.image.image_url}`}
-              alt="hehe"
-            />
-          </div>{" "}
-          <div className="">
-            <h2>Why we curated this for you </h2>
-            <ul>
-              <li> Provides immune support</li>
-              <li> Clear phlegm</li>
-              <li>Stabilizes blood sugar</li>
-              <li>Prevents liver damage</li>
-            </ul>
-          </div>
-          <div className="restaurant_detail_description">
-            <h4>{`Discover a dining experience built on craft, service and ambience. Madame Fan offers Cantonese cuisine in a contemporary setting.`}</h4>
-          </div>
-        </div>
-        <div className="wrapper">
-          <div className="restautant_title">
-            <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-              Food & drinks best suited for{" "}
-            </h1>
-          </div>
-          <div className={`${styles.restaurant_container}`}>
-            <div className="row">{showDishs()}</div>
+          <div className="wrapper">
+            <div className="restautant_title">
+              <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
+                Spa treatments best suited
+              </h1>
+            </div>
+            <div className={`${styles.restaurant_container}`}>
+              <div className="row">{showDishs()}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return <EmptyProduct name="Treatment" />;
 }

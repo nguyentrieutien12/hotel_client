@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Tooltip } from "react-tippy";
 import { Link, useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
+import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 export default function GymComponent() {
   const [restaurants, setRestaurants] = useState([]);
   const { hotelId } = useParams();
@@ -23,12 +24,11 @@ export default function GymComponent() {
       console.log(error);
     }
   };
-  console.log(restaurants);
   const showGyms = () => {
     if (restaurants.length > 0) {
       return restaurants[0].gyms.map((gym) => {
         return (
-          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div key={gym?.id} className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <Tooltip
               title={`<div class="row ${styles.image_container}">
               ${gym.images
@@ -54,7 +54,9 @@ export default function GymComponent() {
               <div className={`card ${styles.card}`}>
                 <div className="card-header">
                   <Link to={`${gym?.id}`}>
-                    <h5 className="card-title">{gym.gym_name}</h5>
+                    <h5 className={`card-title ${card_title}`}>
+                      {gym.gym_name}
+                    </h5>
                   </Link>
                 </div>
 
@@ -70,19 +72,22 @@ export default function GymComponent() {
       });
     }
   };
-  return (
-    <div>
-      {" "}
-      <div className="wrapper">
-        <div className="restautant_title">
-          <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-            Fitness & workouts best suited for
-          </h1>
-        </div>
-        <div className={`${styles.restaurant_container}`}>
-          <div className="row">{showGyms()}</div>
+  if (restaurants[0]?.gyms.length > 0) {
+    return (
+      <div>
+        {" "}
+        <div className="wrapper">
+          <div className="restautant_title">
+            <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
+              Fitness & workouts best suited for {restaurants[0]?.hotel_name}
+            </h1>
+          </div>
+          <div className={`${styles.restaurant_container}`}>
+            <div className="row">{showGyms()}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return <EmptyProduct name="Gym" />;
 }

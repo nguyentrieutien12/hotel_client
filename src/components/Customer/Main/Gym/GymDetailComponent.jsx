@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
 import { Tooltip } from "react-tippy";
+import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 export default function GymDetailComponent() {
   const [workouts, setWorkouts] = useState([]);
 
@@ -81,7 +82,7 @@ export default function GymDetailComponent() {
   return (
     <div>
       <div>
-        {workouts.length > 0 ? (
+        {workouts[0]?.workouts.length > 0 ? (
           <div className={styles.restaurant_detail_container}>
             <div>
               <div className={styles.restaurant_detail_header}>
@@ -117,7 +118,7 @@ export default function GymDetailComponent() {
             <div className="wrapper">
               <div className="restautant_title">
                 <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-                  Fitness & workouts best suited for {workouts[0]?.workout_name}
+                  Fitness & workouts best suited
                 </h1>
               </div>
               <div className={`${styles.restaurant_container}`}>
@@ -126,7 +127,7 @@ export default function GymDetailComponent() {
             </div>
           </div>
         ) : (
-          <h1 className="text-center">Restaurant no acitve hehehehehehehe</h1>
+          <EmptyProduct name="Workout" />
         )}
       </div>
     </div>

@@ -5,6 +5,7 @@ import axios from "axios";
 import "react-tippy/dist/tippy.css";
 import { Tooltip } from "react-tippy";
 import { Link } from "react-router-dom";
+import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 export default function RestaurantComponent() {
   const [restaurants, setRestaurant] = useState([]);
   const { hotelId } = useParams();
@@ -68,16 +69,19 @@ export default function RestaurantComponent() {
     );
     return result.data;
   };
-  return (
-    <div className="wrapper">
-      <div className="restautant_title">
-        <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-          Food & drinks best suited for {restaurants[0]?.hotel_name}
-        </h1>
+  if (restaurants[0]?.restaurants.length > 0) {
+    return (
+      <div className="wrapper">
+        <div className="restautant_title">
+          <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
+            Food & drinks best suited for {restaurants[0]?.hotel_name}
+          </h1>
+        </div>
+        <div className={`${styles.restaurant_container}`}>
+          <div className="row">{showRestaurants()}</div>
+        </div>
       </div>
-      <div className={`${styles.restaurant_container}`}>
-        <div className="row">{showRestaurants()}</div>
-      </div>
-    </div>
-  );
+    );
+  }
+  return <EmptyProduct name="Restaurant" />;
 }
