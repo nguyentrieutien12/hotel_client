@@ -23,10 +23,9 @@ export default function RestaurantComponent() {
               title={`<div class="row ${styles.image_container}">
               ${restaurant.images
                 .map((image) => {
-                  return `<div class="${styles.image_tippy} ${
-                    restaurant.images.length > 0 ??
-                    `col-xs-6 col-sm-6 col-md-6 col-lg-6`
-                  } ">
+                  return `<div class="${
+                    styles.image_tippy
+                  } ${`col-xs-6 col-sm-6 col-md-6 col-lg-6`} ">
                     <img
                       display="flex"
                       style="width: 100%; height: 100%; object-fit: cover"
@@ -52,7 +51,7 @@ export default function RestaurantComponent() {
                 <div className="card-body">
                   <img src={restaurant.images[0]?.image_url} alt="" />
                   {/* */}
-                  <p className="card-text ">
+                  <p className={`card-text ${styles.restaurant_description}`}>
                     {restaurant.restaurant_description}
                   </p>
                 </div>
@@ -74,7 +73,7 @@ export default function RestaurantComponent() {
       <div className="wrapper">
         <div className="restautant_title">
           <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-            Food & drinks best suited for {restaurants[0]?.hotel_name}
+            Food & drinks best suited for {restaurants[0]?.hotel_name} hotel
           </h1>
         </div>
         <div className={`${styles.restaurant_container}`}>

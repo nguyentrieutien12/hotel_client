@@ -20,7 +20,7 @@ export default function SpaDetailComponent() {
     return result.data;
   };
   const showDishs = () => {
-    if (spas[0]?.treatments > 0) {
+    if (spas[0]?.treatments.length > 0) {
       return spas[0].treatments.map((treatment) => {
         return (
           <div
@@ -55,7 +55,7 @@ export default function SpaDetailComponent() {
                 <div className="card-body">
                   <img src={treatment.images[1]?.image_url} alt="" />
                   {/* */}
-                  <p className="card-text ">
+                  <p className={`card-text ${styles.restaurant_description}`}>
                     {treatment.treatment_description}
                   </p>
                 </div>
@@ -77,7 +77,10 @@ export default function SpaDetailComponent() {
         <div className="restaurant_detail_container">
           <div>
             <div className={styles.restaurant_detail_header}>
-              <h1>{spas[0]?.spa_name || "Loading name treatments"}</h1>
+              <h1>
+                {`Enjoy it at ${spas[0]?.spa_name}` ||
+                  "Loading name treatments"}
+              </h1>
               <div className={styles.restaurant_detail_header_option}>
                 <button type="button" class="btn btn-success m-2">
                   Save
@@ -94,8 +97,8 @@ export default function SpaDetailComponent() {
                 alt="hehe"
               />
             </div>{" "}
-            <div className="">
-              <h2>Why we curated this for you </h2>
+            <div className="my-5">
+              <h2>Qi-moving full body massage </h2>
               <ul>
                 <li> Provides immune support</li>
                 <li> Clear phlegm</li>
@@ -103,7 +106,7 @@ export default function SpaDetailComponent() {
                 <li>Prevents liver damage</li>
               </ul>
             </div>
-            <div className="restaurant_detail_description">
+            <div className="restaurant_detail_description my-5">
               <h4>{`Discover a dining experience built on craft, service and ambience. Madame Fan offers Cantonese cuisine in a contemporary setting.`}</h4>
             </div>
           </div>

@@ -52,7 +52,10 @@ export default function RestaurantDetailComponent() {
                 <div className="card-body">
                   <img src={dish.images[0]?.image_url} />
                   {/* */}
-                  <p className="card-text ">{dish.dishe_description}</p>
+
+                  <p className={`card-text ${styles.restaurant_description}`}>
+                    {dish.dishe_description}
+                  </p>
                 </div>
                 <div className="card-footer">
                   <h5 style={{ float: "right" }}>{`$ ${dish.dishe_price}`}</h5>
@@ -71,7 +74,8 @@ export default function RestaurantDetailComponent() {
           <div>
             <div className={styles.restaurant_detail_header}>
               <h1>
-                {restaurants[0]?.restaurant_name || "Loading name restaurant"}
+                {`Enjoy it at ${restaurants[0]?.restaurant_name}` ||
+                  "Loading name restaurant"}
               </h1>
               <div className={styles.restaurant_detail_header_option}>
                 <button type="button" class="btn btn-success m-2">
@@ -90,7 +94,7 @@ export default function RestaurantDetailComponent() {
                 sizes=""
               />
             </div>{" "}
-            <div className="">
+            <div className="my-5">
               <h2>Why we curated this for you </h2>
               <ul>
                 <li> Provides immune support</li>
@@ -99,7 +103,7 @@ export default function RestaurantDetailComponent() {
                 <li>Prevents liver damage</li>
               </ul>
             </div>
-            <div className="restaurant_detail_description">
+            <div className="restaurant_detail_description my-5">
               <h4>{`Discover a dining experience built on craft, service and ambience. Madame Fan offers Cantonese cuisine in a contemporary setting.`}</h4>
             </div>
           </div>

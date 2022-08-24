@@ -54,16 +54,16 @@ export default function GymComponent() {
               <div className={`card ${styles.card}`}>
                 <div className="card-header">
                   <Link to={`${gym?.id}`}>
-                    <h5 className={`card-title ${card_title}`}>
-                      {gym.gym_name}
-                    </h5>
+                    <h5 className={`card-title`}>{gym.gym_name}</h5>
                   </Link>
                 </div>
 
                 <div className="card-body">
                   <img src={gym.images[0]?.image_url} alt="" />
                   {/* */}
-                  <p className="card-text ">{gym.gym_description}</p>
+                  <p className={`card-text ${styles.restaurant_description}`}>
+                    {gym.gym_description}
+                  </p>
                 </div>
               </div>
             </Tooltip>

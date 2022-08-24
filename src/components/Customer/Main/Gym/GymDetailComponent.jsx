@@ -65,7 +65,10 @@ export default function GymDetailComponent() {
                     sizes=""
                   />
                   {/* */}
-                  <p className="card-text ">{workout.workout_description}</p>
+
+                  <p className={`card-text ${styles.restaurant_description}`}>
+                    {workout.workout_description}
+                  </p>
                 </div>
                 <div className="card-footer">
                   <h5
@@ -86,7 +89,9 @@ export default function GymDetailComponent() {
           <div className={styles.restaurant_detail_container}>
             <div>
               <div className={styles.restaurant_detail_header}>
-                <h1>{workouts[0]?.gym_name || "Loading name restaurant"}</h1>
+                <h1>
+                  {`Enjoy it at ${workouts[0]?.gym_name}` || "Loading name gym"}
+                </h1>
                 <div className={styles.restaurant_detail_header_option}>
                   <button type="button" class="btn btn-success m-2">
                     Save
@@ -102,7 +107,7 @@ export default function GymDetailComponent() {
                   src={`${workouts[0]?.image.image_url}`}
                 />
               </div>{" "}
-              <div className="">
+              <div className="my-5">
                 <h2>Why we curated this for you </h2>
                 <ul>
                   <li> Provides immune support</li>
@@ -111,7 +116,7 @@ export default function GymDetailComponent() {
                   <li>Prevents liver damage</li>
                 </ul>
               </div>
-              <div className="restaurant_detail_description">
+              <div className="restaurant_detail_description my-5">
                 <h4>{`Discover a dining experience built on craft, service and ambience. Madame Fan offers Cantonese cuisine in a contemporary setting.`}</h4>
               </div>
             </div>

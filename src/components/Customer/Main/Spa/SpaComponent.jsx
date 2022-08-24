@@ -59,7 +59,9 @@ export default function GymComponent() {
                 <div className="card-body">
                   <img src={spa.images[0]?.image_url} />
                   {/* */}
-                  <p className="card-text ">{spa.spa_description}</p>
+                  <p className={`card-text ${styles.restaurant_description}`}>
+                    {spa.spa_description}
+                  </p>
                 </div>
               </div>
             </Tooltip>
