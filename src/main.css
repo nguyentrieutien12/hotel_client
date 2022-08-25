@@ -11,9 +11,7 @@ form input {
 form .form-group {
   margin-top: 20px;
 }
-.main_container {
-  padding-top: 30px;
-}
+
 .active_quiz {
   background-color: red;
 }

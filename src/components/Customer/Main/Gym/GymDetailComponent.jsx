@@ -101,12 +101,12 @@ export default function GymDetailComponent() {
                   </button>
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <img
                   className={styles.restaurant_detail_images}
                   src={`${workouts[0]?.image.image_url}`}
                 />
-              </div>{" "}
+              </div>{" "} */}
               <div className="my-5">
                 <h2>Why we curated this for you </h2>
                 <ul>

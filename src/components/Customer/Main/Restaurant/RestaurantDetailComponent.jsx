@@ -70,7 +70,7 @@ export default function RestaurantDetailComponent() {
   if (restaurants[0]?.dishs.length > 0) {
     return (
       <div>
-        <div className="restaurant_detail_container">
+        <div className={styles.restaurant_detail_container}>
           <div>
             <div className={styles.restaurant_detail_header}>
               <h1>
@@ -86,14 +86,14 @@ export default function RestaurantDetailComponent() {
                 </button>
               </div>
             </div>
-            <div>
+            {/* <div>
               <img
                 className={styles.restaurant_detail_images}
                 src={`${restaurants[0]?.image.image_url}`}
                 alt=""
                 sizes=""
               />
-            </div>{" "}
+            </div> */}
             <div className="my-5">
               <h2>Why we curated this for you </h2>
               <ul>

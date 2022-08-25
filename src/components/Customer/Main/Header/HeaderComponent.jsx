@@ -13,7 +13,7 @@ export default function HeaderComponent() {
             <Link to="/">Body Constitution</Link>
           </li>
           <li>
-            <Link to="/">Body Recovery </Link>
+            <Link to="/main/body-recovery">Body Recovery </Link>
           </li>
           <li>
             <Link to="/">Guided Practices</Link>

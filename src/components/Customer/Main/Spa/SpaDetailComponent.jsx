@@ -90,13 +90,13 @@ export default function SpaDetailComponent() {
                 </button>
               </div>
             </div>
-            <div>
+            {/* <div>
               <img
                 className={styles.restaurant_detail_images}
                 src={`${spas[0]?.image.image_url}`}
                 alt="hehe"
               />
-            </div>{" "}
+            </div>{" "} */}
             <div className="my-5">
               <h2>Qi-moving full body massage </h2>
               <ul>

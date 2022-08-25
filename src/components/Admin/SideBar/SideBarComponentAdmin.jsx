@@ -11,6 +11,10 @@ export default function SideBarComponentAdmin() {
       text: "Hotels Manager",
       to: `hotel`,
     },
+    {
+      text: "Body Recovery Manager",
+      to: `body-recovery`,
+    },
   ];
   const showLinks = () => {
     return links.map((link, index) => {
