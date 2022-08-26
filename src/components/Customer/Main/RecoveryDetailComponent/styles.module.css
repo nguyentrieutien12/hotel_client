@@ -1,0 +1,12 @@
+.video {
+  width: 100%;
+  height: 500px;
+  border-radius: 100px 100px 100px 100px;
+}
+.video_container {
+  color: white;
+}
+.recover {
+  border-top: 2px solid white;
+  padding-top: 20px;
+}

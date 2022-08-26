@@ -11,12 +11,10 @@ form input {
 form .form-group {
   margin-top: 20px;
 }
-.main_container {
-  padding-top: 30px;
-}
+
 .active_quiz {
   background-color: red;
 }
 .next_icon {
-  color: red;
+  color: rgb(7, 163, 28);
 }

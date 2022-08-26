@@ -20,7 +20,6 @@ export default function DishForm(props) {
         <div className="form-group">
           <label>label</label>
           <input
-            type={"number"}
             name="dishe_description"
             className="form-control"
             placeholder="Input field"
