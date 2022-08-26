@@ -1,3 +1,6 @@
+* {
+  list-style: none;
+}
 .card img {
   height: 300px;
   object-fit: cover;
@@ -20,15 +23,44 @@
   background: #31281f6f;
   border-radius: 10px 10px 10px 40px;
 }
-.card h3 {
+.card h4 {
   position: absolute;
   top: 10px;
   left: 10px;
   z-index: 100;
+  border-bottom: 1px solid white;
+}
+.line {
+  width: 100%;
+  background-color: white;
 }
 .card h2 {
   position: absolute;
   top: 80px;
   left: 10px;
   z-index: 100;
+}
+.item {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #f8eee4;
+  border-radius: 40px;
+  text-align: center;
+  color: #f8eee4;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.item:hover {
+  background-color: #073e0d;
+}
+.bgColor {
+  background-color: #073e0d;
+}
+.text {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white !important;
+  z-index: 1000;
 }

@@ -30,6 +30,7 @@ import SpaContainer from "./containers/Customer/Spa/SpaContainer";
 import SpaDetailContainer from "./containers/Customer/Spa/SpaDetailContainer";
 import BodyRecoveryContainerAdmin from "./containers/Admin/BodyRecovery/BodyRecoveryContainerAdmin";
 import BodyRecoveryContainerCustomer from "./containers/Customer/BodyRecoveryContainerCustomer/BodyRecoveryContainerCustomer";
+import RecoveryDetailContainer from "./containers/Customer/RecoveryDetailContainer/RecoveryDetailContainer";
 export default function App() {
   return (
     <div>
@@ -44,6 +45,10 @@ export default function App() {
             <Route
               path="body-recovery"
               element={<BodyRecoveryContainerCustomer />}
+            ></Route>{" "}
+            <Route
+              path="body-recovery/:recoveryId"
+              element={<RecoveryDetailContainer />}
             ></Route>
             <Route
               path="hotel/:hotelId"
