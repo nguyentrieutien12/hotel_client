@@ -8,7 +8,6 @@ import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./resutaurant.module.css";
 import { setRecommendList } from "../../../../features/recommend/recommend";
-import { isCheckActive } from "./../../../../helpers/checkIsActive";
 export default function RestaurantDetailComponent() {
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
@@ -94,7 +93,6 @@ export default function RestaurantDetailComponent() {
     setIsActive((prevState) => !prevState);
   };
 
-  let result = isCheckActive(recommend, "restaurant", restaurants[0]?.id);
   if (restaurants[0]?.dishs.length > 0) {
     return (
       <div>
@@ -109,10 +107,11 @@ export default function RestaurantDetailComponent() {
                 className={`restaurant_detail_header_option ${styles.restaurant_detail_header_option}`}
               >
                 <SaveRecommentComponent
-                  isActive={result}
                   type="restaurant"
                   id={restaurants[0]?.id}
                   handleUpdate={handleUpdate}
+                  recommend={recommend}
+                  data={restaurants}
                 />
               </div>
             </div>

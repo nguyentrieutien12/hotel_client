@@ -1,4 +1,5 @@
 export const isCheckActive = (list, type, id) => {
+  console.log(list);
   const x = list.filter((item) => {
     console.log(item);
     console.log(type);

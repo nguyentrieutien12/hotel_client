@@ -6,14 +6,24 @@ import { useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
 import { Tooltip } from "react-tippy";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import { useSelector, useDispatch } from "react-redux";
+import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
+import { setRecommendList } from "../../../../features/recommend/recommend";
 export default function GymDetailComponent() {
   const [workouts, setWorkouts] = useState([]);
-
+  const recommend = useSelector((state) => state.recommend);
   const { gymId } = useParams();
+  const dispatch = useDispatch();
   useEffect(() => {
     getWorkouts().then((workouts) => {
       setWorkouts(workouts);
     });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend`)
+      .then((res) => res.data)
+      .then((data) => {
+        dispatch(setRecommendList(data));
+      });
   }, []);
   const getWorkouts = async () => {
     try {
@@ -82,6 +92,7 @@ export default function GymDetailComponent() {
       });
     }
   };
+  console.log(recommend);
   return (
     <div>
       <div>
@@ -93,12 +104,12 @@ export default function GymDetailComponent() {
                   {`Enjoy it at ${workouts[0]?.gym_name}` || "Loading name gym"}
                 </h1>
                 <div className={styles.restaurant_detail_header_option}>
-                  <button type="button" class="btn btn-success m-2">
-                    Save
-                  </button>
-                  <button type="button" class="btn btn-warning">
-                    RESERVE A TABLE
-                  </button>
+                  <SaveRecommentComponent
+                    type="gym"
+                    id={workouts[0]?.id}
+                    recommend={recommend}
+                    data={workouts}
+                  />
                 </div>
               </div>
               {/* <div>
