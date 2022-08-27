@@ -1,17 +1,28 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip } from "react-tippy";
+import { setRecommendList } from "../../../../features/recommend/recommend";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./../Restaurant/resutaurant.module.css";
 export default function SpaDetailComponent() {
   const [spas, setSpa] = useState([]);
+  const recommend = useSelector((state) => state.recommend);
+  const dispatch = useDispatch();
   const { spaId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
       setSpa([...dishs]);
     });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend`)
+      .then((res) => res.data)
+      .then((data) => {
+        dispatch(setRecommendList(data));
+      });
   }, []);
   const getAllRestaurantDetail = async () => {
     const result = await axios.get(
@@ -82,12 +93,12 @@ export default function SpaDetailComponent() {
                   "Loading name treatments"}
               </h1>
               <div className={styles.restaurant_detail_header_option}>
-                <button type="button" class="btn btn-success m-2">
-                  Save
-                </button>
-                <button type="button" class="btn btn-warning">
-                  RESERVE A TABLE
-                </button>
+                <SaveRecommentComponent
+                  type="spa"
+                  id={spas[0]?.id}
+                  recommend={recommend}
+                  data={spas}
+                />
               </div>
             </div>
             {/* <div>

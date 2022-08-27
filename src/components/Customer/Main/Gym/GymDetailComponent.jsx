@@ -12,8 +12,8 @@ import { setRecommendList } from "../../../../features/recommend/recommend";
 export default function GymDetailComponent() {
   const [workouts, setWorkouts] = useState([]);
   const recommend = useSelector((state) => state.recommend);
-  const { gymId } = useParams();
   const dispatch = useDispatch();
+  const { gymId } = useParams();
   useEffect(() => {
     getWorkouts().then((workouts) => {
       setWorkouts(workouts);

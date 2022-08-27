@@ -60,7 +60,7 @@ export default function QuizComponent() {
           {index !== allQuestion.length - 1 && (
             <div className={styles.btn_group}>
               <button
-                className="carousel-control-next"
+                className={`carousel-control-next ${styles.next_icon}`}
                 type="button"
                 data-target="#carouselExampleControls"
                 data-slide="next"
@@ -68,7 +68,7 @@ export default function QuizComponent() {
               >
                 <span className={`${styles.next_icon}`}>Next</span>
                 <span
-                  className={`carousel-control-next-icon`}
+                  className={`carousel-control-next-icon ${styles.next_icon}`}
                   aria-hidden="true"
                 ></span>
               </button>

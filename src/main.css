@@ -16,7 +16,7 @@ form .form-group {
   background-color: red;
 }
 .next_icon {
-  color: rgb(7, 163, 28);
+  color: black !important;
 }
 .restaurant_detail_header_option {
   display: flex;
