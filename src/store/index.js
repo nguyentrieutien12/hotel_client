@@ -9,6 +9,7 @@ import gymStore from "../features/gym/gym";
 import workoutStore from "../features/workout/workout";
 import quizStore from "../features/quiz/quiz";
 import isAnswer from "../features/quiz/isAnswer";
+import recommend from "../features/recommend/recommend";
 export const store = configureStore({
   reducer: {
     accounts: accountStore,
@@ -21,5 +22,6 @@ export const store = configureStore({
     workouts: workoutStore,
     quizs: quizStore,
     isAnswer,
+    recommend,
   },
 });

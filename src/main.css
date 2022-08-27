@@ -18,3 +18,14 @@ form .form-group {
 .next_icon {
   color: rgb(7, 163, 28);
 }
+.restaurant_detail_header_option {
+  display: flex;
+  align-items: center;
+}
+
+.fa-heart {
+  font-size: 30px;
+  color: white;
+  margin: 0 10px;
+  cursor: pointer;
+}

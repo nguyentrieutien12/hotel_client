@@ -2,16 +2,38 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { Tooltip } from "react-tippy";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./resutaurant.module.css";
+import { setRecommendList } from "../../../../features/recommend/recommend";
+import { isCheckActive } from "./../../../../helpers/checkIsActive";
 export default function RestaurantDetailComponent() {
+  const recommend = useSelector((state) => state.recommend);
+  const dispatch = useDispatch();
   const [restaurants, setRestaurant] = useState([]);
+  const [isActive, setIsActive] = useState(false);
   const { restaurantId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
       setRestaurant([...dishs]);
     });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend`)
+      .then((res) => res.data)
+      .then((data) => {
+        dispatch(setRecommendList(data));
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend`)
+      .then((res) => res.data)
+      .then((data) => {
+        dispatch(setRecommendList(data));
+      });
   }, []);
   const getAllRestaurantDetail = async () => {
     const result = await axios.get(
@@ -19,6 +41,7 @@ export default function RestaurantDetailComponent() {
     );
     return result.data;
   };
+
   const showDishs = () => {
     if (restaurants.length > 0) {
       return restaurants[0].dishs.map((dish) => {
@@ -67,6 +90,11 @@ export default function RestaurantDetailComponent() {
       });
     }
   };
+  const handleUpdate = () => {
+    setIsActive((prevState) => !prevState);
+  };
+
+  let result = isCheckActive(recommend, "restaurant", restaurants[0]?.id);
   if (restaurants[0]?.dishs.length > 0) {
     return (
       <div>
@@ -77,13 +105,15 @@ export default function RestaurantDetailComponent() {
                 {`Enjoy it at ${restaurants[0]?.restaurant_name}` ||
                   "Loading name restaurant"}
               </h1>
-              <div className={styles.restaurant_detail_header_option}>
-                <button type="button" class="btn btn-success m-2">
-                  Save
-                </button>
-                <button type="button" class="btn btn-warning">
-                  RESERVE A TABLE
-                </button>
+              <div
+                className={`restaurant_detail_header_option ${styles.restaurant_detail_header_option}`}
+              >
+                <SaveRecommentComponent
+                  isActive={result}
+                  type="restaurant"
+                  id={restaurants[0]?.id}
+                  handleUpdate={handleUpdate}
+                />
               </div>
             </div>
             {/* <div>
@@ -110,7 +140,7 @@ export default function RestaurantDetailComponent() {
           <div className="wrapper">
             <div className="restautant_title">
               <h1 style={{ color: " #f8eee4", fontFamily: "Tenor Sans" }}>
-                Food & drinks best suited for{" "}
+                Food & drinks best suited
               </h1>
             </div>
             <div className={`${styles.restaurant_container}`}>

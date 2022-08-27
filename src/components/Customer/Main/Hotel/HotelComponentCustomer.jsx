@@ -5,9 +5,12 @@ import { getCookie } from "../../../../helpers/cookie.helper";
 import styles from "./hotel.module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setRecommendList } from "../../../../features/recommend/recommend";
 export default function HotelComponentCustomer() {
   const [acc, setAcc] = useState({});
   const { hotelId } = useParams();
+  const dispatch = useDispatch();
   const [hotels, setHotel] = useState([]);
   useEffect(() => {
     account(getCookie("email")).then((account) => {
@@ -19,6 +22,9 @@ export default function HotelComponentCustomer() {
       .then((hotels) => {
         setHotel(hotels);
       });
+
+  
+    
   }, [hotelId]);
   if (hotels.length > 0) {
     return (
