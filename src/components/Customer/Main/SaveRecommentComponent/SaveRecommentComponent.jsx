@@ -31,9 +31,13 @@ export default function SaveRecommentComponent(props) {
         onClick={handleSaveRecomment}
         style={{ color: result ? "rgb(7, 163, 28)" : "white" }}
       ></i>
-      <button type="button" class="btn btn-warning">
-        RESERVE A TABLE
-      </button>
+      {props.isShow ? (
+        <button type="button" class="btn btn-warning">
+          RESERVE A TABLE
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

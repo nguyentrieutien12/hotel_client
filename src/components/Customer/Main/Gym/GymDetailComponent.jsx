@@ -92,7 +92,6 @@ export default function GymDetailComponent() {
       });
     }
   };
-  console.log(recommend);
   return (
     <div>
       <div>
@@ -109,6 +108,7 @@ export default function GymDetailComponent() {
                     id={workouts[0]?.id}
                     recommend={recommend}
                     data={workouts}
+                    isShow={true}
                   />
                 </div>
               </div>

@@ -112,6 +112,7 @@ export default function RestaurantDetailComponent() {
                   handleUpdate={handleUpdate}
                   recommend={recommend}
                   data={restaurants}
+                  isShow={true}
                 />
               </div>
             </div>

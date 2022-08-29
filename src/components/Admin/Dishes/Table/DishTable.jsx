@@ -2,7 +2,6 @@ import React from "react";
 
 export default function DishTable(props) {
   const { dishes } = props;
-  console.log(dishes);
   const showImage = (images) => {
     return images.map((image) => {
       return `${image.image_url}\n`;

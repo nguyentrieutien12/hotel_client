@@ -122,7 +122,6 @@ export default function BodyRecoveryContainerAdmin() {
     }
   };
   const handleUpdate = (recoveryObj) => {
-    console.log(recoveryObj);
     const {
       id,
       body_recovery_name,

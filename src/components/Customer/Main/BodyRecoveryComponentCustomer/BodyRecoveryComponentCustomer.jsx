@@ -6,7 +6,6 @@ import { account as accountPrivate } from "./../../../../helpers/account.helper"
 import styles from "./recovery.module.css";
 import { Link } from "react-router-dom";
 export default function BodyRecoveryComponentCustomer(props) {
-  console.log(props);
   const [account, setAccount] = useState(null);
   const [bodyRecovery, setBodyRecovery] = useState([]);
   const [recovery, setRecovery] = useState([]);

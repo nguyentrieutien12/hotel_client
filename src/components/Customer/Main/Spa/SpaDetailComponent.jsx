@@ -98,6 +98,7 @@ export default function SpaDetailComponent() {
                   id={spas[0]?.id}
                   recommend={recommend}
                   data={spas}
+                  isShow={true}
                 />
               </div>
             </div>
