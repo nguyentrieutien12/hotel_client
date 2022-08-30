@@ -1,14 +1,17 @@
 import axios from "axios";
 import React from "react";
 import { useAlert } from "react-alert";
+import { useParams } from "react-router-dom";
 import { isCheckActive } from "./../../../../helpers/checkIsActive";
 export default function SaveRecommentComponent(props) {
   const alert = useAlert();
+  const params = useParams();
+  console.log(params);
   const handleSaveRecomment = async () => {
     try {
       const result = await axios.post(
         `${import.meta.env.VITE_BACKEND_SITE}/recommend/${props.type}`,
-        { id: props?.id, type: props?.type }
+        { id: props?.id, type: props?.type, hotel: params?.hotelId }
       );
       const { message, statusCode } = result.data;
       if (statusCode === 201) {

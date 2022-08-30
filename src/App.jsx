@@ -31,6 +31,7 @@ import SpaDetailContainer from "./containers/Customer/Spa/SpaDetailContainer";
 import BodyRecoveryContainerAdmin from "./containers/Admin/BodyRecovery/BodyRecoveryContainerAdmin";
 import BodyRecoveryContainerCustomer from "./containers/Customer/BodyRecoveryContainerCustomer/BodyRecoveryContainerCustomer";
 import RecoveryDetailContainer from "./containers/Customer/RecoveryDetailContainer/RecoveryDetailContainer";
+import ProfileComponent from "./components/Customer/Main/ProfileComponent/ProfileComponent";
 export default function App() {
   return (
     <div>
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/main" element={<MainComponent />}>
             <Route index element={<BodyMenuComponent />}></Route>
             <Route path="quiz" element={<QuizComponent />}></Route>
+            <Route path="profile" element={<ProfileComponent />}></Route>
             <Route
               path="body-recovery"
               element={<BodyRecoveryContainerCustomer />}

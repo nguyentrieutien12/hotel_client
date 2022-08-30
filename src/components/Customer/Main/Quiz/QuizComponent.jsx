@@ -68,8 +68,8 @@ export default function QuizComponent() {
               >
                 <span className={`${styles.next_icon}`}>Next</span>
                 <span
-                  className={`carousel-control-next-icon ${styles.next_icon}`}
-                  aria-hidden="true"
+                  style={{ color: "black" }}
+                  className={` ${styles.next_icon}`}
                 ></span>
               </button>
             </div>

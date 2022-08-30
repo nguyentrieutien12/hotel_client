@@ -58,7 +58,7 @@ export default function HeaderComponent() {
             <Link to="/">Guided Practices</Link>
           </li>
           <li onClick={handleCloseMenu}>
-            <Link to="/">My Profile</Link>
+            <Link to="/main/profile">My Profile</Link>
           </li>
           <li onClick={handleCloseMenu}>
             <Link to="/">About Us</Link>
