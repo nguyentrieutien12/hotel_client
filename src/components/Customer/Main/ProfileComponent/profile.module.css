@@ -1,7 +1,6 @@
 * {
   font-family: "Tenor Sans";
   font-style: normal;
-  color: white;
 }
 .card {
   border-radius: 10px 10px 10px 40px !important;
@@ -118,4 +117,19 @@
   right: 20px;
   color: white !important;
   z-index: 1000;
+}
+.profile_container {
+  color: white;
+}
+.edit_btn {
+  background: #a56c50;
+  border-radius: 40px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.edit_btn:hover {
+  border-radius: 80px;
+  color: #a56c50;
+  background-color: white;
 }

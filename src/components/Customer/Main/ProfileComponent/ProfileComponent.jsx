@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import { account as getAccount } from "../../../../helpers/account.helper";
 import styles from "./profile.module.css";
 import axios from "axios";
-import { Tooltip } from "react-tippy";
 import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
 export default function ProfileComponent() {
   const [account, setAccount] = useState(null);
   const [recommend, setRecommend] = useState([]);
   const [recovery, setRecovery] = useState([]);
   const [recommendMain, setRecommendMain] = useState([]);
   const [value, setValue] = useState("restaurant");
-
+  const [updateAccount, setUpdateAccount] = useState(null);
+  const alert = useAlert();
   useEffect(() => {
     getAccount().then((account) => {
       setAccount(account);
+      delete account.password;
+      delete account.role;
+      setUpdateAccount(account);
     });
     axios
       .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend/all`)
@@ -65,13 +69,12 @@ export default function ProfileComponent() {
   const showRecovery = () => {
     return recovery.map((recovery) => {
       if (recovery.recoverys) {
-        console.log(recovery);
         return (
           <div
             key={recovery?.id}
             className={`col-xs-3 col-sm-3 col-md-3 col-lg-3`}
           >
-            <Link to={`#`}>
+            <Link to={`/main/body-recovery/${recovery?.recoverys?.id}`}>
               <div className={`card ${styles.card} my-3`}>
                 <img
                   className="card-img-top"
@@ -92,9 +95,160 @@ export default function ProfileComponent() {
       }
     });
   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUpdateAccount((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  };
+  const handleUpdate = async () => {
+    try {
+      const result = await axios.patch(
+        `${import.meta.env.VITE_BACKEND_SITE}/accounts/${account?.id}`,
+        updateAccount
+      );
+      const data = result.data;
+      const { statusCode, message } = data;
+      if (statusCode === 202) {
+        return window.location.reload();
+      } else {
+      }
+    } catch (error) {
+      if (error.response) {
+        const { message } = error.response.data;
+        alert.error(message);
+      }
+    }
+  };
   return (
-    <div>
-      <h1>Hello {account?.username}</h1>
+    <div className={styles.profile_container}>
+      <div
+        className={`header d-flex justify-content-between align-items-center`}
+      >
+        <h1>Hello {account?.username}</h1>
+        <p
+          className={`${styles.edit_btn} `}
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          EDIT PROFILE
+        </p>
+        {/* <!-- Modal --> */}
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5
+                  style={{ color: "black" }}
+                  class="modal-title"
+                  id="exampleModalLabel"
+                >
+                  Update Account
+                </h5>
+                <div data-dismiss="modal" aria-label="Close">
+                  X
+                </div>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    name="username"
+                    value={updateAccount?.username}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Email"
+                    name="email"
+                    value={updateAccount?.email}
+                    onChange={handleChange}
+                  />
+                </div>{" "}
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="address"
+                    name="address"
+                    value={updateAccount?.address}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Confirm Password</label>
+
+                  <select
+                    name="sex"
+                    id="input"
+                    class="form-control"
+                    required="required"
+                    value={updateAccount?.sex}
+                    onChange={handleChange}
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">FeMale</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="password"
+                    name="password"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Confirm Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Confirm Passowrd"
+                    name="comfirmPassword"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={handleUpdate}
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <span>
         Here you can access your past assessment results and save favorites
       </span>
@@ -115,7 +269,7 @@ export default function ProfileComponent() {
           </p>
         </div>
         <div class="collapse" id="collapseExample">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
             <select
               id="input"
               class="form-control"

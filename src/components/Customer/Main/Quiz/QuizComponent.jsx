@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setQuizList } from "../../../../features/quiz/quiz";
 import { getCookie, setCookie } from "../../../../helpers/cookie.helper";
-import { setIsAnswer } from "../../../../features/quiz/isAnswer";
 export default function QuizComponent() {
   const [anwser, setAnwser] = useState([]);
   const [list, setList] = useState([]);

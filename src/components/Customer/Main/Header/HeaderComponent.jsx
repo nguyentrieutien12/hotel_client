@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 export default function HeaderComponent() {
+  const navigate = useNavigate();
   const handleShowMenu = () => {
     const menu = document.querySelector(".menu");
     const menu_fake = document.querySelector(".menu_fake");
@@ -17,6 +19,18 @@ export default function HeaderComponent() {
     menu.classList.remove(`active_menu`);
     menu_fake.classList.remove(`${styles.show_fake}`);
     menu.classList.remove(`active_menu_fake`);
+  };
+  const handleSignOut = () => {
+    const cookies = document.cookie.split(";");
+    const key = [];
+    for (const cookie of cookies) {
+      const eqPos = cookie.indexOf("=");
+      key.push(cookie.slice(0, eqPos).trim());
+    }
+    key.forEach((cookie) => {
+      Cookies.remove(cookie); // removed!
+    });
+    document.location.reload(true);
   };
   return (
     <div className={styles.wrapper}>
@@ -66,8 +80,8 @@ export default function HeaderComponent() {
           <li onClick={handleCloseMenu}>
             <Link to="/">Feedback</Link>
           </li>{" "}
-          <li>
-            <Link to="/">Sign Out</Link>
+          <li onClick={handleSignOut}>
+            <Link to="#">Sign Out</Link>
           </li>
         </ul>
       </div>
