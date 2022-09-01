@@ -42,7 +42,7 @@ export default function HomeComponentCus() {
               style={{ color: "white" }}
               title="Click To Answer Question"
             >
-              <i className="fa-solid fa-angle-right"> '^^' </i>
+              <i className="fa-solid fa-angle-right"> </i>
             </Link>
           </Carousel.Caption>
         </Carousel.Item>

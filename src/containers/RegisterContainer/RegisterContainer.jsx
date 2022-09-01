@@ -32,7 +32,6 @@ export default function RegisterContainer() {
       );
       const data = result.data;
       const { statusCode, message } = data;
-      console.log(statusCode);
       if (statusCode === 201) {
         alert.success(message);
         setAccountRegister({

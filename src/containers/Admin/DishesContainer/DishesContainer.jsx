@@ -25,7 +25,6 @@ export default function DishesContainer() {
       dispatch(setDishList(dishes));
     });
   }, []);
-  console.log(dishes);
   const handleChange = (e) => {
     const { value, name } = e.target;
     setDish((prevState) => {

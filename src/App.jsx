@@ -23,6 +23,15 @@ import BodyMenuComponent from "./components/Customer/Main/BodyMenuComponent/Body
 import QuizComponent from "./components/Customer/Main/Quiz/QuizComponent";
 import HotelCustomerContainer from "./containers/Customer/Hotel/HotelCustomerContainer";
 import RestaurantContainer from "./containers/Customer/Restaurant/RestaurantContainer";
+import RestaurantDetailContainer from "./containers/Customer/Restaurant/RestaurantDetailContainer";
+import GymContainer from "./containers/Customer/Gym/GymContainer";
+import GymDetailContainer from "./containers/Customer/Gym/GymDetailContainer";
+import SpaContainer from "./containers/Customer/Spa/SpaContainer";
+import SpaDetailContainer from "./containers/Customer/Spa/SpaDetailContainer";
+import BodyRecoveryContainerAdmin from "./containers/Admin/BodyRecovery/BodyRecoveryContainerAdmin";
+import BodyRecoveryContainerCustomer from "./containers/Customer/BodyRecoveryContainerCustomer/BodyRecoveryContainerCustomer";
+import RecoveryDetailContainer from "./containers/Customer/RecoveryDetailContainer/RecoveryDetailContainer";
+import ProfileComponent from "./components/Customer/Main/ProfileComponent/ProfileComponent";
 export default function App() {
   return (
     <div>
@@ -34,6 +43,15 @@ export default function App() {
           <Route path="/main" element={<MainComponent />}>
             <Route index element={<BodyMenuComponent />}></Route>
             <Route path="quiz" element={<QuizComponent />}></Route>
+            <Route path="profile" element={<ProfileComponent />}></Route>
+            <Route
+              path="body-recovery"
+              element={<BodyRecoveryContainerCustomer />}
+            ></Route>{" "}
+            <Route
+              path="body-recovery/:recoveryId"
+              element={<RecoveryDetailContainer />}
+            ></Route>
             <Route
               path="hotel/:hotelId"
               element={<HotelCustomerContainer />}
@@ -41,12 +59,30 @@ export default function App() {
             <Route
               path="hotel/:hotelId/restaurant"
               element={<RestaurantContainer />}
+            ></Route>{" "}
+            <Route
+              path="hotel/:hotelId/restaurant/:restaurantId"
+              element={<RestaurantDetailContainer />}
+            ></Route>{" "}
+            <Route path="hotel/:hotelId/gym" element={<GymContainer />}></Route>
+            <Route
+              path="hotel/:hotelId/gym/:gymId"
+              element={<GymDetailContainer />}
             ></Route>
+            <Route path="hotel/:hotelId/spa" element={<SpaContainer />}></Route>{" "}
+            <Route
+              path="hotel/:hotelId/spa/:spaId"
+              element={<SpaDetailContainer />}
+            ></Route>{" "}
           </Route>
           <Route path="/dashboard" element={<ProtectedLayout />}>
             <Route index element={<MainContainerAdmin />} />
             <Route path="profile" element={<ProfileContainerAdmin />} />
             <Route path="account" element={<AccountContainerAdmin />} />
+            <Route
+              path="body-recovery"
+              element={<BodyRecoveryContainerAdmin />}
+            />
             <Route path="hotel" element={<HotelContainerAdmin />} />
             <Route path="hotel/:id" element={<OptionContainerAdmin />}>
               <Route path="spa" element={<SpaContainerAdmin />}></Route>

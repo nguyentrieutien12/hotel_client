@@ -2,9 +2,13 @@
   background-color: #b99173;
   height: max-content;
   width: 100%;
+  overflow-x: hidden;
+}
+.main_header {
   padding: 10px 100px;
 }
-.footer {
+
+/* .footer {
   width: 100%;
   text-align: center;
-}
+} */

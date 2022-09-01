@@ -14,6 +14,7 @@
   font-family: "Tenor Sans";
   font-style: normal;
   color: rgba(0, 0, 0, 0.684) !important;
+  border-radius: 10px 10px 10px 40px !important;
 }
 .card a {
   color: rgba(0, 0, 0, 0.684) !important;

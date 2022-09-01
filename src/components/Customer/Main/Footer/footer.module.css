@@ -1,0 +1,36 @@
+.footer_container {
+  padding: 100px 50px 0 50px;
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  color: #f8eee4;
+}
+.footer_container button {
+  background: #f8eee4;
+  border-radius: 100px;
+  color: #523922;
+  padding: 10px 40px !important;
+  transition: 0.5s ease;
+  outline: none;
+  border: 1px solid white !important;
+}
+.footer_container button:hover {
+  background-color: #523922;
+  color: #f8eee4;
+}
+.footer_container input {
+  outline: none !important;
+  border: none !important;
+  padding: 10px;
+  border-radius: 0px;
+}
+.accsio i {
+  background-color: white;
+  border-radius: 100%;
+  color: #523922;
+  cursor: pointer;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+}

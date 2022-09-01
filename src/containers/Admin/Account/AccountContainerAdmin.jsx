@@ -31,7 +31,7 @@ export default function AccountContainerAdmin() {
       dispatch(setAccount(accounts));
     });
   }, []);
-// Kkkk
+  // Kkkk
   const getAllAccount = async () => {
     try {
       const result = await axios.get(
@@ -139,7 +139,7 @@ export default function AccountContainerAdmin() {
           });
           return alert.success(message);
         }
-        return alert.success(message);
+        return alert.error(message);
       } catch (error) {
         console.log(error);
       }

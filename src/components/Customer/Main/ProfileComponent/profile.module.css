@@ -1,0 +1,135 @@
+* {
+  font-family: "Tenor Sans";
+  font-style: normal;
+}
+.card {
+  border-radius: 10px 10px 10px 40px !important;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.card h5 {
+  color: black;
+  margin: 0;
+}
+
+.card p {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-size: 20px;
+  color: #ca5903;
+  text-align: center;
+  z-index: 1;
+}
+.restaurant_detail_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.restaurant_description {
+  padding: 20px;
+}
+.restaurant_detail_container {
+  height: 100%;
+  overflow: hidden;
+}
+.cons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  margin: 50px 0 !important;
+}
+.cons p {
+  background: #073e0d;
+  border-radius: 100px;
+  padding: 10px;
+  font-size: 18px;
+}
+* {
+  list-style: none;
+}
+.card img {
+  height: 300px;
+  object-fit: cover;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.card {
+  position: relative;
+  border-radius: 10px 10px 10px 40px !important;
+  color: white;
+}
+.card::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 10px 40px;
+}
+.card h4 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  border-bottom: 1px solid white;
+}
+.line {
+  width: 100%;
+  background-color: white;
+}
+.card h2 {
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  z-index: 100;
+}
+.item {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #f8eee4;
+  border-radius: 40px;
+  text-align: center;
+  color: #f8eee4;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.item:hover {
+  background-color: #073e0d;
+}
+.bgColor {
+  background-color: #073e0d;
+}
+.text {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white !important;
+  z-index: 1000;
+}
+.profile_container {
+  color: white;
+}
+.edit_btn {
+  background: #a56c50;
+  border-radius: 40px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.edit_btn:hover {
+  border-radius: 80px;
+  color: #a56c50;
+  background-color: white;
+}

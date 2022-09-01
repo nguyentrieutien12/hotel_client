@@ -38,26 +38,38 @@ export default function BodyMenuComponent() {
             </div>
             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <div className={`card ${styles.card}`}>
-                <img
-                  className="card-img-top"
-                  src="image 4.png"
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h1 className="card-title">Body Recovery</h1>
-                </div>
+                <Link to="body-recovery">
+                  <img
+                    className="card-img-top"
+                    src="image 4.png"
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h1 className="card-title">Body Recovery</h1>
+                    <p className="card-text">
+                      Discover your unique body through our assessment. Learn
+                      how to attend to its needs for greater wellbeing!
+                    </p>
+                  </div>
+                </Link>
               </div>
             </div>
             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <div className={`card ${styles.card}`}>
-                <img
-                  className="card-img-top"
-                  src="image5.png"
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h1 className="card-title">Guided Practices</h1>
-                </div>
+                <Link to="quiz">
+                  <img
+                    className="card-img-top"
+                    src="image5.png"
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h1 className="card-title">Guided Practices</h1>
+                    <p className="card-text">
+                      Discover your unique body through our assessment. Learn
+                      how to attend to its needs for greater wellbeing!
+                    </p>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
