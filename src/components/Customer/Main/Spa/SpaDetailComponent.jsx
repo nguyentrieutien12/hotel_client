@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip } from "react-tippy";
 import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./../Restaurant/resutaurant.module.css";
@@ -15,6 +16,9 @@ export default function SpaDetailComponent() {
   const { spaId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
+      if (dishs?.length === 0) {
+        return setSpa(null);
+      }
       setSpa([...dishs]);
     });
     axios
@@ -82,11 +86,17 @@ export default function SpaDetailComponent() {
       });
     }
   };
+  if (!spas) {
+    return <EmptyProduct name="Treatment" />;
+  }
+  if (spas.length === 0) {
+    return <LoadingComponent />;
+  }
   if (spas[0]?.treatments.length > 0) {
     return (
       <div>
         <div className="restaurant_detail_container">
-          <div>
+          <div style={{ color: "white" }}>
             <div className={styles.restaurant_detail_header}>
               <h1>
                 {`Enjoy it at ${spas[0]?.spa_name}` ||
@@ -136,5 +146,4 @@ export default function SpaDetailComponent() {
       </div>
     );
   }
-  return <EmptyProduct name="Treatment" />;
 }

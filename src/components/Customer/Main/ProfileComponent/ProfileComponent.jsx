@@ -25,6 +25,7 @@ export default function ProfileComponent() {
       .then((recommends) => {
         console.log(recommends);
         const { recommend, recovery } = recommends;
+        console.log(recommend);
         setRecommend(recommend);
         setRecovery(recovery);
         setRecommendMain(recommend);
@@ -49,7 +50,9 @@ export default function ProfileComponent() {
           <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <div className={`card ${styles.card}`}>
               <div className="card-header">
-                <Link to={`#`}>
+                <Link
+                  to={`/main/hotel/${v?.hotel?.id}/${value}/${v?.[value]?.id}`}
+                >
                   <h5 className="card-title">{v[value]?.[name]}</h5>
                 </Link>
               </div>

@@ -1,0 +1,8 @@
+.empty_container {
+  height: 400px;
+  line-height: 400px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
