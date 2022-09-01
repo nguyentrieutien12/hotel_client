@@ -37,6 +37,7 @@ export default function ProfileComponent() {
     setValue(value);
     setRecommend(list);
   };
+  // PUSH 1
   const showRecommend = () => {
     if (recommend.length > 0) {
       const list = recommendMain.filter(
