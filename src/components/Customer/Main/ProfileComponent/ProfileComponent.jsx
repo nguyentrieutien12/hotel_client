@@ -25,6 +25,7 @@ export default function ProfileComponent() {
       .then((recommends) => {
         console.log(recommends);
         const { recommend, recovery } = recommends;
+        console.log(recommend);
         setRecommend(recommend);
         setRecovery(recovery);
         setRecommendMain(recommend);
