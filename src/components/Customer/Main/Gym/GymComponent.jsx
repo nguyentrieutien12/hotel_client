@@ -6,6 +6,7 @@ import { Tooltip } from "react-tippy";
 import { Link, useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function GymComponent() {
   const [restaurants, setRestaurants] = useState([]);
   const { hotelId } = useParams();
@@ -72,6 +73,9 @@ export default function GymComponent() {
       });
     }
   };
+  if (restaurants?.length === 0) {
+    return <LoadingComponent />;
+  }
   if (restaurants[0]?.gyms.length > 0) {
     return (
       <div>

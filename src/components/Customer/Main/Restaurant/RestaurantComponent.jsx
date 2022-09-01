@@ -6,11 +6,13 @@ import "react-tippy/dist/tippy.css";
 import { Tooltip } from "react-tippy";
 import { Link } from "react-router-dom";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function RestaurantComponent() {
   const [restaurants, setRestaurant] = useState([]);
   const { hotelId } = useParams();
   useEffect(() => {
     restaurantsByHotelId().then((restaurants) => {
+      console.log(restaurants);
       setRestaurant(restaurants);
     });
   }, []);
@@ -68,6 +70,9 @@ export default function RestaurantComponent() {
     );
     return result.data;
   };
+  if (restaurants.length === 0) {
+    return <LoadingComponent />;
+  }
   if (restaurants[0]?.restaurants.length > 0) {
     return (
       <div className="wrapper">

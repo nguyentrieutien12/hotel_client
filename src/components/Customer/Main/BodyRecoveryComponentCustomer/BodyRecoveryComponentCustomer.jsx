@@ -88,7 +88,7 @@ export default function BodyRecoveryComponentCustomer(props) {
   if (props.isMain) {
     return (
       <div>
-        <div className="row">
+        <div className="row text-white">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1>Welcome back, {account?.username}!</h1>
             <h4 className="my-5">
@@ -98,7 +98,7 @@ export default function BodyRecoveryComponentCustomer(props) {
         </div>
         <div className="row">
           <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <ul>
+            <ul style={{ padding: "0px" }}>
               {recovery?.map((recovery) => {
                 return (
                   <li
@@ -113,7 +113,10 @@ export default function BodyRecoveryComponentCustomer(props) {
                   </li>
                 );
               })}
-              <li className={`${styles.item} item`} onClick={handleClick}>
+              <li
+                className={`${styles.item} ${styles.bgColor} item`}
+                onClick={handleClick}
+              >
                 All
               </li>
             </ul>

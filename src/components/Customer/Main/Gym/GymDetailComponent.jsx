@@ -9,6 +9,7 @@ import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import { useSelector, useDispatch } from "react-redux";
 import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function GymDetailComponent() {
   const [workouts, setWorkouts] = useState([]);
   const recommend = useSelector((state) => state.recommend);
@@ -92,6 +93,9 @@ export default function GymDetailComponent() {
       });
     }
   };
+  if (workouts.length === 0) {
+    return <LoadingComponent />;
+  }
   return (
     <div>
       <div>

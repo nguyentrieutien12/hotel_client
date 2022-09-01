@@ -22,9 +22,6 @@ export default function HotelComponentCustomer() {
       .then((hotels) => {
         setHotel(hotels);
       });
-
-  
-    
   }, [hotelId]);
   if (hotels.length > 0) {
     return (

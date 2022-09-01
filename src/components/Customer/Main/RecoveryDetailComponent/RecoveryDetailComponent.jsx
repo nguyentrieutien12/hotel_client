@@ -8,6 +8,7 @@ import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentCompo
 import styles from "./styles.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function RecoveryDetailComponent() {
   const [recovery, setRecovery] = useState(null);
   const [recoveryList, setRecoveryList] = useState([]);
@@ -62,7 +63,7 @@ export default function RecoveryDetailComponent() {
           <iframe
             className={styles.video}
             allow="autoplay; encrypted-media"
-            src={recovery.video.video_url}
+            src={recovery?.video?.video_url}
             frameborder="0"
             allowfullscreen
           ></iframe>
@@ -97,5 +98,9 @@ export default function RecoveryDetailComponent() {
       </div>
     );
   }
-  return <h1>LOADING DATA . . .</h1>;
+  return (
+    <h1>
+      <LoadingComponent />
+    </h1>
+  );
 }

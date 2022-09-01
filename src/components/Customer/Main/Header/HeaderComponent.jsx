@@ -69,9 +69,6 @@ export default function HeaderComponent() {
             <Link to="/main/body-recovery">Body Recovery </Link>
           </li>
           <li onClick={handleCloseMenu}>
-            <Link to="/">Guided Practices</Link>
-          </li>
-          <li onClick={handleCloseMenu}>
             <Link to="/main/profile">My Profile</Link>
           </li>
           <li onClick={handleCloseMenu}>
