@@ -25,7 +25,6 @@ export default function ProfileComponent() {
       .then((recommends) => {
         console.log(recommends);
         const { recommend, recovery } = recommends;
-        console.log(recommend);
         setRecommend(recommend);
         setRecovery(recovery);
         setRecommendMain(recommend);
@@ -38,7 +37,13 @@ export default function ProfileComponent() {
     setRecommend(list);
   };
   // PUSH 1
+
   const showRecommend = () => {
+    if (recommend.length === 0) {
+      return (
+        <h1 className="text-center">{`${value.toUpperCase()} Is Empty `}</h1>
+      );
+    }
     if (recommend.length > 0) {
       const list = recommendMain.filter(
         (recommend) => recommend.type === value
@@ -71,6 +76,10 @@ export default function ProfileComponent() {
     }
   };
   const showRecovery = () => {
+    const IsEmpty = recovery.every((recovery) => recovery.recoverys === null);
+    if (IsEmpty) {
+      return <h1 className="text-center">Body Recovery Is Empty</h1>;
+    }
     return recovery.map((recovery) => {
       if (recovery.recoverys) {
         return (
