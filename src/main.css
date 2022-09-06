@@ -1,0 +1,31 @@
+form {
+  padding: 10px;
+  box-shadow: 2px 2px 2px #04aa6d !important;
+  border-radius: 5px;
+}
+form input {
+  border-radius: 0px !important;
+  outline: none !important;
+  border-color: none !important;
+}
+form .form-group {
+  margin-top: 20px;
+}
+
+.active_quiz {
+  background-color: red;
+}
+.next_icon {
+  color: black !important;
+}
+.restaurant_detail_header_option {
+  display: flex;
+  align-items: center;
+}
+
+.fa-heart {
+  font-size: 30px;
+  color: white;
+  margin: 0 10px;
+  cursor: pointer;
+}

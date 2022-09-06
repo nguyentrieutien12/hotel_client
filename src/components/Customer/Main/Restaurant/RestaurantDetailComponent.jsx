@@ -10,11 +10,12 @@ import styles from "./resutaurant.module.css";
 import { setRecommendList } from "../../../../features/recommend/recommend";
 import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function RestaurantDetailComponent() {
+  const params = useParams();
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
   const [restaurants, setRestaurant] = useState([]);
   const [isActive, setIsActive] = useState(false);
-  const { restaurantId } = useParams();
+  const { hotelId, restaurantId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
       if (dishs?.length === 0) {
@@ -123,6 +124,8 @@ export default function RestaurantDetailComponent() {
                   recommend={recommend}
                   data={restaurants}
                   isShow={true}
+                  hotelId={hotelId}
+                  detailId={restaurantId}
                 />
               </div>
             </div>

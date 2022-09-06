@@ -13,7 +13,7 @@ export default function SpaDetailComponent() {
   const [spas, setSpa] = useState([]);
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
-  const { spaId } = useParams();
+  const { spaId, hotelId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
       if (dishs?.length === 0) {
@@ -109,6 +109,8 @@ export default function SpaDetailComponent() {
                   recommend={recommend}
                   data={spas}
                   isShow={true}
+                  hotelId={hotelId}
+                  detailId={spaId}
                 />
               </div>
             </div>

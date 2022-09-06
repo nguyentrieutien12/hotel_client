@@ -14,7 +14,7 @@ export default function GymDetailComponent() {
   const [workouts, setWorkouts] = useState([]);
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
-  const { gymId } = useParams();
+  const { gymId, hotelId } = useParams();
   useEffect(() => {
     getWorkouts().then((workouts) => {
       if (workouts?.length === 0) {
@@ -120,6 +120,8 @@ export default function GymDetailComponent() {
                   recommend={recommend}
                   data={workouts}
                   isShow={true}
+                  hotelId={hotelId}
+                  detailId={gymId}
                 />
               </div>
             </div>
