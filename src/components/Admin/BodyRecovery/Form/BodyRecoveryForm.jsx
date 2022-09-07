@@ -5,12 +5,12 @@ export default function BodyRecoveryForm(props) {
   return (
     <div>
       <form action="" method="POST" role="form">
-        <legend>Form title</legend>
+        <legend>Body Recovery Form</legend>
         <div className="form-group">
           <label htmlFor="">name</label>
           <input
             className="form-control"
-            placeholder="Input "
+            placeholder="Enter Name "
             name="body_recovery_name"
             onChange={props.handleChange}
             value={recovery.body_recovery_name}
@@ -20,7 +20,7 @@ export default function BodyRecoveryForm(props) {
           <label htmlFor="">description</label>
           <input
             className="form-control"
-            placeholder="Input "
+            placeholder="Enter Description"
             name="body_recovery_description"
             onChange={props.handleChange}
             value={recovery.body_recovery_description}
@@ -35,7 +35,6 @@ export default function BodyRecoveryForm(props) {
             ref={props.inputElement}
           />
         </div>
-        recoveryList
         <div className="form-group">
           <select
             className="form-control"
@@ -56,7 +55,7 @@ export default function BodyRecoveryForm(props) {
           <label htmlFor="">Video String</label>
           <input
             className="form-control"
-            placeholder="Input "
+            placeholder="Enter Video String "
             name="video_url"
             onChange={props.handleChange}
             value={recovery.video_url}

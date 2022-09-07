@@ -4,6 +4,7 @@
 }
 .main {
   overflow-y: hidden !important;
+  padding: 20px;
 }
 .sidebar {
   width: 100%;

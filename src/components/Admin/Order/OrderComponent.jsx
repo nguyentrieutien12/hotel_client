@@ -48,7 +48,8 @@ export default function OrderComponent() {
     }
   };
   const showResult = () => {
-    if (result.length > 0) {
+    console.log(result);
+    if (result.length) {
       return result.map((r) => {
         if (r?.hotel?.id == id) {
           return (
@@ -87,7 +88,6 @@ export default function OrderComponent() {
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
           <select
-            name=""
             id="input"
             class="form-control"
             required="required"
@@ -99,7 +99,6 @@ export default function OrderComponent() {
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
           <select
-            name=""
             id="input"
             class="form-control"
             required="required"
