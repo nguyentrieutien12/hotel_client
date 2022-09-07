@@ -1,10 +1,9 @@
-.header {
-}
 .main_container {
   display: flex;
   height: 90vh;
 }
 .main {
+  overflow-y: hidden !important;
 }
 .sidebar {
   width: 100%;

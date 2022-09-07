@@ -5,10 +5,12 @@ import { useAlert } from "react-alert";
 import { useParams } from "react-router-dom";
 import { isCheckActive } from "./../../../../helpers/checkIsActive";
 import { getCookie } from "../../../../helpers/cookie.helper";
+import { useEffect } from "react";
 export default function SaveRecommentComponent(props) {
   const alert = useAlert();
   const params = useParams();
   const { hotelId, detailId, type } = props;
+  const [account, setAccount] = useState(null);
   const [time, setTime] = useState(new Date());
   const handleSaveRecomment = async () => {
     try {
@@ -37,7 +39,8 @@ export default function SaveRecommentComponent(props) {
           hotelId,
           [`${type}Id`]: detailId,
           time,
-          email: getCookie("email"),
+          account,
+          type,
         }
       );
       const { statusCode, message } = result.data;
@@ -57,6 +60,21 @@ export default function SaveRecommentComponent(props) {
   };
   const handleGetDate = (e) => {
     setTime(e.target.value);
+  };
+  useEffect(() => {
+    getAccount().then((account) => {
+      setAccount(account?.id);
+    });
+  }, []);
+  const getAccount = async () => {
+    try {
+      const result = await axios.get(
+        `${import.meta.env.VITE_BACKEND_SITE}/accounts/${getCookie("email")}`
+      );
+      return result.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="restaurant_detail_header_option">
