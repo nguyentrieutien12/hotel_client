@@ -57,7 +57,7 @@ export default function FooterComponent() {
             Subscribe
           </button>
         </div>{" "}
-        <div className="row my-5">
+        <div className="row ">
           <span className="my-2 text-center" style={{ fontSize: "18px" }}>
             ©2022 Coyright all reserved by Kanpobliss
           </span>

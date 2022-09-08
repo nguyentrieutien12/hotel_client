@@ -1,9 +1,57 @@
 import React from "react";
 import styles from "./header.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import ReactStars from "react-rating-stars-component";
+import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { account as Account } from "../../../../helpers/account.helper";
+import { getCookie } from "../../../../helpers/cookie.helper";
 export default function HeaderComponent() {
-  const navigate = useNavigate();
+  const [rate, setRate] = useState(null);
+  const [feedback, setFeedback] = useState("");
+  const [account, setAccount] = useState(null);
+  const secondExample = {
+    size: 50,
+    count: 5,
+    color: "#a56c50f8",
+    activeColor: "#a56c50f8",
+    value: 0,
+    a11y: true,
+    isHalf: true,
+    emptyIcon: <i className="far fa-star" />,
+    halfIcon: <i className="fa fa-star-half-alt" />,
+    filledIcon: <i className="fa fa-star" />,
+    onChange: (newValue) => {
+      setRate(newValue);
+    },
+  };
+  useEffect(() => {
+    Account(getCookie("email")).then((account) => {
+      setAccount(account);
+    });
+  }, []);
+  const handleCreateFeedback = async () => {
+    try {
+      const result = await axios.post(
+        `${import.meta.env.VITE_BACKEND_SITE}/feedback`,
+        { account: account?.id, feedback, rate }
+      );
+      const { message, statusCode } = result.data;
+      if (statusCode === 201) {
+        return window.alert(message);
+      }
+      return window.alert(message);
+    } catch (error) {
+      const { message } = error?.response?.data;
+      window.alert(message[0]);
+    }
+  };
+  const handleChangeFeedback = (e) => {
+    const { value } = e.target;
+    setFeedback(value);
+  };
   const handleShowMenu = () => {
     const menu = document.querySelector(".menu");
     const menu_fake = document.querySelector(".menu_fake");
@@ -74,8 +122,8 @@ export default function HeaderComponent() {
           <li onClick={handleCloseMenu}>
             <Link to="/">About Us</Link>
           </li>
-          <li onClick={handleCloseMenu}>
-            <Link to="/">Feedback</Link>
+          <li data-toggle="modal" data-target=".bd-example-modal-lg">
+            <Link to="#">Feedback</Link>
           </li>{" "}
           <li onClick={handleSignOut}>
             <Link to="#">Sign Out</Link>
@@ -86,6 +134,53 @@ export default function HeaderComponent() {
         onClick={handleCloseMenu}
         className={`menu_fake ${styles.menu_fake}`}
       ></div>
+      <div
+        class="modal fade bd-example-modal-lg "
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myLargeModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg ">
+          <div style={{ padding: "50px" }} class="modal-content">
+            <div className="title">
+              <h1>Your feedback is important to us !!!</h1>
+            </div>
+            <div className="rate">
+              <span>
+                How would you rate your experience taking the TCM wellness
+                assessments?
+              </span>
+              <ReactStars {...secondExample} />
+            </div>
+            <div className="express my-5">
+              <span>
+                How would you rate your experience using personalized wellness
+                tips & recommendations?
+              </span>
+              <ReactStars {...secondExample} />
+            </div>
+
+            <div className="box">
+              <textarea
+                onChange={handleChangeFeedback}
+                id="input"
+                class="form-control"
+                rows="3"
+                required="required"
+              ></textarea>
+            </div>
+
+            <button
+              onClick={handleCreateFeedback}
+              type="button"
+              class="btn btn-success my-4"
+            >
+              SUBMIT
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

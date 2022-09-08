@@ -1,9 +1,10 @@
 .footer_container {
-  padding: 100px 50px 0 50px;
+  padding: 50px;
   font-family: "Tenor Sans";
   font-style: normal;
   font-weight: 400;
   color: #f8eee4;
+  z-index: 10000;
 }
 .footer_container button {
   background: #f8eee4;
