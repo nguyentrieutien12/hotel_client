@@ -20,10 +20,22 @@ export default function SideBarComponentAdmin() {
       to: `order`,
     },
   ];
+  const handlePickMenu = (e) => {
+    const itemsElement = document.querySelectorAll(`.${styles.link_item}`);
+    itemsElement.forEach((item) => {
+      item.classList.remove(`${styles.bgColor}`);
+    });
+    e.target.classList.add(`${styles.bgColor}`);
+  };
   const showLinks = () => {
     return links.map((link, index) => {
       return (
-        <Link key={index} className={styles.link_item} to={link.to}>
+        <Link
+          onClick={handlePickMenu}
+          key={index}
+          className={styles.link_item}
+          to={link.to}
+        >
           {link.text}
         </Link>
       );

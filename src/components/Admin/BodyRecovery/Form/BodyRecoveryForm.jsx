@@ -63,7 +63,7 @@ export default function BodyRecoveryForm(props) {
         </div>
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-success my-3"
           onClick={props.handleOnClick}
         >
           Submit
