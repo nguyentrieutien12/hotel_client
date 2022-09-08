@@ -19,14 +19,14 @@ export default function BodyRecoveryTable(props) {
               <button
                 onClick={() => props.handleUpdate(recovery)}
                 type="button"
-                className="btn btn-success"
+                className="btn btn-danger m-2"
               >
                 EDIT
               </button>
               <button
                 onClick={() => props.handleDelete(recovery?.id)}
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-success"
               >
                 DELETE
               </button>

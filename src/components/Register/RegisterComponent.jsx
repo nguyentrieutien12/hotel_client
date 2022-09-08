@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { InputLabel, MenuItem, Select } from "@mui/material";
+import { Link as L } from "react-router-dom";
 const theme = createTheme();
 
 export default function RegisterComponent(props) {
@@ -131,6 +132,13 @@ export default function RegisterComponent(props) {
               </Button>
             </Box>
           </Box>
+          <Grid container>
+            <Grid item>
+              <L to="/login" variant="body2">
+                {"You have an account? Sign In"}
+              </L>
+            </Grid>
+          </Grid>
         </Container>
       </ThemeProvider>
     </div>
