@@ -19,6 +19,10 @@ export default function SideBarComponentAdmin() {
       text: "Order Manage",
       to: `order`,
     },
+    {
+      text: "Feedback Manage",
+      to: `feedback`,
+    },
   ];
   const handlePickMenu = (e) => {
     const itemsElement = document.querySelectorAll(`.${styles.link_item}`);
