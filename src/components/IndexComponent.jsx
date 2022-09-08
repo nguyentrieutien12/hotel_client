@@ -12,7 +12,7 @@ function IndexComponent() {
     getAccount(email).then((account) => {
       if (!account) {
         return navigate("/login");
-      } else if (account.role.role_name === "ADMIN") {
+      } else if (account?.role?.role_name === "ADMIN") {
         return navigate("/dashboard");
       }
       if (getCookie("isAnswer")) {
@@ -23,15 +23,19 @@ function IndexComponent() {
   }, [email]);
 
   const getAccount = async (email) => {
-    const result = await axios.get(
-      `${import.meta.env.VITE_BACKEND_SITE}/accounts/${email}`,
-      {
-        headers: {
-          email,
-        },
-      }
-    );
-    return result.data;
+    try {
+      const result = await axios.get(
+        `${import.meta.env.VITE_BACKEND_SITE}/accounts/${email}`,
+        {
+          headers: {
+            email,
+          },
+        }
+      );
+      return result.data;
+    } catch (error) {
+      return navigate("/login");
+    }
   };
   // BH LAPTOP
   return <>{account && <HomeContainerCus />}</>;

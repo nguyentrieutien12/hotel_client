@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setQuizList } from "../../../../features/quiz/quiz";
 import { getCookie, setCookie } from "../../../../helpers/cookie.helper";
-import { setIsAnswer } from "../../../../features/quiz/isAnswer";
 export default function QuizComponent() {
   const [anwser, setAnwser] = useState([]);
   const [list, setList] = useState([]);
@@ -60,7 +59,7 @@ export default function QuizComponent() {
           {index !== allQuestion.length - 1 && (
             <div className={styles.btn_group}>
               <button
-                className="carousel-control-next"
+                className={`carousel-control-next ${styles.next_icon}`}
                 type="button"
                 data-target="#carouselExampleControls"
                 data-slide="next"
@@ -68,8 +67,8 @@ export default function QuizComponent() {
               >
                 <span className={`${styles.next_icon}`}>Next</span>
                 <span
-                  className={`carousel-control-next-icon`}
-                  aria-hidden="true"
+                  style={{ color: "black" }}
+                  className={` ${styles.next_icon}`}
                 ></span>
               </button>
             </div>

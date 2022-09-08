@@ -1,0 +1,64 @@
+/* -----------------------------------------
+  =Default css to make the demo more pretty
+-------------------------------------------- */
+/* -----------------------------------------
+  =CSS3 Loading animations
+-------------------------------------------- */
+
+/* =Elements style
+---------------------- */
+.spinner {
+  position: relative;
+  width: 45px;
+  height: 100px;
+  margin: 0 auto;
+  top: 100px;
+}
+.load-wrapp {
+  height: 400px;
+}
+.bubble-1,
+.bubble-2 {
+  position: absolute;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: #4b9cdb;
+}
+
+.bubble-2 {
+  top: auto;
+  bottom: 0;
+}
+/* =Animate the stuff
+------------------------ */
+.load-9 .spinner {
+  animation: loadingI 0.7s linear infinite;
+}
+.load-9 .bubble-1,
+.load-9 .bubble-2,
+.load-9 .bubble-3 {
+  animation: bounce 0.7s ease-in-out infinite;
+}
+.load-9 .bubble-2 {
+  animation-delay: -1s;
+}
+.load-9 .bubble-2 {
+  animation-delay: -2s;
+}
+@keyframes loadingI {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}

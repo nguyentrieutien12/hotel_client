@@ -4,16 +4,20 @@ import { Link } from "react-router-dom";
 export default function SideBarComponentAdmin() {
   const links = [
     {
-      text: "Accounts Manager",
+      text: "Accounts Manage",
       to: `account`,
     },
     {
-      text: "Hotels Manager",
+      text: "Hotels Manage",
       to: `hotel`,
     },
     {
-      text: "Body Recovery Manager",
+      text: "Body Recovery Manage",
       to: `body-recovery`,
+    },
+    {
+      text: "Order Manage",
+      to: `order`,
     },
   ];
   const showLinks = () => {

@@ -9,7 +9,10 @@ export default function BodyRecoveryTable(props) {
           <tr key={recovery?.id}>
             <td>{recovery?.id}</td>
             <td>{recovery?.body_recovery_name}</td>
-            <td>{recovery?.body_recovery_description}</td>
+            <td>{`${recovery?.body_recovery_description.slice(
+              0,
+              40
+            )} . . .`}</td>
             <td>{recovery?.recovery?.recovery_name}</td>
             <td>{recovery?.video?.video_url.slice(0, 20)}</td>
             <td>

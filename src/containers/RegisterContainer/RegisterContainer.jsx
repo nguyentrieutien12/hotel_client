@@ -3,7 +3,6 @@ import React, { createContext } from "react";
 import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
 import RegisterComponent from "../../components/Register/RegisterComponent";
-const UserContext = createContext();
 export default function RegisterContainer() {
   const alert = useAlert();
   const navigate = useNavigate();
@@ -11,9 +10,10 @@ export default function RegisterContainer() {
     username: "",
     email: "",
     address: "",
-    sex: "",
+    sex: "male",
     password: "",
     comfirmPassword: "",
+    role: 2,
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,14 +32,13 @@ export default function RegisterContainer() {
       );
       const data = result.data;
       const { statusCode, message } = data;
-      console.log(statusCode);
       if (statusCode === 201) {
         alert.success(message);
         setAccountRegister({
           username: "",
           email: "",
           address: "",
-          sex: "",
+          sex: "male",
           password: "",
           comfirmPassword: "",
         });

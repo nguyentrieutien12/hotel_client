@@ -4,16 +4,27 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import BodyRecoveryComponentCustomer from "../BodyRecoveryComponentCustomer/BodyRecoveryComponentCustomer";
+import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./styles.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function RecoveryDetailComponent() {
   const [recovery, setRecovery] = useState(null);
   const [recoveryList, setRecoveryList] = useState([]);
-
   const { recoveryId } = useParams();
+  const recommend = useSelector((state) => state.recommend);
+  const dispatch = useDispatch();
   useEffect(() => {
     getRecovery().then((recover) => {
       setRecovery({ ...recover });
     });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend`)
+      .then((res) => res.data)
+      .then((data) => {
+        dispatch(setRecommendList(data));
+      });
   }, [recoveryId]);
 
   useEffect(() => {
@@ -32,7 +43,7 @@ export default function RecoveryDetailComponent() {
       );
       return result.data;
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     }
   };
   const getRecovery = async () => {
@@ -52,7 +63,7 @@ export default function RecoveryDetailComponent() {
           <iframe
             className={styles.video}
             allow="autoplay; encrypted-media"
-            src={recovery.video.video_url}
+            src={recovery?.video?.video_url}
             frameborder="0"
             allowfullscreen
           ></iframe>
@@ -61,10 +72,14 @@ export default function RecoveryDetailComponent() {
           <div className={styles.description}>
             <div className="main_header d-flex justify-content-between my-5">
               <h1>{recovery?.body_recovery_name}</h1>
-              <i
-                style={{ fontSize: "30px", cursor: "pointer" }}
-                class="fa-solid fa-heart"
-              ></i>
+              <SaveRecommentComponent
+                type="recovery"
+                id={recoveryId}
+                handleUpdate={null}
+                recommend={recommend}
+                data={[{ id: recoveryId }]}
+                isShow={false}
+              />
             </div>
             <h5 className="my-5">{recovery?.body_recovery_description}</h5>
           </div>
@@ -83,5 +98,9 @@ export default function RecoveryDetailComponent() {
       </div>
     );
   }
-  return <h1>LOADING DATA . . .</h1>;
+  return (
+    <h1>
+      <LoadingComponent />
+    </h1>
+  );
 }

@@ -1,7 +1,7 @@
 form {
-  padding: 10px;
-  box-shadow: 2px 2px 2px #04aa6d !important;
   border-radius: 5px;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 form input {
   border-radius: 0px !important;
@@ -16,5 +16,24 @@ form .form-group {
   background-color: red;
 }
 .next_icon {
-  color: rgb(7, 163, 28);
+  color: black !important;
+}
+.restaurant_detail_header_option {
+  display: flex;
+  align-items: center;
+}
+
+.fa-heart {
+  font-size: 30px;
+  color: white;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.MuiContainer-root {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.form_register_login {
+  display: flex;
+  justify-content: center;
 }

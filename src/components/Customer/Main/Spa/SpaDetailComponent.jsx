@@ -1,17 +1,32 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip } from "react-tippy";
+import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./../Restaurant/resutaurant.module.css";
 export default function SpaDetailComponent() {
   const [spas, setSpa] = useState([]);
-  const { spaId } = useParams();
+  const recommend = useSelector((state) => state.recommend);
+  const dispatch = useDispatch();
+  const { spaId, hotelId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
+      if (dishs?.length === 0) {
+        return setSpa(null);
+      }
       setSpa([...dishs]);
     });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_SITE}/recommend`)
+      .then((res) => res.data)
+      .then((data) => {
+        dispatch(setRecommendList(data));
+      });
   }, []);
   const getAllRestaurantDetail = async () => {
     const result = await axios.get(
@@ -71,23 +86,32 @@ export default function SpaDetailComponent() {
       });
     }
   };
+  if (!spas) {
+    return <EmptyProduct name="Treatment" />;
+  }
+  if (spas.length === 0) {
+    return <LoadingComponent />;
+  }
   if (spas[0]?.treatments.length > 0) {
     return (
       <div>
         <div className="restaurant_detail_container">
-          <div>
+          <div style={{ color: "white" }}>
             <div className={styles.restaurant_detail_header}>
               <h1>
                 {`Enjoy it at ${spas[0]?.spa_name}` ||
                   "Loading name treatments"}
               </h1>
               <div className={styles.restaurant_detail_header_option}>
-                <button type="button" class="btn btn-success m-2">
-                  Save
-                </button>
-                <button type="button" class="btn btn-warning">
-                  RESERVE A TABLE
-                </button>
+                <SaveRecommentComponent
+                  type="spa"
+                  id={spas[0]?.id}
+                  recommend={recommend}
+                  data={spas}
+                  isShow={true}
+                  hotelId={hotelId}
+                  detailId={spaId}
+                />
               </div>
             </div>
             {/* <div>
@@ -124,5 +148,4 @@ export default function SpaDetailComponent() {
       </div>
     );
   }
-  return <EmptyProduct name="Treatment" />;
 }

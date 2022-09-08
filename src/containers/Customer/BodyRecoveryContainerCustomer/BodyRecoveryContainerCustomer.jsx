@@ -25,7 +25,6 @@ export default function BodyRecoveryContainerCustomer() {
     const { id } = e.target;
     if (id) {
       const recoverFilter = newRecovery.filter((recovery) => {
-        console.log(recovery);
         return recovery?.recovery?.id == id;
       });
       setBodyRecovery(recoverFilter);

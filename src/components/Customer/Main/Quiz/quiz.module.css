@@ -54,5 +54,11 @@ input:checked ~ .check {
 
 .btn_submit {
   color: rgb(30, 181, 3) !important;
-  background-color: white !important;
+  background-color: #a56c50 !important;
+  padding: 15px 20px !important;
+  color: white !important;
+}
+.next_icon {
+  color: black !important;
+  z-index: 100000;
 }
