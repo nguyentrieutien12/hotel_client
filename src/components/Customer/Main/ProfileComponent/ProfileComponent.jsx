@@ -36,7 +36,14 @@ export default function ProfileComponent() {
     setValue(value);
     setRecommend(list);
   };
+  // PUSH 1
+
   const showRecommend = () => {
+    if (recommend.length === 0) {
+      return (
+        <h1 className="text-center">{`${value.toUpperCase()} Is Empty `}</h1>
+      );
+    }
     if (recommend.length > 0) {
       const list = recommendMain.filter(
         (recommend) => recommend.type === value
@@ -49,7 +56,9 @@ export default function ProfileComponent() {
           <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <div className={`card ${styles.card}`}>
               <div className="card-header">
-                <Link to={`#`}>
+                <Link
+                  to={`/main/hotel/${v?.hotel?.id}/${value}/${v?.[value]?.id}`}
+                >
                   <h5 className="card-title">{v[value]?.[name]}</h5>
                 </Link>
               </div>
@@ -67,6 +76,10 @@ export default function ProfileComponent() {
     }
   };
   const showRecovery = () => {
+    const IsEmpty = recovery.every((recovery) => recovery.recoverys === null);
+    if (IsEmpty) {
+      return <h1 className="text-center">Body Recovery Is Empty</h1>;
+    }
     return recovery.map((recovery) => {
       if (recovery.recoverys) {
         return (

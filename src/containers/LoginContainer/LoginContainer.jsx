@@ -4,6 +4,7 @@ import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
 import LoginComponent from "../../components/Login/LoginComponent";
 import { setCookie } from "./../../helpers/cookie.helper";
+// import styles from "./login.module.css";
 function LoginContainer() {
   const alert = useAlert();
   const navigate = useNavigate();
@@ -41,13 +42,11 @@ function LoginContainer() {
     }
   };
   return (
-    <div>
-      <LoginComponent
-        handleChange={handleChange}
-        accountLogin={accountLogin}
-        handleSubmit={handleSubmit}
-      />
-    </div>
+    <LoginComponent
+      handleChange={handleChange}
+      accountLogin={accountLogin}
+      handleSubmit={handleSubmit}
+    />
   );
 }
 export default memo(LoginContainer);

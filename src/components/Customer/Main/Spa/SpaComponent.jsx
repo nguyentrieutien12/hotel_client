@@ -6,11 +6,15 @@ import { Tooltip } from "react-tippy";
 import { Link, useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function GymComponent() {
   const [spas, setSpa] = useState([]);
   const { hotelId } = useParams();
   useEffect(() => {
     getSpas().then((gyms) => {
+      if (gyms?.length === 0) {
+        return setSpa(null);
+      }
       setSpa(gyms);
     });
   }, []);
@@ -70,6 +74,12 @@ export default function GymComponent() {
       });
     }
   };
+  if (!spas) {
+    return <EmptyProduct name="Spa" />;
+  }
+  if (spas.length === 0) {
+    return <LoadingComponent />;
+  }
   if (spas[0]?.spas?.length > 0) {
     return (
       <div>
@@ -87,5 +97,4 @@ export default function GymComponent() {
       </div>
     );
   }
-  return <EmptyProduct name="Spa" />;
 }

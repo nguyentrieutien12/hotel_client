@@ -8,14 +8,20 @@ import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./resutaurant.module.css";
 import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function RestaurantDetailComponent() {
+  const params = useParams();
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
   const [restaurants, setRestaurant] = useState([]);
   const [isActive, setIsActive] = useState(false);
-  const { restaurantId } = useParams();
+  const { hotelId, restaurantId } = useParams();
   useEffect(() => {
     getAllRestaurantDetail().then((dishs) => {
+      if (dishs?.length === 0) {
+        setRestaurant(null);
+        return;
+      }
       setRestaurant([...dishs]);
     });
     axios
@@ -92,8 +98,13 @@ export default function RestaurantDetailComponent() {
   const handleUpdate = () => {
     setIsActive((prevState) => !prevState);
   };
-
-  if (restaurants[0]?.dishs.length > 0) {
+  if (!restaurants) {
+    return <EmptyProduct name="Dish" />;
+  }
+  if (restaurants?.length === 0) {
+    return <LoadingComponent />;
+  }
+  if (restaurants[0]?.dishs?.length > 0) {
     return (
       <div>
         <div className={styles.restaurant_detail_container}>
@@ -113,6 +124,8 @@ export default function RestaurantDetailComponent() {
                   recommend={recommend}
                   data={restaurants}
                   isShow={true}
+                  hotelId={hotelId}
+                  detailId={restaurantId}
                 />
               </div>
             </div>
@@ -151,5 +164,4 @@ export default function RestaurantDetailComponent() {
       </div>
     );
   }
-  return <EmptyProduct name="Dish" />;
 }

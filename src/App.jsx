@@ -32,6 +32,7 @@ import BodyRecoveryContainerAdmin from "./containers/Admin/BodyRecovery/BodyReco
 import BodyRecoveryContainerCustomer from "./containers/Customer/BodyRecoveryContainerCustomer/BodyRecoveryContainerCustomer";
 import RecoveryDetailContainer from "./containers/Customer/RecoveryDetailContainer/RecoveryDetailContainer";
 import ProfileComponent from "./components/Customer/Main/ProfileComponent/ProfileComponent";
+import OrderComponent from "./components/Admin/Order/OrderComponent";
 export default function App() {
   return (
     <div>
@@ -78,6 +79,7 @@ export default function App() {
           <Route path="/dashboard" element={<ProtectedLayout />}>
             <Route index element={<MainContainerAdmin />} />
             <Route path="profile" element={<ProfileContainerAdmin />} />
+            <Route path="order" element={<OrderComponent />} />
             <Route path="account" element={<AccountContainerAdmin />} />
             <Route
               path="body-recovery"

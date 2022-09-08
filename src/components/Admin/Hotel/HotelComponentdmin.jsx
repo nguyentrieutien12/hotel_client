@@ -6,16 +6,17 @@ export default function HotelComponentdmin(props) {
   return (
     <div>
       <div className="row main_container">
-        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <FormHotelComponentAdmin
             inputElement={props.inputElement}
             handleChange={props.handleChange}
             handleCreateHotel={props.handleCreateHotel}
             hotel={props.hotel}
+            isUpdate={props.isUpdate}
           />
         </div>
 
-        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           <TableComponentAdmin
             hotels={props.hotels}
             handleDeleteHotel={props.handleDeleteHotel}

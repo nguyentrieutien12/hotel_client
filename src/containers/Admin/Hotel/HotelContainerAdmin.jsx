@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import HotelComponentdmin from "../../../components/Admin/Hotel/HotelComponentdmin";
 import axios from "axios";
-import { mapImage } from "../../../helpers/mapImage";
 import { useAlert } from "react-alert";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -29,11 +28,12 @@ export default function HotelContainerAdmin() {
     getAllHotel().then((hotels) => {
       dispatch(setHotelList(hotels));
     });
-    return setHotel({
+    setHotel({
       hotel_name: "",
       hotel_email: "",
       hotel_address: "",
     });
+    setIsUpdate(false);
   };
   const createOrUpdateFail = (message) => {
     return alert.error(message);
@@ -118,6 +118,7 @@ export default function HotelContainerAdmin() {
         hotel={hotel}
         handleDeleteHotel={handleDeleteHotel}
         handleUpdateHotel={handleUpdateHotel}
+        isUpdate={isUpdate}
       />
     </div>
   );

@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setRecommendList } from "../../../../features/recommend/recommend";
+import LoadingComponent from "../../../Loading/LoadingComponent";
 export default function HotelComponentCustomer() {
   const [acc, setAcc] = useState({});
   const { hotelId } = useParams();
@@ -20,10 +21,17 @@ export default function HotelComponentCustomer() {
       .get(`${import.meta.env.VITE_BACKEND_SITE}/hotels/${hotelId}`)
       .then((res) => res.data)
       .then((hotels) => {
+        if (hotels?.length === 0) {
+          setHotel(null);
+          return;
+        }
         setHotel(hotels);
       });
   }, [hotelId]);
-  if (hotels.length > 0) {
+  if (hotels?.length === 0) {
+    return <LoadingComponent />;
+  }
+  if (hotels?.length > 0) {
     return (
       <div className={`${styles.wrapper}`}>
         <div className={`${styles.hello_text}`}>
@@ -89,5 +97,12 @@ export default function HotelComponentCustomer() {
       </div>
     );
   }
-  return <h1 className="text-center">Hotel Not Found ~~</h1>;
+  return (
+    <h1
+      className="text-center"
+      style={{ height: "400px", lineHeight: "400px" }}
+    >
+      Hotel Not Found ~~
+    </h1>
+  );
 }

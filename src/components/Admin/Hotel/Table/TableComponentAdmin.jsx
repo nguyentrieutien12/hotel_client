@@ -6,7 +6,7 @@ export default function TableComponentAdmin(props) {
   const renderImage = (images) => {
     if (images?.length > 0) {
       return images.map((image) => {
-        return `${image.image_url}\n`;
+        return `${image.image_url.slice(0, 20)}... \n`;
       });
     }
     return [];
@@ -15,8 +15,6 @@ export default function TableComponentAdmin(props) {
     return hotels.map((hotel) => {
       return (
         <tr key={hotel.id}>
-          <td>{hotel.id}</td>
-
           <td>
             <Link to={`${hotel.id}`}> {hotel.hotel_name}</Link>
           </td>
@@ -51,7 +49,6 @@ export default function TableComponentAdmin(props) {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>ID</th>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>ADDRESS</th>
