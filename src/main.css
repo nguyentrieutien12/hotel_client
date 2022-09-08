@@ -33,3 +33,7 @@ form .form-group {
   padding: 0 !important;
   margin: 0 !important;
 }
+.form_register_login {
+  display: flex;
+  justify-content: center;
+}

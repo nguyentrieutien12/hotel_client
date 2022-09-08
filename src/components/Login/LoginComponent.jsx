@@ -25,7 +25,7 @@ export default function LoginComponent(props) {
   };
 
   return (
-    <div className="">
+    <div className="form_register_login">
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
