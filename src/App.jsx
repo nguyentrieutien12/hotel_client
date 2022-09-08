@@ -33,6 +33,7 @@ import BodyRecoveryContainerCustomer from "./containers/Customer/BodyRecoveryCon
 import RecoveryDetailContainer from "./containers/Customer/RecoveryDetailContainer/RecoveryDetailContainer";
 import ProfileComponent from "./components/Customer/Main/ProfileComponent/ProfileComponent";
 import OrderComponent from "./components/Admin/Order/OrderComponent";
+import FeedbackComponentAdmin from "./components/Admin/FeedbackComponentAdmin/FeedbackComponentAdmin";
 export default function App() {
   return (
     <div>
@@ -81,6 +82,7 @@ export default function App() {
             <Route path="profile" element={<ProfileContainerAdmin />} />
             <Route path="order" element={<OrderComponent />} />
             <Route path="account" element={<AccountContainerAdmin />} />
+            <Route path="feedback" element={<FeedbackComponentAdmin />} />
             <Route
               path="body-recovery"
               element={<BodyRecoveryContainerAdmin />}

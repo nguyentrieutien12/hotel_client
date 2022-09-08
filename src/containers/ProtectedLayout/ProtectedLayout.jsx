@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import FooterComponent from "../../components/Customer/Main/Footer/FooterComponent";
 import { getCookie } from "../../helpers/cookie.helper";
 import HeaderContainerAdmin from "../Admin/Header/HeaderContainerAdmin";
 import SideBarContainerAdmin from "../Admin/SideBar/SideBarContainerAdmin";
@@ -47,6 +48,9 @@ export default function ProtectedLayout() {
             <Grid className={styles.main} item xs={10}>
               <Outlet />
             </Grid>
+          </Grid>
+          <Grid className={styles.header} item xs={10}>
+            <FooterComponent />
           </Grid>
         </>
       )}
