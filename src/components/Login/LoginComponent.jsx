@@ -1,16 +1,17 @@
 import * as React from "react";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-import { Link as L } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import "./LoginComponent.module.css";
 const theme = createTheme();
 
 export default function LoginComponent(props) {
@@ -84,14 +85,14 @@ export default function LoginComponent(props) {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <L to="#" variant="body2">
+                  <Link href="#" variant="body2">
                     Forgot password?
-                  </L>
+                  </Link>
                 </Grid>
                 <Grid item>
-                  <L to="/register" variant="body2">
+                  <Link href="#" variant="body2">
                     {"Don't have an account? Sign Up"}
-                  </L>
+                  </Link>
                 </Grid>
               </Grid>
             </Box>
