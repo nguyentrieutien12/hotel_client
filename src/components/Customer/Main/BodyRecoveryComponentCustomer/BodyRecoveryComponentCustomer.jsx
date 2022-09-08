@@ -78,7 +78,6 @@ export default function BodyRecoveryComponentCustomer(props) {
   };
   const handleClick = (e) => {
     props.handleClick(e);
-
     const itemsElement = document.querySelectorAll(".item");
     itemsElement.forEach((item) => {
       item.classList.remove(`${styles.bgColor}`);
