@@ -1,26 +1,21 @@
 .form_register_login {
-  background-image: url("https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-dep-de-thuong.jpg");
+  background-image: url("https://images3.bovpg.net/r/back/de/sale/5df745b8ad1d7o.jpg");
   background-repeat: no-repeat;
   position: relative;
   background-size: 100%;
   background-position: center center;
+  background-color: rgba(0, 0, 0, 0.068);
   height: 100vh;
   display: flex;
   justify-content: center;
+  background-blend-mode: color;
   align-items: center;
-  text-align: center;
 }
-.form_register_login::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.424);
-  z-index: -1;
-}
-.form_container {
-  background-color: red !important;
+.form {
+  background-color: rgba(246, 246, 246, 0.874) !important;
+  border-radius: 5px;
   padding: 20px !important;
+}
+.form a {
+  color: black;
 }
