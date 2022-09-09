@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { account as Account } from "../../../../helpers/account.helper";
 import { getCookie } from "../../../../helpers/cookie.helper";
 export default function HeaderComponent() {
-  const [rate, setRate] = useState(null);
+  const [rate, setRate] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [account, setAccount] = useState(null);
   const secondExample = {
@@ -17,7 +17,7 @@ export default function HeaderComponent() {
     count: 5,
     color: "#a56c50f8",
     activeColor: "#a56c50f8",
-    value: 0,
+    value: rate,
     a11y: true,
     isHalf: true,
     emptyIcon: <i className="far fa-star" />,
@@ -40,6 +40,8 @@ export default function HeaderComponent() {
       );
       const { message, statusCode } = result.data;
       if (statusCode === 201) {
+        setRate(0);
+        setFeedback("");
         return window.alert(message);
       }
       return window.alert(message);
@@ -168,6 +170,7 @@ export default function HeaderComponent() {
                 class="form-control"
                 rows="3"
                 required="required"
+                value={feedback}
               ></textarea>
             </div>
 
