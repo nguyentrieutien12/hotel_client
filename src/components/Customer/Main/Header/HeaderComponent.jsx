@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import ReactStars from "react-rating-stars-component";
 import { useState } from "react";
@@ -12,6 +12,7 @@ export default function HeaderComponent() {
   const [rate, setRate] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [account, setAccount] = useState(null);
+  const { hotelId } = useParams();
   const secondExample = {
     size: 50,
     count: 5,
@@ -36,7 +37,7 @@ export default function HeaderComponent() {
     try {
       const result = await axios.post(
         `${import.meta.env.VITE_BACKEND_SITE}/feedback`,
-        { account: account?.id, feedback, rate }
+        { account: account?.id, feedback, rate, hotel: hotelId }
       );
       const { message, statusCode } = result.data;
       if (statusCode === 201) {

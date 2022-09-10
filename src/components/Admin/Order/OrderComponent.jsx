@@ -2,8 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
+import { exportFile } from "../../../helpers/exportFile";
 export default function OrderComponent() {
   const [data, setData] = useState([]);
   const [result, setResult] = useState([]);
@@ -65,12 +64,7 @@ export default function OrderComponent() {
   };
   const dowloadPdf = () => {
     const input = document.getElementById("table");
-    html2canvas(input).then((canvas) => {
-      const imagData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "pt", "a4");
-      pdf.addImage(imagData, "JPEG", 10, 50);
-      pdf.save(`${type}`);
-    });
+    exportFile(input, `${type}`);
   };
   return (
     <div>

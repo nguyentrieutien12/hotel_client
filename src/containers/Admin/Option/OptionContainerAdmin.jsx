@@ -15,19 +15,23 @@ export default function OptionContainerAdmin() {
   }, []);
   return (
     <div>
-      <select
-        onChange={handleRedirectOption}
-        name="option"
-        id="input"
-        className="form-control"
-        required="required"
-        value={option}
-      >
-        <option value="spa">Spa</option>
-        <option value="restaurant">Restaurant</option>
-        <option value="gym">Gym</option>
-        <option value="seftcare">SeftCare</option>
-      </select>
+      <div class="row my-3">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <select
+            onChange={handleRedirectOption}
+            name="option"
+            id="input"
+            className="form-control"
+            required="required"
+            value={option}
+          >
+            <option value="spa">Spa</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="gym">Gym</option>
+          </select>
+        </div>
+      </div>
+
       <Outlet />
     </div>
   );

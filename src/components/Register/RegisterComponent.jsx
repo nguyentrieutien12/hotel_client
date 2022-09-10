@@ -9,8 +9,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import { Link as L } from "react-router-dom";
+import styles from "./../Login/LoginComponent.module.css";
 const theme = createTheme();
-
 export default function RegisterComponent(props) {
   const { accountRegister } = props;
   const { username, address, sex, password, comfirmPassword, email } =
@@ -23,18 +23,16 @@ export default function RegisterComponent(props) {
     props.handleChange(e);
   };
   return (
-    <div className="form_register_login">
+    <div className={styles.form_register_login}>
       <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="sm">
+        {" "}
+        <Container
+          className={styles.form_container}
+          component="main"
+          maxWidth="xs"
+        >
           <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+          <div className={styles.form}>
             <Typography component="h1" variant="h5">
               Sign Up
             </Typography>
@@ -131,14 +129,14 @@ export default function RegisterComponent(props) {
                 Sign Up
               </Button>
             </Box>
-          </Box>
-          <Grid container>
-            <Grid item>
-              <L to="/login" variant="body2">
-                {"You have an account? Sign In"}
-              </L>
+            <Grid container>
+              <Grid item>
+                <L to="/login" variant="body2">
+                  {"You have an account? Sign In"}
+                </L>
+              </Grid>
             </Grid>
-          </Grid>
+          </div>
         </Container>
       </ThemeProvider>
     </div>
