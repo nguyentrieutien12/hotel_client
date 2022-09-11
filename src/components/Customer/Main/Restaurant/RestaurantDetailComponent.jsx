@@ -9,8 +9,8 @@ import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentCompo
 import styles from "./resutaurant.module.css";
 import { setRecommendList } from "../../../../features/recommend/recommend";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function RestaurantDetailComponent() {
-  const params = useParams();
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function RestaurantDetailComponent() {
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
   const [restaurants, setRestaurant] = useState([]);
@@ -165,3 +165,4 @@ export default function RestaurantDetailComponent() {
     );
   }
 }
+export default AuthenComponent(RestaurantDetailComponent);

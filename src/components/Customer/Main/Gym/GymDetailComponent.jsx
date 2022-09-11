@@ -10,7 +10,8 @@ import { useSelector, useDispatch } from "react-redux";
 import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import { setRecommendList } from "../../../../features/recommend/recommend";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function GymDetailComponent() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function GymDetailComponent() {
   const [workouts, setWorkouts] = useState([]);
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
@@ -161,3 +162,4 @@ export default function GymDetailComponent() {
     </div>
   );
 }
+export default AuthenComponent(GymDetailComponent);

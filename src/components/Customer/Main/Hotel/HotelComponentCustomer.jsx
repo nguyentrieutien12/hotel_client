@@ -5,13 +5,11 @@ import { getCookie } from "../../../../helpers/cookie.helper";
 import styles from "./hotel.module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setRecommendList } from "../../../../features/recommend/recommend";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function HotelComponentCustomer() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function HotelComponentCustomer() {
   const [acc, setAcc] = useState({});
   const { hotelId } = useParams();
-  const dispatch = useDispatch();
   const [hotels, setHotel] = useState([]);
   useEffect(() => {
     account(getCookie("email")).then((account) => {
@@ -106,3 +104,4 @@ export default function HotelComponentCustomer() {
     </h1>
   );
 }
+export default AuthenComponent(HotelComponentCustomer);

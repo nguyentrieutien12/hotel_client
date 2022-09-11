@@ -7,7 +7,8 @@ import { Tooltip } from "react-tippy";
 import { Link } from "react-router-dom";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function RestaurantComponent() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function RestaurantComponent() {
   const [restaurants, setRestaurant] = useState([]);
   const { hotelId } = useParams();
   useEffect(() => {
@@ -20,9 +21,12 @@ export default function RestaurantComponent() {
     if (restaurants.length > 0) {
       return restaurants[0].restaurants.map((restaurant) => {
         return (
-          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div
+            key={restaurant?.id}
+            className="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+          >
             <Tooltip
-              title={`<div class="row ${styles.image_container}">
+              title={`<div className="row ${styles.image_container}">
               ${restaurant.images
                 .map((image) => {
                   return `<div class="${
@@ -89,3 +93,4 @@ export default function RestaurantComponent() {
   }
   return <EmptyProduct name="Restaurant" />;
 }
+export default AuthenComponent(RestaurantComponent);

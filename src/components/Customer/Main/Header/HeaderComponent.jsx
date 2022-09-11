@@ -86,9 +86,9 @@ export default function HeaderComponent() {
   return (
     <div className={styles.wrapper}>
       <div className="navbar">
-        <a style={{ color: "white" }} className="navbar-brand" href="#">
+        <Link style={{ color: "white" }} to="/">
           Logo
-        </a>
+        </Link>
         <ul className={`nav navbar-nav ${styles.nav}`}>
           <li className="active">
             <Link to="/">Body Constitution</Link>
@@ -101,7 +101,7 @@ export default function HeaderComponent() {
           </li>
           <li onClick={handleShowMenu}>
             <Link to="#">
-              <i class="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars"></i>
             </Link>
           </li>
         </ul>
@@ -110,7 +110,7 @@ export default function HeaderComponent() {
         <ul className={styles.menu_item}>
           <li className="active" onClick={handleCloseMenu}>
             <Link to="#">
-              <i class="fa-solid fa-xmark"></i>
+              <i className="fa-solid fa-xmark"></i>
             </Link>
           </li>
           <li onClick={handleCloseMenu} className="active">
@@ -138,14 +138,14 @@ export default function HeaderComponent() {
         className={`menu_fake ${styles.menu_fake}`}
       ></div>
       <div
-        class="modal fade bd-example-modal-lg "
-        tabindex="-1"
+        className="modal fade bd-example-modal-lg "
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="myLargeModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-lg ">
-          <div style={{ padding: "50px" }} class="modal-content">
+        <div className="modal-dialog modal-lg ">
+          <div style={{ padding: "50px" }} className="modal-content">
             <div className="title">
               <h1>Your feedback is important to us !!!</h1>
             </div>
@@ -168,7 +168,7 @@ export default function HeaderComponent() {
               <textarea
                 onChange={handleChangeFeedback}
                 id="input"
-                class="form-control"
+                className="form-control"
                 rows="3"
                 required="required"
                 value={feedback}
@@ -178,7 +178,7 @@ export default function HeaderComponent() {
             <button
               onClick={handleCreateFeedback}
               type="button"
-              class="btn btn-success my-4"
+              className="btn btn-success my-4"
             >
               SUBMIT
             </button>
