@@ -8,23 +8,23 @@ export default function GymForm(props) {
         <legend>Form title</legend>
 
         <div className="form-group">
-          <label>label</label>
+          <label>Gym Name</label>
           <input
             type="text"
             className="form-control"
             name="gym_name"
-            placeholder="Input field"
+            placeholder="Enter Gym Name"
             value={gym_name}
             onChange={props.handleChange}
           />
         </div>
         <div className="form-group">
-          <label>label</label>
+          <label>Gym Description</label>
           <input
             type="text"
             className="form-control"
             name="gym_description"
-            placeholder="Input field"
+            placeholder="Enter Gym Description"
             onChange={props.handleChange}
             value={gym_description}
           />
@@ -32,7 +32,10 @@ export default function GymForm(props) {
         <div className="form-group">
           <input type="file" multiple ref={props.inputElement} />
         </div>
-        <button onClick={props.handleCreateGym} className="btn btn-primary">
+        <button
+          onClick={props.handleCreateGym}
+          className="btn btn-primary my-4"
+        >
           Submit
         </button>
       </form>

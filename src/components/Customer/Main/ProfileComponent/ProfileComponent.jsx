@@ -4,7 +4,8 @@ import styles from "./profile.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-export default function ProfileComponent() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function ProfileComponent() {
   const [account, setAccount] = useState(null);
   const [recommend, setRecommend] = useState([]);
   const [recovery, setRecovery] = useState([]);
@@ -124,7 +125,7 @@ export default function ProfileComponent() {
         updateAccount
       );
       const data = result.data;
-      const { statusCode, message } = data;
+      const { statusCode } = data;
       if (statusCode === 202) {
         return window.location.reload();
       } else {
@@ -151,19 +152,19 @@ export default function ProfileComponent() {
         </p>
         {/* <!-- Modal --> */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
                 <h5
                   style={{ color: "black" }}
-                  class="modal-title"
+                  className="modal-title"
                   id="exampleModalLabel"
                 >
                   Update Account
@@ -172,80 +173,81 @@ export default function ProfileComponent() {
                   X
                 </div>
               </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label for="">Username</label>
+              <div className="modal-body">
+                <div className="form-group">
+                  <label>Username</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Username"
                     name="username"
-                    value={updateAccount?.username}
+                    value={updateAccount?.username || ""}
                     onChange={handleChange}
                   />
                 </div>
-                <div class="form-group">
-                  <label for="">Email</label>
+                <div className="form-group">
+                  <label>Email</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Email"
                     name="email"
-                    value={updateAccount?.email}
+                    value={updateAccount?.email || ""}
                     onChange={handleChange}
                   />
                 </div>{" "}
-                <div class="form-group">
-                  <label for="">Address</label>
+                <div className="form-group">
+                  <label>Address</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="address"
                     name="address"
-                    value={updateAccount?.address}
+                    value={updateAccount?.address || ""}
                     onChange={handleChange}
                   />
                 </div>
-                <div class="form-group">
-                  <label for="">Confirm Password</label>
-
+                <div className="form-group">
+                  <label>Confirm Password</label>
                   <select
                     name="sex"
                     id="input"
-                    class="form-control"
+                    className="form-control"
                     required="required"
-                    value={updateAccount?.sex}
+                    value={updateAccount?.sex || "male"}
                     onChange={handleChange}
                   >
                     <option value="male">Male</option>
                     <option value="female">FeMale</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label for="">Password</label>
+                <div className="form-group">
+                  <label>Password</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="password"
                     name="password"
                     onChange={handleChange}
+                    value={updateAccount?.password || ""}
                   />
                 </div>
-                <div class="form-group">
-                  <label for="">Confirm Password</label>
+                <div className="form-group">
+                  <label>Confirm Password</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Confirm Passowrd"
                     name="comfirmPassword"
                     onChange={handleChange}
+                    value={updateAccount?.comfirmPassword || ""}
                   />
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-dismiss="modal"
                 >
                   Close
@@ -253,7 +255,7 @@ export default function ProfileComponent() {
                 <button
                   onClick={handleUpdate}
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                 >
                   Update
                 </button>
@@ -266,7 +268,7 @@ export default function ProfileComponent() {
         Here you can access your past assessment results and save favorites
       </span>
 
-      <div class="row">
+      <div className="row">
         <div className={styles.cons}>
           <div className="name">
             <h3>Body Constitution</h3>
@@ -281,11 +283,11 @@ export default function ProfileComponent() {
             VIEW RESULT
           </p>
         </div>
-        <div class="collapse" id="collapseExample">
-          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <div className="collapse" id="collapseExample">
+          <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
             <select
               id="input"
-              class="form-control"
+              className="form-control"
               required="required"
               onChange={handleFilterRecommend}
               value={value}
@@ -296,7 +298,7 @@ export default function ProfileComponent() {
             </select>
           </div>
           <div className="recommend">
-            <div class="row">{showRecommend()}</div>
+            <div className="row">{showRecommend()}</div>
           </div>
         </div>
         <div className={styles.cons}>
@@ -313,10 +315,11 @@ export default function ProfileComponent() {
             VIEW RESULT
           </p>
         </div>
-        <div class="collapse" id="ss">
-          <div class="row">{showRecovery()}</div>
+        <div className="collapse" id="ss">
+          <div className="row">{showRecovery()}</div>
         </div>
       </div>
     </div>
   );
 }
+export default AuthenComponent(ProfileComponent);

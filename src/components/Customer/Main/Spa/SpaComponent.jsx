@@ -7,7 +7,8 @@ import { Link, useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function GymComponent() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function GymComponent() {
   const [spas, setSpa] = useState([]);
   const { hotelId } = useParams();
   useEffect(() => {
@@ -98,3 +99,4 @@ export default function GymComponent() {
     );
   }
 }
+export default AuthenComponent(GymComponent);

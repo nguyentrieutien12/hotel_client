@@ -7,7 +7,8 @@ import { Link, useParams } from "react-router-dom";
 import styles from "./../Restaurant/resutaurant.module.css";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function GymComponent() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function GymComponent() {
   const [restaurants, setRestaurants] = useState([]);
   const { hotelId } = useParams();
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function GymComponent() {
               title={`<div class="row ${styles.image_container}">
               ${gym.images
                 .map((image) => {
-                  return `<div class="${
+                  return `<div key={${image?.id}} class="${
                     styles.image_tippy
                   } ${`col-xs-6 col-sm-6 col-md-6 col-lg-6`} ">
                     <img
@@ -95,3 +96,4 @@ export default function GymComponent() {
   }
   return <EmptyProduct name="Gym" />;
 }
+export default AuthenComponent(GymComponent);

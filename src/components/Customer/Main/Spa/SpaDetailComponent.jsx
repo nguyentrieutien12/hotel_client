@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip } from "react-tippy";
 import { setRecommendList } from "../../../../features/recommend/recommend";
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
 import LoadingComponent from "../../../Loading/LoadingComponent";
 import EmptyProduct from "../../EmptyProduct/EmptyProduct";
 import SaveRecommentComponent from "../SaveRecommentComponent/SaveRecommentComponent";
 import styles from "./../Restaurant/resutaurant.module.css";
-export default function SpaDetailComponent() {
+function SpaDetailComponent() {
   const [spas, setSpa] = useState([]);
   const recommend = useSelector((state) => state.recommend);
   const dispatch = useDispatch();
@@ -149,3 +150,4 @@ export default function SpaDetailComponent() {
     );
   }
 }
+export default AuthenComponent(SpaDetailComponent);

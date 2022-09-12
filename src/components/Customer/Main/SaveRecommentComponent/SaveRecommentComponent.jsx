@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 import { isCheckActive } from "./../../../../helpers/checkIsActive";
 import { getCookie } from "../../../../helpers/cookie.helper";
 import { useEffect } from "react";
-export default function SaveRecommentComponent(props) {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function SaveRecommentComponent(props) {
   const alert = useAlert();
   const params = useParams();
   const { hotelId, detailId, type } = props;
@@ -30,7 +31,7 @@ export default function SaveRecommentComponent(props) {
       console.log(error);
     }
   };
-  let result = isCheckActive(props.recommend, props.type, props.data[0]?.id);
+  let result = isCheckActive(props.recommend, props.type, props.data?.[0]?.id);
   const handleOrder = async () => {
     try {
       const result = await axios.post(
@@ -141,3 +142,4 @@ export default function SaveRecommentComponent(props) {
     </div>
   );
 }
+export default SaveRecommentComponent;

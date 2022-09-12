@@ -1,10 +1,10 @@
 import React from "react";
 import HotelComponentCustomer from "../../../components/Customer/Main/Hotel/HotelComponentCustomer";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCookie, setCookie } from "../../../helpers/cookie.helper";
-export default function HotelCustomerContainer() {
+import AuthenComponent from "../../../HOCs/AuthenComponent";
+function HotelCustomerContainer() {
   const navigate = useNavigate();
   const { hotelId } = useParams();
   useEffect(() => {
@@ -21,3 +21,4 @@ export default function HotelCustomerContainer() {
     </div>
   );
 }
+export default HotelCustomerContainer;

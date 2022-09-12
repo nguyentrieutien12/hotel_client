@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 export default function SideBarComponentAdmin() {
   const links = [
     {
+      text: "Home",
+      to: `/dashboard`,
+    },
+    {
       text: "Accounts Manage",
       to: `account`,
     },

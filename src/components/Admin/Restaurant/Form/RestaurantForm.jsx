@@ -5,29 +5,29 @@ export default function RestaurantForm(props) {
   return (
     <div>
       <form action="" method="POST" role="form">
-        <legend>Form title</legend>
+        <legend>Restaurant Form </legend>
         <div className="form-group">
-          <label>label</label>
+          <label>Restaurant Name</label>
           <input
             name="restaurant_name"
             className="form-control"
-            placeholder="Input field"
+            placeholder="Enter Restaurant Name"
             onChange={props.handleChangeRestaurant}
             value={restaurant_name}
           />
         </div>{" "}
         <div className="form-group">
-          <label>label</label>
+          <label>Description</label>
           <input
             name="restaurant_description"
             className="form-control"
-            placeholder="Input field"
+            placeholder="Enter Description"
             onChange={props.handleChangeRestaurant}
             value={restaurant_description}
           />
         </div>{" "}
         <div className="form-group">
-          <label>label</label>
+          <label>Images</label>
           <input
             type="file"
             className="form-control"
@@ -39,7 +39,7 @@ export default function RestaurantForm(props) {
         <button
           onClick={props.handleCreateRes}
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary my-4"
         >
           Submit
         </button>

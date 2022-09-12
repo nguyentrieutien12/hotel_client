@@ -9,7 +9,8 @@ import styles from "./styles.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setRecommendList } from "../../../../features/recommend/recommend";
 import LoadingComponent from "../../../Loading/LoadingComponent";
-export default function RecoveryDetailComponent() {
+import AuthenComponent from "../../../../HOCs/AuthenComponent";
+function RecoveryDetailComponent() {
   const [recovery, setRecovery] = useState(null);
   const [recoveryList, setRecoveryList] = useState([]);
   const { recoveryId } = useParams();
@@ -104,3 +105,4 @@ export default function RecoveryDetailComponent() {
     </h1>
   );
 }
+export default AuthenComponent(RecoveryDetailComponent);
