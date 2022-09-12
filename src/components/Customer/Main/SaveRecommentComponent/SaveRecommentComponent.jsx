@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { isCheckActive } from "./../../../../helpers/checkIsActive";
 import { getCookie } from "../../../../helpers/cookie.helper";
 import { useEffect } from "react";
-import AuthenComponent from "../../../../HOCs/AuthenComponent";
+import styles from "./save.recomment.module.css";
 function SaveRecommentComponent(props) {
   const alert = useAlert();
   const params = useParams();
@@ -87,7 +87,7 @@ function SaveRecommentComponent(props) {
       {props.isShow ? (
         <button
           type="button"
-          class="btn btn-warning"
+          class={`btn ${styles.book_table}`}
           data-toggle="modal"
           data-target="#exampleModal"
         >
