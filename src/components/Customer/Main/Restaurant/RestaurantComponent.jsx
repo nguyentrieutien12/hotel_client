@@ -26,17 +26,15 @@ function RestaurantComponent() {
             className="col-xs-3 col-sm-3 col-md-3 col-lg-3"
           >
             <Tooltip
-              title={`<div className="row ${styles.image_container}">
+              title={`<div class="row ${styles.image_container}">
               ${restaurant.images
                 .map((image) => {
-                  return `<div class="${
-                    styles.image_tippy
-                  } ${`col-xs-6 col-sm-6 col-md-6 col-lg-6`} ">
+                  return `<div class="${styles.image_tippy} col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <img
                       display="flex"
                       style="width: 100%; height: 100%; object-fit: cover"
                       src=${image.image_url}
-                      alt="noimage"
+                      alt="no image"
                     />
                   </div>`;
                 })

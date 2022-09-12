@@ -1,5 +1,5 @@
 import * as React from "react";
-  import Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -76,7 +76,7 @@ export default function LoginComponent(props) {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <L to="#" variant="body2">
+                  <L to="reset-password" variant="body2">
                     Forgot password?
                   </L>
                 </Grid>

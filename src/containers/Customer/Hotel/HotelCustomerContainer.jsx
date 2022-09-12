@@ -3,7 +3,8 @@ import HotelComponentCustomer from "../../../components/Customer/Main/Hotel/Hote
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCookie, setCookie } from "../../../helpers/cookie.helper";
-export default function HotelCustomerContainer() {
+import AuthenComponent from "../../../HOCs/AuthenComponent";
+function HotelCustomerContainer() {
   const navigate = useNavigate();
   const { hotelId } = useParams();
   useEffect(() => {
@@ -20,3 +21,4 @@ export default function HotelCustomerContainer() {
     </div>
   );
 }
+export default HotelCustomerContainer;

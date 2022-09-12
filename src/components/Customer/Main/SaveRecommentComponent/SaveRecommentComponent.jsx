@@ -142,4 +142,4 @@ function SaveRecommentComponent(props) {
     </div>
   );
 }
-export default AuthenComponent(SaveRecommentComponent);
+export default SaveRecommentComponent;
