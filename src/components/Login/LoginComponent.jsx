@@ -76,7 +76,7 @@ export default function LoginComponent(props) {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <L to="reset-password" variant="body2">
+                  <L to="/reset-password" variant="body2">
                     Forgot password?
                   </L>
                 </Grid>

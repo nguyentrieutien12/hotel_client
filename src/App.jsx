@@ -34,6 +34,8 @@ import RecoveryDetailContainer from "./containers/Customer/RecoveryDetailContain
 import ProfileComponent from "./components/Customer/Main/ProfileComponent/ProfileComponent";
 import OrderComponent from "./components/Admin/Order/OrderComponent";
 import FeedbackComponentAdmin from "./components/Admin/FeedbackComponentAdmin/FeedbackComponentAdmin";
+import SendEmailToResetPassword from "./components/SendEmailToResetPassword/SendEmailToResetPassword";
+import ConfirmToResetPassword from "./components/ConfirmToResetPassword/ConfirmToResetPassword";
 export default function App() {
   return (
     <div>
@@ -41,6 +43,14 @@ export default function App() {
         <Routes>
           <Route path="/register" element={<RegisterContainer />}></Route>
           <Route path="/login" element={<LoginContainer />}></Route>
+          <Route
+            path="reset-password"
+            element={<SendEmailToResetPassword />}
+          ></Route>
+          <Route
+            path="confirm-password"
+            element={<ConfirmToResetPassword />}
+          ></Route>
           <Route path="/" element={<IndexComponent />}></Route>
           <Route path="/main" element={<MainComponent />}>
             <Route index element={<BodyMenuComponent />}></Route>
