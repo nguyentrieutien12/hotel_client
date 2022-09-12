@@ -1,0 +1,9 @@
+.book_table {
+  border-color: white !important;
+  color: white !important;
+  transition: 0.5s ease;
+}
+.book_table:hover {
+  background-color: rgb(7, 163, 28) !important;
+  border-color: rgb(7, 163, 28) !important;
+}
