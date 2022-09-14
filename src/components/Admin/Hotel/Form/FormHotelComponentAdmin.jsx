@@ -1,13 +1,12 @@
-import React from "react";
+import React, { memo } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
-export default function FormHotelComponentAdmin(props) {
+function FormHotelComponentAdmin(props) {
   const { hotel } = props;
   const handleSubmit = (e) => {
     props.handleSubmit();
@@ -68,9 +67,9 @@ export default function FormHotelComponentAdmin(props) {
                 ></TextField>
               </Grid>
               <Grid item xs={6}>
-                <label for="img">
+                <label htmlFor="img">
                   Click To Upload Images
-                  <i class="fa-solid fa-image"></i>
+                  <i className="fa-solid fa-image"></i>
                 </label>
 
                 <input
@@ -99,3 +98,4 @@ export default function FormHotelComponentAdmin(props) {
     </div>
   );
 }
+export default memo(FormHotelComponentAdmin);

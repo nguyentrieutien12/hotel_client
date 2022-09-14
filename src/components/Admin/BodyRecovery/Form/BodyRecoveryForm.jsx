@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-export default function BodyRecoveryForm(props) {
+function BodyRecoveryForm(props) {
   const { recovery } = props;
   return (
     <div>
@@ -72,3 +72,4 @@ export default function BodyRecoveryForm(props) {
     </div>
   );
 }
+export default memo(BodyRecoveryForm);

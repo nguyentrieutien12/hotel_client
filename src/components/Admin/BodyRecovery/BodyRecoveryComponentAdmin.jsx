@@ -1,8 +1,9 @@
 import React from "react";
+import { memo } from "react";
 import BodyRecoveryForm from "./Form/BodyRecoveryForm";
 import BodyRecoveryTable from "./Table/BodyRecoveryTable";
 
-export default function BodyRecoveryComponentAdmin(props) {
+function BodyRecoveryComponentAdmin(props) {
   const { bodyRecoverys, inputElement, recoveryList, recovery } = props;
   return (
     <div>
@@ -28,3 +29,4 @@ export default function BodyRecoveryComponentAdmin(props) {
     </div>
   );
 }
+export default memo(BodyRecoveryComponentAdmin);

@@ -1,9 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { useEffect } from "react";
 import { exportFile } from "../../../helpers/exportFile";
-
-export default function FeedbackComponentAdmin() {
+function FeedbackComponentAdmin() {
   const [feedback, setFeedback] = useState([]);
   const [hotels, setHotels] = useState([]);
   const [feedbackList, setFeedbackList] = useState([]);
@@ -35,7 +34,7 @@ export default function FeedbackComponentAdmin() {
     if (feedback.length > 0) {
       return feedback.map((feedback) => {
         return (
-          <tr>
+          <tr key={feedback?.id}>
             <td>{feedback?.account?.email}</td>
             <td>{feedback?.hotel?.hotel_name}</td>
             <td>{feedback?.account?.username}</td>
@@ -57,11 +56,14 @@ export default function FeedbackComponentAdmin() {
     setFeedback(filterFeedback);
   };
   const showHotels = () => {
-    console.log(hotels);
     if (hotels.length) {
       return hotels.map((hotel, index) => {
         return (
-          <option selected={index === 0} value={hotel?.hotels?.id}>
+          <option
+            key={hotel?.id}
+            selected={index === 0}
+            value={hotel?.hotels?.id}
+          >
             {hotel?.hotels?.hotel_name}
           </option>
         );
@@ -74,29 +76,29 @@ export default function FeedbackComponentAdmin() {
   };
   return (
     <div>
-      <div class="row">
-        <div class="row">
-          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+      <div className="row">
+        <div className="row">
+          <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
             <button
               onClick={dowloadPdf}
               type="button"
-              class="btn btn-danger my-4 "
+              className="btn btn-danger my-4 "
             >
               EXPORT
             </button>
           </div>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <select
-            class="form-control"
+            className="form-control"
             required="required"
             onChange={handleChangeHotel}
           >
             {showHotels()}
           </select>
         </div>
-        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <table class="table feedback table-hover">
+        <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+          <table className="table feedback table-hover">
             <thead>
               <tr>
                 <th>HOTEL</th>
@@ -113,3 +115,5 @@ export default function FeedbackComponentAdmin() {
     </div>
   );
 }
+
+export default memo(FeedbackComponentAdmin);

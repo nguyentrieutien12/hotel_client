@@ -24,6 +24,10 @@ export default function SideBarComponentAdmin() {
       to: `order`,
     },
     {
+      text: "Quiz Manage",
+      to: `quiz`,
+    },
+    {
       text: "Feedback Manage",
       to: `feedback`,
     },

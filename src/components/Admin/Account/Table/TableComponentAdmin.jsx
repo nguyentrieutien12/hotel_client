@@ -8,12 +8,12 @@ export default function TableComponentAdmin(props) {
     return accounts.map((account) => {
       return (
         <tr key={account.id}>
-          <td>{account.id}</td>
-          <td>{account.username}</td>
-          <td>{account.email}</td>
-          <td>{account.address}</td>
-          <td>{account.sex}</td>
-          <td>{account.role.role_name}</td>
+          <td>{account?.id}</td>
+          <td>{account?.username}</td>
+          <td>{account?.email}</td>
+          <td>{account?.address}</td>
+          <td>{account?.sex}</td>
+          <td>{account?.role?.role_name}</td>
           <td>
             <button
               onClick={() => props.handleUpdate(account)}

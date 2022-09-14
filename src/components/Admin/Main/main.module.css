@@ -1,16 +1,20 @@
 .card {
   /* border: 1px solid red !important; */
   padding: 10px;
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 6px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.536);
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
+}
+.card a {
+  color: rgb(0, 0, 0);
 }
 .card::before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 0%;
   height: 100%;
   bottom: 0;
   left: 0;
@@ -18,26 +22,75 @@
   z-index: -1;
   border-radius: 6px;
 }
-.item {
-  color: white;
+
+.account:hover::before {
+  width: 100%;
+  background-color: brown;
 }
-.item:hover {
+.account:hover i {
+  background-color: red;
+  background-color: brown;
   color: white;
-}
-.card:hover::before {
-  transform: scale(1.3);
-  z-index: 100;
-  background-color: rgb(255, 246, 246);
-  opacity: 0;
-  visibility: hidden;
 }
 .account {
-  border-left: 3px solid rgb(255, 255, 255) !important;
-  background-color: brown;
+  border-bottom: 5px solid brown !important;
+}
+
+/* HOTEL CSS */
+.hotel {
+  border-bottom: 5px solid rgb(47, 176, 8) !important;
+}
+.hotel:hover::before {
+  width: 100%;
+  background-color: rgb(47, 176, 8);
+}
+.hotel:hover i {
+  background-color: rgb(36, 136, 6);
+  color: white;
+}
+/* ORDER CSS */
+
+.order {
+  border-bottom: 5px solid rgb(9, 188, 216) !important;
+}
+.order:hover::before {
+  width: 100%;
+  background-color: rgb(9, 188, 216);
+}
+.order:hover i {
+  background-color: rgb(13, 134, 153);
+  color: white;
+}
+/* FEEDBACK CSS */
+
+.feedback {
+  border-bottom: 5px solid rgb(205, 30, 221) !important;
+}
+.feedback:hover::before {
+  width: 100%;
+  background-color: rgb(205, 30, 221);
+}
+.feedback:hover i {
+  background-color: rgb(172, 15, 186);
+  color: white;
 }
 .account .next {
   color: white;
 }
 .next {
   float: right;
+}
+.item {
+}
+.item i {
+  padding: 15px;
+  border-radius: 100%;
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+  box-shadow: 5px 5px 10px black;
+  transition: 0.5s ease;
+}
+.item:hover {
+  color: white;
 }
