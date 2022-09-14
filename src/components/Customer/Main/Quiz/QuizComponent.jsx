@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setQuizList } from "../../../../features/quiz/quiz";
 import { getCookie, setCookie } from "../../../../helpers/cookie.helper";
+import axios from "axios";
 export default function QuizComponent() {
   const [anwser, setAnwser] = useState([]);
   const [list, setList] = useState([]);
@@ -25,10 +26,22 @@ export default function QuizComponent() {
     list.push({ question, anwsers: anwser });
     setAnwser([]);
   };
-  const handleSubmitQuiz = () => {
-    dispatch(setQuizList(list));
-    setCookie("isAnswer", true);
-    navigate(`/main/hotel/${getCookie("hotelId")}`);
+  const handleSubmitQuiz = async (e) => {
+    try {
+      e.preventDefault();
+      dispatch(setQuizList(list));
+      setCookie("isAnswer", true);
+      const result = await axios.post(
+        `${import.meta.env.VITE_BACKEND_SITE}/quiz`,
+        { quiz: list, hotel: getCookie("hotelId") }
+      );
+      const { statusCode } = result.data;
+      if (statusCode === 201) {
+        return navigate(`/main/hotel/${getCookie("hotelId")}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   const showQuiz = () => {
     return allQuestion.map((quiz, index) => {

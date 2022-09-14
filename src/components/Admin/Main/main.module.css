@@ -6,6 +6,7 @@
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.536);
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .card a {
   color: rgb(0, 0, 0);
@@ -31,12 +32,13 @@
   background-color: brown;
   color: white;
 }
-
 .account {
-  border-left: 5px solid brown !important;
+  border-bottom: 5px solid brown !important;
 }
+
+/* HOTEL CSS */
 .hotel {
-  border-left: 5px solid rgb(47, 176, 8) !important;
+  border-bottom: 5px solid rgb(47, 176, 8) !important;
 }
 .hotel:hover::before {
   width: 100%;
@@ -44,6 +46,32 @@
 }
 .hotel:hover i {
   background-color: rgb(36, 136, 6);
+  color: white;
+}
+/* ORDER CSS */
+
+.order {
+  border-bottom: 5px solid rgb(9, 188, 216) !important;
+}
+.order:hover::before {
+  width: 100%;
+  background-color: rgb(9, 188, 216);
+}
+.order:hover i {
+  background-color: rgb(13, 134, 153);
+  color: white;
+}
+/* FEEDBACK CSS */
+
+.feedback {
+  border-bottom: 5px solid rgb(205, 30, 221) !important;
+}
+.feedback:hover::before {
+  width: 100%;
+  background-color: rgb(205, 30, 221);
+}
+.feedback:hover i {
+  background-color: rgb(172, 15, 186);
   color: white;
 }
 .account .next {

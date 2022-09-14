@@ -1,9 +1,9 @@
 import axios from "axios";
-import React from "react";
+import React, { memo } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { exportFile } from "../../../helpers/exportFile";
-export default function OrderComponent() {
+function OrderComponent() {
   const [data, setData] = useState([]);
   const [result, setResult] = useState([]);
   const [type, setType] = useState("restaurant");
@@ -68,22 +68,22 @@ export default function OrderComponent() {
   };
   return (
     <div>
-      <div class="row">
-        <div class="row">
-          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+      <div className="row">
+        <div className="row">
+          <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
             <button
               onClick={dowloadPdf}
               type="button"
-              class="btn btn-danger my-4 "
+              className="btn btn-danger my-4 "
             >
               EXPORT
             </button>
           </div>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
           <select
             id="input"
-            class="form-control"
+            className="form-control"
             required="required"
             onChange={handleChangeId}
           >
@@ -91,10 +91,10 @@ export default function OrderComponent() {
             {showHotel()}
           </select>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
           <select
             id="input"
-            class="form-control"
+            className="form-control"
             required="required"
             onChange={handleChangeType}
           >
@@ -104,8 +104,8 @@ export default function OrderComponent() {
             <option value="gym">Gym</option>
           </select>
         </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <table class="table table-hover" id="table">
+        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <table className="table table-hover" id="table">
             <thead>
               <tr>
                 <th>{type?.toUpperCase()}</th>
@@ -121,3 +121,4 @@ export default function OrderComponent() {
     </div>
   );
 }
+export default memo(OrderComponent);

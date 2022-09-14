@@ -36,6 +36,7 @@ import OrderComponent from "./components/Admin/Order/OrderComponent";
 import FeedbackComponentAdmin from "./components/Admin/FeedbackComponentAdmin/FeedbackComponentAdmin";
 import SendEmailToResetPassword from "./components/SendEmailToResetPassword/SendEmailToResetPassword";
 import ConfirmToResetPassword from "./components/ConfirmToResetPassword/ConfirmToResetPassword";
+import QuizComponentAdmin from "./components/Admin/Quiz/QuizComponentAdmin";
 export default function App() {
   return (
     <div>
@@ -90,6 +91,7 @@ export default function App() {
           <Route path="/dashboard" element={<ProtectedLayout />}>
             <Route index element={<MainContainerAdmin />} />
             <Route path="profile" element={<ProfileContainerAdmin />} />
+            <Route path="quiz" element={<QuizComponentAdmin />} />
             <Route path="order" element={<OrderComponent />} />
             <Route path="account" element={<AccountContainerAdmin />} />
             <Route path="feedback" element={<FeedbackComponentAdmin />} />

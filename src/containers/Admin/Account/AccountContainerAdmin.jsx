@@ -6,9 +6,9 @@ import AccountComponentAdmin from "../../../components/Admin/Account/AccountComp
 import { setAccount } from "../../../features/account/account";
 import { getCookie } from "../../../helpers/cookie.helper";
 import { useNavigate } from "react-router-dom";
-import { redirectError } from "../../../helpers/redirectError";
+import { memo } from "react";
 export const ObjContext = createContext();
-export default function AccountContainerAdmin() {
+function AccountContainerAdmin() {
   const navigate = useNavigate();
   const alert = useAlert();
   const [accountRegister, setAccountRegister] = React.useState({
@@ -164,10 +164,11 @@ export default function AccountContainerAdmin() {
         accountRegister={accountRegister}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        accounts={accounts}
+        accounts={accounts} 
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
       />
     </div>
   );
 }
+export default memo(AccountContainerAdmin);
