@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { account as Account } from "../../../../helpers/account.helper";
 import { getCookie } from "../../../../helpers/cookie.helper";
+import { logOut } from "../../../../helpers/logout";
 export default function HeaderComponent() {
   const [rate, setRate] = useState(0);
   const [feedback, setFeedback] = useState("");
@@ -72,16 +73,7 @@ export default function HeaderComponent() {
     menu.classList.remove(`active_menu_fake`);
   };
   const handleSignOut = () => {
-    const cookies = document.cookie.split(";");
-    const key = [];
-    for (const cookie of cookies) {
-      const eqPos = cookie.indexOf("=");
-      key.push(cookie.slice(0, eqPos).trim());
-    }
-    key.forEach((cookie) => {
-      Cookies.remove(cookie); // removed!
-    });
-    document.location.reload(true);
+    logOut();
   };
   return (
     <div className={styles.wrapper}>

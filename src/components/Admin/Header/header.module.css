@@ -1,5 +1,63 @@
 .header {
   background-color: #198754;
-  padding: 40px;
+  padding: 20px 40px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.option {
+  display: flex;
+  align-items: center;
+}
+.option i {
+  font-size: 20px;
+  border: 1px solid white;
+  padding: 12px;
+  margin-left: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.option i:hover {
+  background-color: aliceblue;
+  color: #198754;
+}
+.account {
+  position: relative;
+}
+.account::after {
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: -20px;
+  opacity: 1;
+  z-index: 1000;
+  width: 140%;
+  height: 50%;
+  opacity: 0;
+  visibility: hidden;
+}
+.account:hover::after {
+  visibility: visible;
+}
+.account:hover ~ .setting {
+  right: 0px;
+  opacity: 1;
+  visibility: visible;
+}
+.setting:hover {
+  right: 0px;
+  opacity: 1;
+  visibility: visible;
+}
+.setting {
+  position: absolute;
+  padding: 30px;
+  top: 80px;
+  opacity: 0;
+  visibility: hidden;
+  right: 200px;
+  background-color: red !important;
+  transition: 0.5s ease;
 }

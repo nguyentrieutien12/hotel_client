@@ -33,12 +33,12 @@
   color: white;
 }
 .account {
-  border-bottom: 5px solid brown !important;
+  border-left: 5px solid brown !important;
 }
 
 /* HOTEL CSS */
 .hotel {
-  border-bottom: 5px solid rgb(47, 176, 8) !important;
+  border-left: 5px solid rgb(47, 176, 8) !important;
 }
 .hotel:hover::before {
   width: 100%;
@@ -51,7 +51,7 @@
 /* ORDER CSS */
 
 .order {
-  border-bottom: 5px solid rgb(9, 188, 216) !important;
+  border-left: 5px solid rgb(9, 188, 216) !important;
 }
 .order:hover::before {
   width: 100%;
@@ -64,7 +64,7 @@
 /* FEEDBACK CSS */
 
 .feedback {
-  border-bottom: 5px solid rgb(205, 30, 221) !important;
+  border-left: 5px solid rgb(205, 30, 221) !important;
 }
 .feedback:hover::before {
   width: 100%;

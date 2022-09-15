@@ -27,9 +27,17 @@ function BodyRecoveryForm(props) {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="file">
+            <i
+              style={{ fontSize: "40px", color: "rgb(4, 170, 109)" }}
+              className=" fa-solid fa-image"
+            ></i>
+          </label>
+
           <input
             type="file"
-            className="form-control"
+            id="file"
+            className="form-control d-none"
             placeholder="Input "
             multiple
             ref={props.inputElement}

@@ -68,8 +68,10 @@ function FormHotelComponentAdmin(props) {
               </Grid>
               <Grid item xs={6}>
                 <label htmlFor="img">
-                  Click To Upload Images
-                  <i className="fa-solid fa-image"></i>
+                  <i
+                    style={{ fontSize: "40px", color: "rgb(4, 170, 109)" }}
+                    className="my-3 fa-solid fa-image"
+                  ></i>
                 </label>
 
                 <input
