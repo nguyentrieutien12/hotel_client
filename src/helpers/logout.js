@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 export const logOut = () => {
   const cookies = document.cookie.split(";");
   const key = [];

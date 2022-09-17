@@ -58,6 +58,19 @@
   opacity: 0;
   visibility: hidden;
   right: 200px;
-  background-color: red !important;
   transition: 0.5s ease;
+  width: 300px;
+  z-index: 1000;
+  border-radius: 6px;
+  background-color: burlywood;
+}
+.item {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  border-bottom: 1px solid white;
 }

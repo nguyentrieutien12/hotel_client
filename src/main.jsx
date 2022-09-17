@@ -12,6 +12,7 @@ const options = {
   offset: "30px",
   transition: transitions.FADE,
 };
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AlertProvider template={AlertTemplate} {...options}>
