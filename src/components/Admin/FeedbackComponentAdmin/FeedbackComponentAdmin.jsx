@@ -35,8 +35,8 @@ function FeedbackComponentAdmin() {
       return feedback.map((feedback) => {
         return (
           <tr key={feedback?.id}>
-            <td>{feedback?.account?.email}</td>
             <td>{feedback?.hotel?.hotel_name}</td>
+            <td>{feedback?.account?.email}</td>
             <td>{feedback?.account?.username}</td>
             <td>{feedback?.rate}</td>
             <td>{feedback?.feedback}</td>

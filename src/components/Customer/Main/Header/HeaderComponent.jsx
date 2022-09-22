@@ -113,13 +113,13 @@ export default function HeaderComponent() {
           </li>
           <li onClick={handleCloseMenu}>
             <Link to="/main/profile">My Profile</Link>
-          </li>
-          <li onClick={handleCloseMenu}>
-            <Link to="/">About Us</Link>
-          </li>
+          </li>{" "}
           <li data-toggle="modal" data-target=".bd-example-modal-lg">
             <Link to="#">Feedback</Link>
           </li>{" "}
+          <li onClick={handleCloseMenu}>
+            <Link to="/main/about-us">About Us</Link>
+          </li>
           <li onClick={handleSignOut}>
             <Link to="#">Sign Out</Link>
           </li>

@@ -1,5 +1,107 @@
+import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { exportFile } from "../../../helpers/exportFile";
 
 export default function QuizComponentAdmin() {
-  return <div>QuizComponentAdmin</div>;
+  const [hotels, setHotels] = useState([]);
+  const [quizs, setQuizs] = useState([]);
+  const [mainQuiz, setMainQuiz] = useState([]);
+  const [isShow, setIsShow] = useState(false);
+  useEffect(() => {
+    getQuizs().then((result) => {
+      const { quizs, hotels } = result;
+      setHotels(hotels);
+      setMainQuiz(quizs);
+      setQuizs(quizs);
+    });
+  }, []);
+  const getQuizs = async () => {
+    try {
+      const result = await axios.get(
+        `${import.meta.env.VITE_BACKEND_SITE}/quiz`
+      );
+      return result.data;
+    } catch (error) {}
+  };
+  const showHotels = () => {
+    if (hotels.length > 0) {
+      return hotels.map((hotel) => {
+        return (
+          <option key={hotel?.id} value={hotel?.hotels?.id}>
+            {hotel?.hotels?.hotel_name}
+          </option>
+        );
+      });
+    }
+  };
+  const showQuizs = () => {
+    if (isShow) {
+      if (quizs?.length > 0) {
+        return quizs?.map((quiz) => {
+          return (
+            <tr key={quiz?.id}>
+              <td>{quiz?.hotels?.hotel_name}</td>
+              <td>{quiz?.hotels?.hotel_email}</td>
+              <td>{quiz?.quiz[0]?.question}</td>
+              <td>{quiz?.quiz[0]?.anwsers?.join(", ")}</td>
+            </tr>
+          );
+        });
+      }
+    }
+  };
+  const handleChangeHotel = (e) => {
+    setIsShow(true);
+    const { value } = e.target;
+    const quizsMap = mainQuiz.filter((quiz) => quiz?.hotels?.id == value);
+    setQuizs(quizsMap);
+  };
+  const handleExport = () => {
+    exportFile(document.querySelector(".quiz"), "quiz");
+  };
+  return (
+    <div>
+      <div className="row my-4">
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <button
+            onClick={handleExport}
+            type="button"
+            className="btn btn-danger"
+          >
+            EXPORT
+          </button>
+        </div>
+
+        <div class="row my-4">
+          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <select
+              id="input"
+              className="form-control"
+              required="required"
+              onChange={handleChangeHotel}
+            >
+              <option>SELECT HOTEL TO SHOW QUIZ =)))</option>
+              {showHotels()}
+            </select>
+          </div>
+
+          <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <table className="table table-hover quiz">
+              <thead>
+                <tr>
+                  <th>Hotel Name</th>
+                  <th>Hotel Email</th>
+                  <th>Question</th>
+                  <th>Answer</th>
+                </tr>
+              </thead>
+              <tbody>{showQuizs()}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

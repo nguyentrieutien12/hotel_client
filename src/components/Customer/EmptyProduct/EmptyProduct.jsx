@@ -1,6 +1,7 @@
 import React from "react";
+import { memo } from "react";
 import styles from "./empty.module.css";
-export default function EmptyProduct({ name }) {
+function EmptyProduct({ name }) {
   return (
     <div className={styles.empty_container}>
       <h1 style={{ color: "white" }} className="text-center">
@@ -9,3 +10,4 @@ export default function EmptyProduct({ name }) {
     </div>
   );
 }
+export default memo(EmptyProduct);

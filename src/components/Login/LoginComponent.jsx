@@ -13,7 +13,7 @@ import styles from "./LoginComponent.module.css";
 import { Link as L } from "react-router-dom";
 const theme = createTheme();
 
-export default function LoginComponent(props) {
+function LoginComponent(props) {
   const { accountLogin } = props;
   const { email, password } = accountLogin;
   const handleSubmit = (e) => {
@@ -93,3 +93,4 @@ export default function LoginComponent(props) {
     </div>
   );
 }
+export default React.memo(LoginComponent);

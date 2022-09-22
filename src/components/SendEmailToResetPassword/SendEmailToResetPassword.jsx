@@ -12,7 +12,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 const theme = createTheme();
-export default function SendEmailToResetPassword() {
+function SendEmailToResetPassword() {
   const [email, setEmail] = useState("");
   const alert = useAlert();
   const handleChange = (e) => {
@@ -78,3 +78,4 @@ export default function SendEmailToResetPassword() {
     </div>
   );
 }
+export default React.memo(SendEmailToResetPassword);

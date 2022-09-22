@@ -4,7 +4,8 @@ import BodyRecoveryForm from "./Form/BodyRecoveryForm";
 import BodyRecoveryTable from "./Table/BodyRecoveryTable";
 
 function BodyRecoveryComponentAdmin(props) {
-  const { bodyRecoverys, inputElement, recoveryList, recovery } = props;
+  const { bodyRecoverys, inputElement, recoveryList, recovery, isUpdate } =
+    props;
   return (
     <div>
       <div className="row">
@@ -15,6 +16,7 @@ function BodyRecoveryComponentAdmin(props) {
             handleOnClick={props.handleOnClick}
             recoveryList={recoveryList}
             recovery={recovery}
+            isUpdate={isUpdate}
           />
         </div>
 

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import "./loading.css";
-export default function LoadingComponent() {
+function LoadingComponent() {
   return (
     <div>
       <div className="load-wrapp">
@@ -15,3 +15,4 @@ export default function LoadingComponent() {
     </div>
   );
 }
+export default memo(LoadingComponent);

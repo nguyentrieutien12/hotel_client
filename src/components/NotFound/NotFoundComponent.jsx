@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
-export default function NotFoundComponent() {
+function NotFoundComponent() {
   return (
     <div>
       <div className="notfount_container">
@@ -28,3 +28,4 @@ export default function NotFoundComponent() {
     </div>
   );
 }
+export default memo(NotFoundComponent);

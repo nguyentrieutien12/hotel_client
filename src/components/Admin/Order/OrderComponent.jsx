@@ -47,7 +47,6 @@ function OrderComponent() {
     }
   };
   const showResult = () => {
-    console.log(result);
     if (result.length) {
       return result.map((r) => {
         if (r?.hotel?.id == id) {
@@ -55,6 +54,7 @@ function OrderComponent() {
             <tr key={r.id}>
               <td>{r?.[type]?.[`${type}_name`]}</td>
               <td>{r?.account?.username}</td>
+              <td>{r?.account?.email}</td>
               <td>{r?.time}</td>
             </tr>
           );
@@ -110,8 +110,8 @@ function OrderComponent() {
               <tr>
                 <th>{type?.toUpperCase()}</th>
                 <th>USERNAME</th>
+                <th>EMAIL</th>
                 <th>TIME</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>{showResult()}</tbody>

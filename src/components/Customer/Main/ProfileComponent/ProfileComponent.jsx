@@ -42,7 +42,7 @@ function ProfileComponent() {
   const showRecommend = () => {
     if (recommend.length === 0) {
       return (
-        <h1 className="text-center">{`${value.toUpperCase()} Is Empty `}</h1>
+        <h1 className="text-center">{`No Recommend for ${value.toUpperCase()} `}</h1>
       );
     }
     if (recommend.length > 0) {

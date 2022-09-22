@@ -1,7 +1,7 @@
 import { Link, Typography } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 
-export default function CopyrightComponent() {
+function CopyrightComponent() {
   return (
     <div>
       {" "}
@@ -16,3 +16,4 @@ export default function CopyrightComponent() {
     </div>
   );
 }
+export default memo(CopyrightComponent);

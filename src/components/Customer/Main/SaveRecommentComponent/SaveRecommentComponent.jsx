@@ -46,15 +46,15 @@ function SaveRecommentComponent(props) {
       );
       const { statusCode, message } = result.data;
       if (statusCode === 201) {
-        const modal = document.querySelector(".modal");
+        const modal = document.querySelector("#exampleModal");
         const bg = document.querySelector(".modal-backdrop");
         if (bg) {
           bg.parentNode.removeChild(bg);
+          modal.classList.remove("show");
+          return alert.success(message);
         }
-        modal.style.display = "none";
-        return alert.success(message);
+        return alert.error(message);
       }
-      return alert.error(message);
     } catch (error) {
       console.log(error);
     }

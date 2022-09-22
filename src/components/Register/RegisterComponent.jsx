@@ -11,7 +11,7 @@ import { InputLabel, MenuItem, Select } from "@mui/material";
 import { Link as L } from "react-router-dom";
 import styles from "./../Login/LoginComponent.module.css";
 const theme = createTheme();
-export default function RegisterComponent(props) {
+ function RegisterComponent(props) {
   const { accountRegister } = props;
   const { username, address, sex, password, comfirmPassword, email } =
     accountRegister;
@@ -142,3 +142,4 @@ export default function RegisterComponent(props) {
     </div>
   );
 }
+export default React.memo(RegisterComponent);

@@ -37,6 +37,7 @@ import FeedbackComponentAdmin from "./components/Admin/FeedbackComponentAdmin/Fe
 import SendEmailToResetPassword from "./components/SendEmailToResetPassword/SendEmailToResetPassword";
 import ConfirmToResetPassword from "./components/ConfirmToResetPassword/ConfirmToResetPassword";
 import QuizComponentAdmin from "./components/Admin/Quiz/QuizComponentAdmin";
+import AboutUsComponent from "./components/Customer/Main/AboutUs/AboutUsComponent";
 export default function App() {
   return (
     <div>
@@ -57,6 +58,7 @@ export default function App() {
             <Route index element={<BodyMenuComponent />}></Route>
             <Route path="quiz" element={<QuizComponent />}></Route>
             <Route path="profile" element={<ProfileComponent />}></Route>
+            <Route path="about-us" element={<AboutUsComponent />}></Route>
             <Route
               path="body-recovery"
               element={<BodyRecoveryContainerCustomer />}

@@ -92,6 +92,7 @@ export default function BodyRecoveryContainerAdmin() {
         );
         const { message, statusCode } = result.data;
         if (statusCode === 202) {
+          setIsUpdate(false);
           return createOrUpdateSuccess(message);
         }
         return createOrUpdateFail(message);
@@ -150,6 +151,7 @@ export default function BodyRecoveryContainerAdmin() {
         handleOnClick={handleOnClick}
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
+        isUpdate={isUpdate}
       />
     </div>
   );

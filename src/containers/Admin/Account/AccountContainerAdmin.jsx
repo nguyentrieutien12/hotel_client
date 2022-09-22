@@ -164,7 +164,7 @@ function AccountContainerAdmin() {
         accountRegister={accountRegister}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        accounts={accounts} 
+        accounts={accounts}
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
       />

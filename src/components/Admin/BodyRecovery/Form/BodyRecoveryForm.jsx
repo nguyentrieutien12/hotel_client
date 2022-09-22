@@ -5,7 +5,11 @@ function BodyRecoveryForm(props) {
   return (
     <div>
       <form action="" method="POST" role="form">
-        <legend>Body Recovery Form</legend>
+        <legend>
+          {props.isUpdate
+            ? "Update Body Recovery Form"
+            : "Create Body Recovery Form"}
+        </legend>
         <div className="form-group">
           <label htmlFor="">name</label>
           <input
@@ -44,6 +48,8 @@ function BodyRecoveryForm(props) {
           />
         </div>
         <div className="form-group">
+          <span class="label">Type</span>
+
           <select
             className="form-control"
             name="recovery"
@@ -74,7 +80,7 @@ function BodyRecoveryForm(props) {
           className="btn btn-success my-3"
           onClick={props.handleOnClick}
         >
-          Submit
+          {props.isUpdate ? "UPDATE" : "CREATE"}
         </button>
       </form>
     </div>
