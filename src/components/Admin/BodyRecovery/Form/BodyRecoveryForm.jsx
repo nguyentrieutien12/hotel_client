@@ -48,7 +48,7 @@ function BodyRecoveryForm(props) {
           />
         </div>
         <div className="form-group">
-          <span class="label">Type</span>
+          <span className="label">Type</span>
 
           <select
             className="form-control"

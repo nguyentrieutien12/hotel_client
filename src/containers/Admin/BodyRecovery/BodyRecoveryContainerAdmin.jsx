@@ -4,8 +4,11 @@ import axios from "axios";
 import { uploadFile } from "./../../../helpers/uploadFile";
 import { useRef } from "react";
 import { useAlert } from "react-alert";
+import { getDataFromServer } from "../../../helpers/getDataServer";
+import { useNavigate } from "react-router-dom";
 export default function BodyRecoveryContainerAdmin() {
   const alert = useAlert();
+  const navigate = useNavigate();
   const [bodyRecoverys, setBodyRecovery] = useState([]);
   const [isUpdate, setIsUpdate] = useState(false);
   const [idUpdate, setIdUpdate] = useState(null);
@@ -28,12 +31,9 @@ export default function BodyRecoveryContainerAdmin() {
 
   const getAllBodyRecovery = async () => {
     try {
-      const result = await axios.get(
-        `${import.meta.env.VITE_BACKEND_SITE}/body-recovery`
-      );
-      return await result.data;
+      return getDataFromServer("body-recovery");
     } catch (error) {
-      console.log(error);
+      return navigate("/login");
     }
   };
   const getAllRecovery = async () => {
