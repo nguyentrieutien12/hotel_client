@@ -7,7 +7,12 @@ export default function HeaderComponentAdmin() {
   };
   return (
     <div className={styles.header}>
-      <div className="logo">HeaderComponentAdmin</div>
+      <div className={styles.logo}>
+        <img
+          src="https://img.freepik.com/vecteurs-libre/identite-entreprise-vecteur-logo-hotel-modifiable-texte-hotel-cache_53876-111556.jpg?w=2000"
+          alt="Logo"
+        />
+      </div>
       <div className={styles.option}>
         <i className="fa-regular fa-bell"></i>
         <i className={`fa-regular fa-user ${styles.account}`}></i>

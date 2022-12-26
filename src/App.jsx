@@ -91,7 +91,7 @@ export default function App() {
             ></Route>{" "}
           </Route>
           <Route path="/dashboard" element={<ProtectedLayout />}>
-            <Route index element={<MainContainerAdmin />} />
+            <Route index element={<AccountContainerAdmin />} />
             <Route path="profile" element={<ProfileContainerAdmin />} />
             <Route path="quiz" element={<QuizComponentAdmin />} />
             <Route path="order" element={<OrderComponent />} />

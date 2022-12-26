@@ -24,7 +24,7 @@ export default function TableComponentAdmin(props) {
           <td>
             <img src={hotel.qr.qr_link} />
           </td>
-          <td>
+          <td style={{ flexWrap: "nowrap" }}>
             <button
               onClick={() => props.handleUpdateHotel(hotel)}
               type="button"

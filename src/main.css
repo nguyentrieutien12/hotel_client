@@ -102,3 +102,6 @@ div.text_notfound a:hover {
     text-decoration: underline;
   }
 }
+table {
+  height: 500px !important;
+}

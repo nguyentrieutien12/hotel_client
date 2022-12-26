@@ -79,7 +79,10 @@ export default function HeaderComponent() {
     <div className={styles.wrapper}>
       <div className="navbar">
         <Link style={{ color: "white" }} to="/">
-          Logo
+          <img
+            style={{ width: "60px", height: "60px", borderRadius: "6px" }}
+            src="https://img.freepik.com/vecteurs-libre/identite-entreprise-vecteur-logo-hotel-modifiable-texte-hotel-cache_53876-111556.jpg?w=2000"
+          />
         </Link>
         <ul className={`nav navbar-nav ${styles.nav}`}>
           <li className="active">
