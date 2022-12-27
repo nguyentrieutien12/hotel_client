@@ -26,7 +26,7 @@ export default function QuizComponentAdmin() {
     } catch (error) {}
   };
   const showHotels = () => {
-    if (hotels.length > 0) {
+    if (hotels?.length > 0) {
       return hotels.map((hotel) => {
         return (
           <option key={hotel?.id} value={hotel?.hotels?.id}>
@@ -82,18 +82,24 @@ export default function QuizComponentAdmin() {
               required="required"
               onChange={handleChangeHotel}
             >
-              <option>SELECT HOTEL TO SHOW QUIZ =)))</option>
+              <option>SELECT HOTEL TO SHOW QUIZ</option>
               {showHotels()}
             </select>
           </div>
 
-          <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-            <table className="table table-hover quiz">
+          <div
+            className="col-xs-9 col-sm-9 col-md-9 col-lg-9"
+            style={{ height: "700px", overflowY: "scroll" }}
+          >
+            <table
+              className="table table-hover"
+              style={{ height: "700px", overflowY: "scroll" }}
+            >
               <thead>
                 <tr>
-                  <th>Hotel Name</th>
+                  <th style={{ width: "300px" }}>Hotel Name</th>
                   <th>Hotel Email</th>
-                  <th>Question</th>
+                  <th style={{ width: "300px" }}>Question</th>
                   <th>Answer</th>
                 </tr>
               </thead>

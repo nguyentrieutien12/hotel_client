@@ -29,8 +29,19 @@ export default function BodyMenuComponent() {
                   <div className="card-body">
                     <h1 className="card-title">Body Constitution</h1>
                     <p className="card-text">
-                      Discover your unique body through our assessment. Learn
-                      how to attend to its needs for greater wellbeing!
+                      TCM (Traditional Chinese Medicine) is an individualized
+                      health and wellbeing system, based on the principle that
+                      different body constitutions, i.e., types, respond
+                      differently to the same lifestyle choices or environmental
+                      factors. Your body constitution is made up of your body's
+                      structural and functional characteristics, your
+                      temperament, your body's adaptability to environmental
+                      changes and susceptibility to disease. It is partly
+                      genetically determined and partly acquired based on your
+                      lifestyle and environment. By understanding your body
+                      constitution, you can learn how to make the right
+                      lifestyle choices for your own body, to restore balance
+                      within and with the surrounding environment
                     </p>
                   </div>
                 </Link>
@@ -56,7 +67,7 @@ export default function BodyMenuComponent() {
             </div>
             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <div className={`card ${styles.card}`}>
-                <Link to="quiz">
+                <Link to="guided-practices">
                   <img
                     className="card-img-top"
                     src="image5.png"

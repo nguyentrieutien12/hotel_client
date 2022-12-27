@@ -38,7 +38,7 @@ function ProfileComponent() {
     setRecommend(list);
   };
   // PUSH 1
-
+  console.log(recovery);
   const showRecommend = () => {
     if (recommend.length === 0) {
       return (
@@ -150,7 +150,6 @@ function ProfileComponent() {
         >
           EDIT PROFILE
         </p>
-        {/* <!-- Modal --> */}
         <div
           className="modal fade"
           id="exampleModal"
@@ -303,7 +302,7 @@ function ProfileComponent() {
         </div>
         <div className={styles.cons}>
           <div className="name">
-            <h3>Body Recovery</h3>
+            <h3>Body Recovery And Guided Pratices</h3>
           </div>
           <p
             data-toggle="collapse"

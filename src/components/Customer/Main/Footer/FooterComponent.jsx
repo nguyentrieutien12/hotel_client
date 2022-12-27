@@ -5,7 +5,7 @@ export default function FooterComponent() {
     <div>
       <div
         className={`row ${styles.footer_container}`}
-        style={{ background: "#523922" }}
+        style={{ background: "#B99173", borderTop: "1px solid white" }}
       >
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <div className="logo">

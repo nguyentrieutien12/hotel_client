@@ -79,20 +79,18 @@ export default function HeaderComponent() {
     <div className={styles.wrapper}>
       <div className="navbar">
         <Link style={{ color: "white" }} to="/">
-          <img
-            style={{ width: "60px", height: "60px", borderRadius: "6px" }}
-            src="https://img.freepik.com/vecteurs-libre/identite-entreprise-vecteur-logo-hotel-modifiable-texte-hotel-cache_53876-111556.jpg?w=2000"
-          />
+          <img style={{ borderRadius: "6px" }} src={"/logo1.png"} />
+          {/* EDIT */}
         </Link>
         <ul className={`nav navbar-nav ${styles.nav}`}>
           <li className="active">
-            <Link to="/">Body Constitution</Link>
+            <Link to="/main/quiz">Body Constitution</Link>
           </li>
           <li>
             <Link to="/main/body-recovery">Body Recovery </Link>
           </li>
           <li>
-            <Link to="/">Guided Practices</Link>
+            <Link to="/main/guided-practices">Guided Practices</Link>
           </li>
           <li onClick={handleShowMenu}>
             <Link to="#">

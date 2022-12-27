@@ -24,7 +24,7 @@ function SaveRecommentComponent(props) {
         alert.success(message);
         return setTimeout(() => {
           window.location.reload();
-        }, 1000);
+        }, 500);
       }
       return alert.error(message);
     } catch (error) {

@@ -43,7 +43,10 @@ export default function RestaurantTable(props) {
   };
   return (
     <div>
-      <table className="table table-hover">
+      <table
+        className="table table-hover"
+        style={{ height: "700px", overflowY: "scroll" }}
+      >
         <thead>
           <tr>
             <th>ID</th>

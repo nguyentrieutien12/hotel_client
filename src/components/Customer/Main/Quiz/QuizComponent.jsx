@@ -52,7 +52,7 @@ export default function QuizComponent() {
             styles.item
           }`}
         >
-          <h2>{quiz.question}</h2>
+          <h2 style={{ color: "#a56c50" }}>{quiz.question}</h2>
           <div className={styles.asw}>
             {quiz.answer.map((ans) => {
               return (

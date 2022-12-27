@@ -105,7 +105,11 @@ function OrderComponent() {
           </select>
         </div>
         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <table className="table table-hover" id="table">
+          <table
+            className="table table-hover"
+            id="table"
+            style={{ height: "700px", overflowY: "scroll" }}
+          >
             <thead>
               <tr>
                 <th>{type?.toUpperCase()}</th>

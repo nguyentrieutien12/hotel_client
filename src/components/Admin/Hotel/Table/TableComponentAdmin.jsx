@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 export default function TableComponentAdmin(props) {
   const { hotels } = props;
   const renderImage = (images) => {
-    if (images?.length > 0) {
-      return images.map((image) => {
-        return `${image.image_url.slice(0, 20)}... \n`;
-      });
-    }
     return [];
   };
   const showHotel = () => {
@@ -20,7 +15,6 @@ export default function TableComponentAdmin(props) {
           </td>
           <td>{hotel.hotel_email}</td>
           <td>{hotel.hotel_address}</td>
-          <td style={{ width: "3.33%" }}>{renderImage(hotel.images)}</td>
           <td>
             <img src={hotel.qr.qr_link} />
           </td>
@@ -46,13 +40,12 @@ export default function TableComponentAdmin(props) {
   };
   return (
     <div className={styles.table}>
-      <table className="table table-hover">
+      <table className={`${styles.table} table table-hover`}>
         <thead>
           <tr>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>ADDRESS</th>
-            <th>IMAGES</th>
             <th>QRCODE</th>
             <th>Actions</th>
           </tr>

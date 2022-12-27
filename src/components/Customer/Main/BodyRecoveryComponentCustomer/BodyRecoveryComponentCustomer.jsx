@@ -67,7 +67,7 @@ export default function BodyRecoveryComponentCustomer(props) {
                   className={`card-text ${styles.text}`}
                   style={{ color: "black", float: "right" }}
                 >
-                  Some quick
+                  {recovery?.body_recovery_description}
                 </p>
               </div>
             </Link>
@@ -91,27 +91,15 @@ export default function BodyRecoveryComponentCustomer(props) {
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1>Welcome back, {account?.username}!</h1>
             <h4 className="my-5">
-              Here're some guided practices to support your wellness journey!
+              {props?.type === "body"
+                ? "What is your current wellness recovery goal? "
+                : "Herer'e some guided practices to support your wellness journey!"}
             </h4>
           </div>
         </div>
         <div className="row">
           <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <ul style={{ padding: "0px" }}>
-              {recovery?.map((recovery) => {
-                return (
-                  <li
-                    key={recovery?.id}
-                    className={`${styles.item} item`}
-                    id={recovery.id}
-                    onClick={handleClick}
-                  >
-                    {" "}
-                    {recovery?.recovery_name?.charAt(0).toUpperCase() +
-                      recovery?.recovery_name?.slice(1)}
-                  </li>
-                );
-              })}
               <li
                 className={`${styles.item} ${styles.bgColor} item`}
                 onClick={handleClick}

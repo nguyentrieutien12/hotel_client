@@ -6,7 +6,8 @@ import { useRef } from "react";
 import { useAlert } from "react-alert";
 import { getDataFromServer } from "../../../helpers/getDataServer";
 import { useNavigate } from "react-router-dom";
-export default function BodyRecoveryContainerAdmin() {
+export default function BodyRecoveryContainerAdmin(props) {
+  const { type } = props;
   const alert = useAlert();
   const navigate = useNavigate();
   const [bodyRecoverys, setBodyRecovery] = useState([]);

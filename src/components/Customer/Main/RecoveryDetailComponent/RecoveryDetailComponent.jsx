@@ -34,9 +34,13 @@ function RecoveryDetailComponent() {
       const numberTwo = Math.floor(Math.random() * bodyRecovery.length);
       delete bodyRecovery[numberOne];
       delete bodyRecovery[numberTwo];
-      setRecoveryList(bodyRecovery);
+      bodyRecovery = bodyRecovery.filter((b) => {
+        return b?.recovery?.recovery_name == recovery?.recovery?.recovery_name;
+      });
+      console.log(bodyRecovery);
+      setRecoveryList([...bodyRecovery]);
     });
-  }, []);
+  }, [recovery]);
   const getBodyRecovery = async () => {
     try {
       const result = await axios.get(
@@ -57,6 +61,7 @@ function RecoveryDetailComponent() {
       console.log(error);
     }
   };
+
   if (recovery) {
     return (
       <div className={styles.video_container}>
@@ -66,7 +71,6 @@ function RecoveryDetailComponent() {
             allow="autoplay; encrypted-media"
             src={recovery?.video?.video_url}
             frameborder="0"
-            allowfullscreen
           ></iframe>
         </div>
         <div className={styles.main}>

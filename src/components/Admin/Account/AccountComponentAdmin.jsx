@@ -20,7 +20,10 @@ export default function AccountComponentAdmin(props) {
             isUpdate={isUpdate}
           />
         </div>
-        <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <div
+          className="col-xs-9 col-sm-9 col-md-9 col-lg-9"
+          style={{ height: "700px", overflowY: "scroll" }}
+        >
           <TableComponentAdmin
             accounts={accounts}
             handleDelete={handleDelete}

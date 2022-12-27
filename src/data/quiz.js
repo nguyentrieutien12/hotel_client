@@ -70,86 +70,86 @@ export const allQuestion = [
       },
     ],
   },
-  // {
-  //   question:
-  //     "Which of the following describes your usual mental and emotional state?",
-  //   answer: [
-  //     {
-  //       data: "Emotionally stable",
-  //       ind: 1,
-  //     },
-  //     {
-  //       data: "Easily irritable",
-  //       ind: 5,
-  //     },
-  //     {
-  //       data: "Poor memory",
-  //       ind: 6,
-  //     },
-  //     {
-  //       data: "Sleepy and tired",
-  //       ind: 2,
-  //     },
-  //     {
-  //       data: "Sluggish and heavy",
-  //       ind: 8,
-  //     },
-  //     {
-  //       data: "Optimistic",
-  //       ind: 1,
-  //     },
-  //     {
-  //       data: "Alert and focused",
-  //       ind: 1,
-  //     },
-  //     {
-  //       data: "Not applicable",
-  //       ind: 100,
-  //     },
-  //   ],
-  // },
-  // {
-  //   question:
-  //     "Which of the following describes your usual physical appearance?",
-  //   answer: [
-  //     {
-  //       data: "Dark eye bags",
-  //       ind: 7,
-  //     },
-  //     {
-  //       data: "Visible varicose veins",
-  //       ind: 7,
-  //     },
-  //     {
-  //       data: "Puffy eyes",
-  //       ind: 8,
-  //     },
-  //     {
-  //       data: "Prone to swelling ankles",
-  //       ind: 8,
-  //     },
-  //     {
-  //       data: "Purplish lips and nails",
-  //       ind: 7,
-  //     },
-  //     {
-  //       data: "Pale lips",
-  //       ind: 6,
-  //     },
-  //     {
-  //       data: "Plump body type",
-  //       ind: 8,
-  //     },
-  //     {
-  //       data: "Physcially fit",
-  //       ind: 1,
-  //     },
-  //     {
-  //       data: "Not applicable",
-  //       ind: 100,
-  //     },
-  //   ],
-  // },
+  {
+    question:
+      "Which of the following describes your usual mental and emotional state?",
+    answer: [
+      {
+        data: "Emotionally stable",
+        ind: 1,
+      },
+      {
+        data: "Easily irritable",
+        ind: 5,
+      },
+      {
+        data: "Poor memory",
+        ind: 6,
+      },
+      {
+        data: "Sleepy and tired",
+        ind: 2,
+      },
+      {
+        data: "Sluggish and heavy",
+        ind: 8,
+      },
+      {
+        data: "Optimistic",
+        ind: 1,
+      },
+      {
+        data: "Alert and focused",
+        ind: 1,
+      },
+      {
+        data: "Not applicable",
+        ind: 100,
+      },
+    ],
+  },
+  {
+    question:
+      "Which of the following describes your usual physical appearance?",
+    answer: [
+      {
+        data: "Dark eye bags",
+        ind: 7,
+      },
+      {
+        data: "Visible varicose veins",
+        ind: 7,
+      },
+      {
+        data: "Puffy eyes",
+        ind: 8,
+      },
+      {
+        data: "Prone to swelling ankles",
+        ind: 8,
+      },
+      {
+        data: "Purplish lips and nails",
+        ind: 7,
+      },
+      {
+        data: "Pale lips",
+        ind: 6,
+      },
+      {
+        data: "Plump body type",
+        ind: 8,
+      },
+      {
+        data: "Physcially fit",
+        ind: 1,
+      },
+      {
+        data: "Not applicable",
+        ind: 100,
+      },
+    ],
+  },
   // {
   //   question: "Which of the following d escribes your skin complexion?",
   //   answer: [

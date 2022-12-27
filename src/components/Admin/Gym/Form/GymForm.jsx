@@ -5,7 +5,7 @@ export default function GymForm(props) {
   return (
     <div>
       <form action="" method="POST" role="form">
-        <legend>Form title</legend>
+        <legend>Gym Form </legend>
 
         <div className="form-group">
           <label>Gym Name</label>
