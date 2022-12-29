@@ -6,6 +6,7 @@ import { account as accountPrivate } from "./../../../../helpers/account.helper"
 import styles from "./recovery.module.css";
 import { Link } from "react-router-dom";
 export default function BodyRecoveryComponentCustomer(props) {
+  console.log(props);
   const [account, setAccount] = useState(null);
   const [bodyRecovery, setBodyRecovery] = useState([]);
   const [recovery, setRecovery] = useState([]);
@@ -44,7 +45,7 @@ export default function BodyRecoveryComponentCustomer(props) {
     } catch (error) {}
   };
   const showBodyRecovery = () => {
-    if (props.bodyRecovery.length > 0) {
+    if (props.bodyRecovery?.length > 0) {
       return props.bodyRecovery.map((recovery) => {
         return (
           <div

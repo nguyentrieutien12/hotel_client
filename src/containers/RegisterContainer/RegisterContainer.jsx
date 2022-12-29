@@ -14,6 +14,7 @@ export default function RegisterContainer() {
     password: "",
     comfirmPassword: "",
     role: 2,
+    phone_number: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +42,7 @@ export default function RegisterContainer() {
           sex: "male",
           password: "",
           comfirmPassword: "",
+          phone_number: "",
         });
         navigate("/login");
         return void 0;

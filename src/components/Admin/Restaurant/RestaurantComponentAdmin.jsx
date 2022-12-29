@@ -15,7 +15,10 @@ export default function RestaurantComponentAdmin(props) {
           />
         </div>
 
-        <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <div
+          className="col-xs-9 col-sm-9 col-md-9 col-lg-9"
+          style={{ height: "700px", overflowY: "scroll" }}
+        >
           <RestaurantTable
             restaurants={props.restaurants}
             handleDelete={props.handleDelete}

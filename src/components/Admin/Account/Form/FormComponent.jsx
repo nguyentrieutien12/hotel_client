@@ -9,8 +9,16 @@ import { InputLabel, MenuItem, Select } from "@mui/material";
 const theme = createTheme();
 export default function FormComponent(props) {
   const { accountRegister, isUpdate } = props;
-  const { username, email, password, comfirmPassword, address, sex, role } =
-    accountRegister;
+  const {
+    username,
+    email,
+    password,
+    comfirmPassword,
+    address,
+    sex,
+    role,
+    phone_number,
+  } = accountRegister;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,6 +74,16 @@ export default function FormComponent(props) {
                   name="address"
                   onChange={handleChange}
                   value={address || ""}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  label="Enter Phone Number"
+                  name="phone_number"
+                  onChange={handleChange}
+                  value={phone_number || ""}
                 />
               </Grid>
               {/* SEX */}
@@ -129,7 +147,7 @@ export default function FormComponent(props) {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              style={{ background: isUpdate ? "blue" : "#04aa6d" }}
+              style={{ background: isUpdate ? "#dc3545" : "#04aa6d" }}
             >
               {isUpdate ? "UPDATE ACCOUNT" : "CREATE ACCOUNT"}
             </Button>

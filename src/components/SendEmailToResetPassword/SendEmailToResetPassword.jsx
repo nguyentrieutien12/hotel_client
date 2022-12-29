@@ -37,7 +37,10 @@ function SendEmailToResetPassword() {
     }
   };
   return (
-    <div className={styles.form_register_login}>
+    <div
+      className={styles.form_register_login}
+      style={{ backgroundImage: "url(/fg.jpg)" }}
+    >
       <ThemeProvider theme={theme}>
         <Container
           className={styles.form_container}

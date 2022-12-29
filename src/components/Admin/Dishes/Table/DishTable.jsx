@@ -17,12 +17,11 @@ export default function DishTable(props) {
             <td>{dish.dishe_description}</td>
             <td>{dish.dishe_price}</td>
             <td>{showImage(dish.images)}</td>
-            <td>
-              {" "}
+            <td className="d-flex">
               <button
                 onClick={() => props.handleUpdateDish(dish)}
                 type="button"
-                className="btn btn-success"
+                className="btn btn-success mx-2"
               >
                 EDIT
               </button>

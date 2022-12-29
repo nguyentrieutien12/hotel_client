@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import BodyRecoveryComponentCustomer from "../../../components/Customer/Main/BodyRecoveryComponentCustomer/BodyRecoveryComponentCustomer";
+import AuthenComponent from "../../../HOCs/AuthenComponent";
 
-export default function BodyRecoveryContainerCustomer(props) {
-  const { type } = props;
+function BodyRecoveryContainerCustomer(props) {
+  const { type } = useParams();
   const [bodyRecovery, setBodyRecovery] = useState([]);
   const [newRecovery, setNewRecovery] = useState([]);
   const getBodyRecovery = async () => {
@@ -50,3 +52,4 @@ export default function BodyRecoveryContainerCustomer(props) {
     </div>
   );
 }
+export default AuthenComponent(BodyRecoveryContainerCustomer);

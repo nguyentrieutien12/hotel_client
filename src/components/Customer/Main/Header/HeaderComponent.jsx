@@ -87,10 +87,12 @@ export default function HeaderComponent() {
             <Link to="/main/quiz">Body Constitution</Link>
           </li>
           <li>
-            <Link to="/main/body-recovery">Body Recovery </Link>
+            <Link to="/main/body-recovery/type/body">Body Recovery </Link>
           </li>
           <li>
-            <Link to="/main/guided-practices">Guided Practices</Link>
+            <Link to="/main/guided-practices/type/guided">
+              Guided Practices
+            </Link>
           </li>
           <li onClick={handleShowMenu}>
             <Link to="#">

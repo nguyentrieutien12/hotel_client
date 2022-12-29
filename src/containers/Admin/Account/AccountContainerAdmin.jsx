@@ -19,6 +19,7 @@ function AccountContainerAdmin() {
     password: "",
     comfirmPassword: "",
     role: 2,
+    phone_number: "",
   });
   const [isUpdate, setIsUpdate] = useState(false);
   const [idUpdate, setIdUpdate] = useState(null);
@@ -80,6 +81,7 @@ function AccountContainerAdmin() {
             password: "",
             comfirmPassword: "",
             role: 2,
+            phone_number: "",
           });
           getAllAccount().then((accounts) => {
             dispatch(setAccount(accounts));
@@ -113,6 +115,7 @@ function AccountContainerAdmin() {
             password: "",
             comfirmPassword: "",
             role: 2,
+            phone_number: "",
           });
           setIsUpdate(false);
           return alert.success(message);
@@ -146,13 +149,15 @@ function AccountContainerAdmin() {
     }
   };
   const handleUpdate = (account) => {
-    const { username, email, address, sex, role, id } = account;
+    const { username, email, address, sex, role, id, phone_number } = account;
+    console.log(account);
     setAccountRegister({
       username,
       email,
       address,
       sex,
-      role: role.id,
+      role: role?.id,
+      phone_number,
     });
     setIsUpdate(true);
     setIdUpdate(id);

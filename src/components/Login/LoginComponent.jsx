@@ -12,7 +12,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styles from "./LoginComponent.module.css";
 import { Link as L } from "react-router-dom";
 const theme = createTheme();
-
 function LoginComponent(props) {
   const { accountLogin } = props;
   const { email, password } = accountLogin;
@@ -25,7 +24,10 @@ function LoginComponent(props) {
   };
 
   return (
-    <div className={styles.form_register_login}>
+    <div
+      style={{ backgroundImage: "url(/hotel.webp)" }}
+      className={styles.form_register_login}
+    >
       <ThemeProvider theme={theme}>
         <Container
           className={styles.form_container}

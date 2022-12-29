@@ -59,7 +59,7 @@ export default function FooterComponent() {
         </div>{" "}
         <div className="row ">
           <span className="my-2 text-center" style={{ fontSize: "18px" }}>
-            ©2022 Coyright all reserved by Kanpobliss
+            ©2022 Coyright all reserved by 9 Group
           </span>
         </div>
       </div>

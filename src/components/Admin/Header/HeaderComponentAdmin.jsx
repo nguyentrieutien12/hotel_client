@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { logOut } from "../../../helpers/logout";
 import styles from "./header.module.css";
 export default function HeaderComponentAdmin() {
@@ -8,7 +9,9 @@ export default function HeaderComponentAdmin() {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <img src="/logo1.png" alt="Logo" />
+        <Link to="/">
+          <img src="/logo1.png" alt="Logo" />
+        </Link>
       </div>
       <div className={styles.option}>
         <i className="fa-regular fa-bell"></i>

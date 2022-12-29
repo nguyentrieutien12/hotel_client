@@ -5,34 +5,34 @@ export default function DishForm(props) {
   return (
     <div>
       <form action="" method="POST" role="form">
-        <legend>Form title</legend>
+        <legend>Form </legend>
 
         <div className="form-group">
-          <label>label</label>
+          <label>Name</label>
           <input
             name="dishe_name"
             className="form-control"
-            placeholder="Input field"
+            placeholder="Enter Dishes Name"
             onChange={props.handleChange}
             value={dishe_name}
           />
         </div>
         <div className="form-group">
-          <label>label</label>
+          <label>Description</label>
           <input
             name="dishe_description"
             className="form-control"
-            placeholder="Input field"
+            placeholder="Enter Description"
             onChange={props.handleChange}
             value={dishe_description}
           />
         </div>
         <div className="form-group">
-          <label>label</label>
+          <label>Price</label>
           <input
             name="dishe_price"
             className="form-control"
-            placeholder="Input field"
+            placeholder="Enter Dishes Price"
             onChange={props.handleChange}
             value={dishe_price}
             type="number"
@@ -51,7 +51,7 @@ export default function DishForm(props) {
         <button
           onClick={props.handeClick}
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary my-3"
         >
           Submit
         </button>

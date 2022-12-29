@@ -23,6 +23,7 @@ function BodyRecoveryComponentAdmin(props) {
         <div
           className="col-xs-9 col-sm-9 col-md-9 col-lg-9"
           style={{ height: "700px", overflowY: "scroll" }}
+          
         >
           <BodyRecoveryTable
             bodyRecoverys={bodyRecoverys}

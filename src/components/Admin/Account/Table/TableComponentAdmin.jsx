@@ -12,9 +12,10 @@ export default function TableComponentAdmin(props) {
           <td>{account?.username}</td>
           <td>{account?.email}</td>
           <td>{account?.address}</td>
+          <td>{account?.phone_number}</td>
           <td>{account?.sex}</td>
           <td>{account?.role?.role_name}</td>
-          <td>
+          <td style={{ display: "flex", alignItems: "center" }}>
             <button
               onClick={() => props.handleUpdate(account)}
               type="button"
@@ -41,8 +42,9 @@ export default function TableComponentAdmin(props) {
           <tr>
             <th>ID</th>
             <th>User Name</th>
-            <th className={styles.email}>Email</th>
+            <th>Email</th>
             <th>Address</th>
+            <th>Phone Number</th>
             <th>Sex</th>
             <th>Role</th>
             <th>Actions</th>

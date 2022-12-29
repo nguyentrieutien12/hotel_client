@@ -11,10 +11,17 @@ import { InputLabel, MenuItem, Select } from "@mui/material";
 import { Link as L } from "react-router-dom";
 import styles from "./../Login/LoginComponent.module.css";
 const theme = createTheme();
- function RegisterComponent(props) {
+function RegisterComponent(props) {
   const { accountRegister } = props;
-  const { username, address, sex, password, comfirmPassword, email } =
-    accountRegister;
+  const {
+    username,
+    address,
+    sex,
+    password,
+    comfirmPassword,
+    email,
+    phone_number,
+  } = accountRegister;
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handleSubmit();
@@ -23,7 +30,10 @@ const theme = createTheme();
     props.handleChange(e);
   };
   return (
-    <div className={styles.form_register_login}>
+    <div
+      className={styles.form_register_login}
+      style={{ backgroundImage: "url(/su.webp)" }}
+    >
       <ThemeProvider theme={theme}>
         {" "}
         <Container
@@ -80,6 +90,17 @@ const theme = createTheme();
                     onChange={handleChange}
                   />
                 </Grid>
+                <Grid item xs={6}>
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    label="Enter Phone Number"
+                    name="phone_number"
+                    value={phone_number}
+                    onChange={handleChange}
+                  />
+                </Grid>
                 {/* SEX */}
                 <Grid item xs={6}>
                   <InputLabel id="demo-simple-select-label">Sex</InputLabel>
@@ -96,6 +117,7 @@ const theme = createTheme();
                     <MenuItem value={"female"}>FeMale</MenuItem>
                   </Select>
                 </Grid>
+
                 <Grid item xs={6}>
                   <TextField
                     margin="normal"

@@ -55,6 +55,7 @@ function OrderComponent() {
               <td>{r?.[type]?.[`${type}_name`]}</td>
               <td>{r?.account?.username}</td>
               <td>{r?.account?.email}</td>
+              <td>{r?.account?.phone_number}</td>
               <td>{r?.time}</td>
             </tr>
           );
@@ -104,17 +105,17 @@ function OrderComponent() {
             <option value="gym">Gym</option>
           </select>
         </div>
-        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <table
-            className="table table-hover"
-            id="table"
-            style={{ height: "700px", overflowY: "scroll" }}
-          >
+        <div
+          className="col-xs-8 col-sm-8 col-md-8 col-lg-8"
+          style={{ height: "700px", overflowY: "scroll" }}
+        >
+          <table className="table table-hover" id="table">
             <thead>
               <tr>
                 <th>{type?.toUpperCase()}</th>
                 <th>USERNAME</th>
                 <th>EMAIL</th>
+                <th>PHONE NUMBER</th>
                 <th>TIME</th>
               </tr>
             </thead>

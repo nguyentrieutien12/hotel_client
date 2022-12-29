@@ -60,11 +60,11 @@ export default function App() {
             <Route path="profile" element={<ProfileComponent />}></Route>
             <Route path="about-us" element={<AboutUsComponent />}></Route>
             <Route
-              path="guided-practices"
+              path="guided-practices/type/:type"
               element={<BodyRecoveryContainerCustomer type="guided" />}
             ></Route>{" "}
             <Route
-              path="body-recovery"
+              path="body-recovery/type/:type"
               element={<BodyRecoveryContainerCustomer type="body" />}
             ></Route>{" "}
             <Route

@@ -18,11 +18,11 @@ export default function RestaurantTable(props) {
             </td>
             <td>{restaurant.restaurant_description}</td>
             <td style={{ width: "100px" }}>{showImage(restaurant.images)}</td>
-            <td>
+            <td className="d-flex">
               <button
                 onClick={() => props.handleUpdate(restaurant)}
                 type="button"
-                className="btn btn-success"
+                className="btn btn-success mx-2"
               >
                 EDIT
               </button>
@@ -43,14 +43,11 @@ export default function RestaurantTable(props) {
   };
   return (
     <div>
-      <table
-        className="table table-hover"
-        style={{ height: "700px", overflowY: "scroll" }}
-      >
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>ID</th>
-            <th>NAME</th>
+            <th style={{ width: "200px" }}>NAME</th>
             <th>DESCRIPTION</th>
             <th>IMAGES</th>
             <th>ACTIONS</th>
